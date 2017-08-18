@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wfs:FeatureCollection
-    timeStamp="2017-08-10T18:28:39Z"
-    numberMatched="1"
-    numberReturned="1"
+    timeStamp="2017-08-18T06:12:00Z"
+    numberMatched="2"
+    numberReturned="2"
     xmlns:xlink="http://www.w3.org/1999/xlink"
     xmlns:wfs="http://www.opengis.net/wfs/2.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
