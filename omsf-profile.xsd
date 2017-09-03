@@ -12,67 +12,116 @@
     
     <xsd:annotation>
       <xsd:appinfo source="http://schemas.opengis.net/gmlsfProfile/2.0/gmlsfLevels.xsd">
-        <gmlsf:ComplianceLevel>1</gmlsf:ComplianceLevel>
+        <gmlsf:ComplianceLevel>0</gmlsf:ComplianceLevel>
       </xsd:appinfo>
+      <xsd:documentation></xsd:documentation>
     </xsd:annotation>
 
-    <xsd:complexType name="AbstractSimpleObservationType" abstract="true">
+    <xsd:complexType name="AbstractObservationType" abstract="true">
         <xsd:complexContent>
             <xsd:extension base="gml:AbstractFeatureType">
                 <xsd:sequence>
-                   <xsd:element name="resultTime" type="xsd:dateTime" minOccurs="0"  />
+                   <xsd:element name="metadata" type="gml:ReferenceType" minOccurs="0" />
+                   <xsd:element name="relatedObservation" type="gml:ReferenceType" minOccurs="0" />
+                   <xsd:choice>
+                       <xsd:element name="phenomenonTime" type="xsd:dateTime" minOccurs="1"/>
+                       <xsd:sequence>
+                           <xsd:element name="phenomenonTimeStart" type="xsd:dateTime" minOccurs="0" />
+                           <xsd:element name="phenomenonTimeEnd" type="xsd:dateTime" minOccurs="0" />
+                       </xsd:sequence>
+                   </xsd:choice>
+                   <xsd:element name="resultTime" type="xsd:dateTime" minOccurs="1"  />
+                   <xsd:element name="validTimeStart" type="xsd:dateTime" minOccurs="0" />
+                   <xsd:element name="validTimeEnd" type="xsd:dateTime" minOccurs="0" />
                    <xsd:element name="procedure" type="gml:ReferenceType" minOccurs="0" />
+                   <xsd:element name="parameters" type="omsf:nameValuePairList" minOccurs="0" />
                    <xsd:element name="observedProperty" type="omsf:PropertyNameCodeType" minOccurs="1" />
+                   <xsd:element name="foiName" type="xsd:string" minOccurs="0"/>
                    <xsd:element name="foiGeometry" type="gml:GeometryPropertyType" minOccurs="1"/>
                    <xsd:element name="foiReference" type="gml:ReferenceType" minOccurs="0" />
-                   <xsd:element name="specifier" minOccurs="0">
-                       <xsd:simpleType>
-                           <xsd:restriction base="xsd:string">
-                               <xsd:maxLength value="255"/>
-                           </xsd:restriction>
-                       </xsd:simpleType>
-                   </xsd:element>
+                   <xsd:element name="resultQuality" type="xsd:string" minOccurs="0" />
                 </xsd:sequence>
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
     
-    <xsd:element name="SimpleObservation" type="omsf:SimpleMeasureResultObservationType" substitutionGroup="gml:AbstractFeature">
+    <xsd:element name="MeasurementObservation" type="omsf:MeasurementObservationType" substitutionGroup="gml:AbstractFeature">
         <xsd:annotation>
-            <xsd:appinfo source="http://schemas.opengis.net/gmlsfProfile/2.0/gmlsfLevels.xsd">
-                <gmlsf:ComplianceLevel>0</gmlsf:ComplianceLevel>
-            </xsd:appinfo>
+            <xsd:documentation></xsd:documentation>
         </xsd:annotation>
     </xsd:element>
-    <xsd:complexType name="SimpleMeasureResultObservationType">
+    <xsd:complexType name="MeasurementObservationType">
         <xsd:complexContent>
-            <xsd:extension base="omsf:AbstractSimpleObservationType">
+            <xsd:extension base="omsf:AbstractObservationType">
                 <xsd:sequence>
-                    <xsd:element name="phenomenonTime" type="xsd:dateTime" minOccurs="1" />
                     <xsd:element name="result" type="gml:MeasureType" minOccurs="1" />
                 </xsd:sequence>
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
     
-    <xsd:element name="SimpleTimeseriesObservation" type="omsf:SimpleTimeseriesObservationType" substitutionGroup="gml:AbstractFeature">
+    <xsd:element name="CategoryObservation" type="omsf:CategoryObservationType" substitutionGroup="gml:AbstractFeature">
         <xsd:annotation>
-            <xsd:appinfo source="http://schemas.opengis.net/gmlsfProfile/2.0/gmlsfLevels.xsd">
-                <gmlsf:ComplianceLevel>1</gmlsf:ComplianceLevel>
-            </xsd:appinfo>
             <xsd:documentation></xsd:documentation>
         </xsd:annotation>
     </xsd:element>
-    <xsd:complexType name="SimpleTimeseriesObservationType">
+    <xsd:complexType name="CategoryObservationType">
         <xsd:complexContent>
-            <xsd:extension base="omsf:AbstractSimpleObservationType">
+            <xsd:extension base="omsf:AbstractObservationType">
                 <xsd:sequence>
-                    <xsd:element name="phenomenonTimeStart" type="xsd:dateTime" minOccurs="1" />
-                    <xsd:element name="phenomenonTimeEnd" type="xsd:dateTime" minOccurs="1" />
+                    <xsd:element name="result" type="gml:ReferenceType" minOccurs="1" />
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    
+    <xsd:element name="CountObservation" type="omsf:CountObservationType" substitutionGroup="gml:AbstractFeature">
+        <xsd:annotation>
+            <xsd:documentation></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:complexType name="CountObservationType">
+        <xsd:complexContent>
+            <xsd:extension base="omsf:AbstractObservationType">
+                <xsd:sequence>
+                    <xsd:element name="result" type="xsd:integer" minOccurs="1" />
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    
+    <xsd:element name="TruthObservation" type="omsf:TruthObservationType" substitutionGroup="gml:AbstractFeature">
+        <xsd:annotation>
+            <xsd:documentation></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:complexType name="TruthObservationType">
+        <xsd:complexContent>
+            <xsd:extension base="omsf:AbstractObservationType">
+                <xsd:sequence>
+                    <xsd:element name="result" type="xsd:boolean" minOccurs="1" />
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:element name="TimeseriesObservation" type="omsf:MeasurementTimeseriesObservationType" substitutionGroup="gml:AbstractFeature">
+        <xsd:annotation>
+            <xsd:documentation></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:complexType name="MeasurementTimeseriesObservationType">
+        <xsd:complexContent>
+            <xsd:extension base="omsf:AbstractObservationType">
+                <xsd:sequence>
                     <xsd:element name="resultOriginTime" type="xsd:dateTime" minOccurs="0" />
-                    <xsd:element name="resultTimeInterval" type="gml:MeasureType" minOccurs="1" />
+                    <xsd:element name="resultTimeInterval" type="xsd:duration" minOccurs="1" />
                     <xsd:element name="resultUnitOfMeasure" type="gml:CodeType" minOccurs="1"/>
-                    <xsd:element name="resultValue" type="xsd:double" minOccurs="1" maxOccurs="unbounded" />
+                    <xsd:element name="resultValues" minOccurs="1">
+                        <xsd:simpleType>
+                            <xsd:list itemType="xsd:double"/>
+                        </xsd:simpleType>
+                    </xsd:element>
                 </xsd:sequence>
             </xsd:extension>
         </xsd:complexContent>
@@ -85,5 +134,11 @@
             </xsd:restriction>
         </xsd:simpleContent>
     </xsd:complexType>
+    
+    <xsd:simpleType name="nameValuePairList">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[^\s^0-9^=][^\s^=]*=[^\s^=]+(\s+[^\s^0-9^=][^\s^=]*=[^\s^=]+)*" />
+        </xsd:restriction>
+    </xsd:simpleType>
     
 </xsd:schema>

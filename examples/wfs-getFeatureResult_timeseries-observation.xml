@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wfs:FeatureCollection
+    timeStamp="2017-08-18T06:12:00Z"
+    numberMatched="2"
+    numberReturned="2"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:wfs="http://www.opengis.net/wfs/2.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:omsf="http://www.opengis.net/omsf/1.0"
+    xmlns:gml="http://www.opengis.net/gml/3.2"
+    xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd http://www.opengis.net/omsf/1.0 ../omsf-profile.xsd">
+    <wfs:member>
+        <omsf:TimeseriesObservation gml:id="f-1">
+            <omsf:phenomenonTimeStart>2017-08-17T12:00:00Z</omsf:phenomenonTimeStart>
+            <omsf:phenomenonTimeEnd>2017-08-17T18:00:00Z</omsf:phenomenonTimeEnd>
+            <omsf:resultTime>2017-08-17T12:11:20Z</omsf:resultTime>
+            <omsf:procedure xlink:href="http://xml.fmi.fi/process/met-surface-observations" xlink:title="Meteorological surface observations, collected following WMO No. 544, Manual on the Global Observing System, Volume I - Global aspects" />
+            <omsf:observedProperty codeSpace="cf-standard-names/46">air_temperature</omsf:observedProperty>
+            <omsf:foiName>Helsinki Kumpula</omsf:foiName>
+            <omsf:foiGeometry>
+                <gml:Point gml:id="p-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4258" srsDimension="2">
+                    <gml:pos>60.20307 24.96131</gml:pos>
+                </gml:Point>
+            </omsf:foiGeometry>
+            <omsf:foiReference xlink:href="http://sws.geonames.org/843429/about.rdf"/>
+            <omsf:resultOriginTime>2017-08-17T12:00:00Z</omsf:resultOriginTime>
+            <omsf:resultTimeInterval>PT1H</omsf:resultTimeInterval>
+            <omsf:resultUnitOfMeasure>degC</omsf:resultUnitOfMeasure>
+            <omsf:resultValues>12.5 12.0 11.0 13.2 13.5 14.1</omsf:resultValues>
+        </omsf:TimeseriesObservation>
+    </wfs:member>
+    <wfs:member>
+        <omsf:TimeseriesObservation gml:id="f-2">
+            <omsf:phenomenonTimeStart>2017-08-17T12:00:00Z</omsf:phenomenonTimeStart>
+            <omsf:phenomenonTimeEnd>2017-08-17T18:00:00Z</omsf:phenomenonTimeEnd>
+            <omsf:resultTime>2017-08-17T12:11:20Z</omsf:resultTime>
+            <omsf:procedure xlink:href="http://xml.fmi.fi/process/met-surface-observations" xlink:title="Meteorological surface observations, collected following WMO No. 544, Manual on the Global Observing System, Volume I - Global aspects" />
+            <omsf:observedProperty codeSpace="cf-standard-names/46">air_temperature</omsf:observedProperty>
+            <omsf:foiName>Espoo Kivenlahti</omsf:foiName>
+            <omsf:foiGeometry>
+                <gml:Point gml:id="p-2" srsName="http://www.opengis.net/def/crs/EPSG/0/4258" srsDimension="2">
+                    <gml:pos>60.15372 24.63264</gml:pos>
+                </gml:Point>
+            </omsf:foiGeometry>
+            <omsf:foiReference xlink:href="http://sws.geonames.org/636091/about.rdf"/>
+            <omsf:resultOriginTime>2017-08-17T12:00:00Z</omsf:resultOriginTime>
+            <omsf:resultTimeInterval>PT1H</omsf:resultTimeInterval>
+            <omsf:resultUnitOfMeasure>degC</omsf:resultUnitOfMeasure>
+            <omsf:resultValues>12.1 11.5 11.2 10.1 14.2 15.0</omsf:resultValues>
+        </omsf:TimeseriesObservation>
+    </wfs:member>
+</wfs:FeatureCollection>

@@ -6,47 +6,41 @@
     xmlns:xlink="http://www.w3.org/1999/xlink"
     xmlns:wfs="http://www.opengis.net/wfs/2.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:omsf="http://www.opengis.net/om/sf/1.0"
+    xmlns:omsf="http://www.opengis.net/omsf/1.0"
     xmlns:gml="http://www.opengis.net/gml/3.2"
-    xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd http://www.opengis.net/omsf/1.0 ./omsf-profile.xsd">
-    
+    xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd http://www.opengis.net/omsf/1.0 ../omsf-profile.xsd">
     <wfs:member>
-      <omsf:SimpleObservation gml:id="f-1">
+      <omsf:MeasurementObservation gml:id="f-1">
+          <omsf:phenomenonTime>2017-08-17T12:00:00Z</omsf:phenomenonTime>
           <omsf:resultTime>2017-08-17T12:01:25Z</omsf:resultTime>
           <omsf:procedure xlink:href="http://xml.fmi.fi/process/met-surface-observations" xlink:title="Meteorological surface observations, collected following WMO No. 544, Manual on the Global Observing System, Volume I - Global aspects" />
+          <omsf:parameters>http://foo.bar.org/some/fully/qualified/uri=2017-08-17T12:00:00Z analysisCount=1</omsf:parameters>
           <omsf:observedProperty codeSpace="cf-standard-names/46">air_temperature</omsf:observedProperty>
+          <omsf:foiName>Helsinki Kumpula</omsf:foiName>
           <omsf:foiGeometry>
               <gml:Point gml:id="p-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4258" srsDimension="2">
                   <gml:pos>60.20307 24.96131</gml:pos>
               </gml:Point>
           </omsf:foiGeometry>
-          <omsf:foiReference xlink:title="Helsinki Kumpula" xlink:href="http://sws.geonames.org/843429/about.rdf"/>
-          <omsf:phenomenonTime>2017-08-17T12:00:00Z</omsf:phenomenonTime>
+          <omsf:foiReference xlink:href="http://sws.geonames.org/843429/about.rdf"/>
           <omsf:result uom="degC">12.5</omsf:result>
-      </omsf:SimpleObservation>
+      </omsf:MeasurementObservation>
     </wfs:member>
     <wfs:member>
-        <omsf:SimpleTimeseriesObservation gml:id="f-3">
-            <omsf:resultTime>2017-08-17T12:11:20Z</omsf:resultTime>
+        <omsf:MeasurementObservation gml:id="f-2">
+            <omsf:phenomenonTime>2017-08-17T12:00:00Z</omsf:phenomenonTime>
+            <omsf:resultTime>2017-08-17T12:01:25Z</omsf:resultTime>
             <omsf:procedure xlink:href="http://xml.fmi.fi/process/met-surface-observations" xlink:title="Meteorological surface observations, collected following WMO No. 544, Manual on the Global Observing System, Volume I - Global aspects" />
+            <omsf:parameters>http://foo.bar.org/some/fully/qualified/uri=2017-08-17T12:00:00Z analysisCount=1</omsf:parameters>
             <omsf:observedProperty codeSpace="cf-standard-names/46">air_temperature</omsf:observedProperty>
+            <omsf:foiName>Espoo Kivenlahti</omsf:foiName>
             <omsf:foiGeometry>
                 <gml:Point gml:id="p-2" srsName="http://www.opengis.net/def/crs/EPSG/0/4258" srsDimension="2">
-                    <gml:pos>60.20307 24.96131</gml:pos>
+                    <gml:pos>60.15372 24.63264</gml:pos>
                 </gml:Point>
             </omsf:foiGeometry>
-            <omsf:foiReference xlink:title="Helsinki Kumpula" xlink:href="http://sws.geonames.org/843429/about.rdf"/>
-            <omsf:phenomenonTimeStart>2017-08-17T12:00:00Z</omsf:phenomenonTimeStart>
-            <omsf:phenomenonTimeEnd>2017-08-17T18:00:00Z</omsf:phenomenonTimeEnd>
-            <omsf:resultOriginTime>2017-08-17T12:00:00Z</omsf:resultOriginTime>
-            <omsf:resultTimeInterval uom="h">1</omsf:resultTimeInterval>
-            <omsf:resultUnitOfMeasure>degC</omsf:resultUnitOfMeasure>
-            <omsf:resultValue>12.5</omsf:resultValue>
-            <omsf:resultValue>12.0</omsf:resultValue>
-            <omsf:resultValue>11.0</omsf:resultValue>
-            <omsf:resultValue>13.2</omsf:resultValue>
-            <omsf:resultValue>13.5</omsf:resultValue>
-            <omsf:resultValue>14.1</omsf:resultValue>
-        </omsf:SimpleTimeseriesObservation>
+            <omsf:foiReference xlink:href="http://sws.geonames.org/636091/about.rdf"/>
+            <omsf:result uom="degC">12.3</omsf:result>
+        </omsf:MeasurementObservation>
     </wfs:member>
 </wfs:FeatureCollection>
