@@ -7,7 +7,7 @@
 
 This GML application schema defines a profile of the OGC Observations and Measurements v2.0 ([OGC Document 10-004r3](http://portal.opengeospatial.org/files/?artifact_id=41579), also published as ISO/DIS 19156:2010, Geographic information — Observations and Measurements), and it's XML encoding compliant with GML Simple Features Profile versino 2.0 ([OGC Document 10-100r3](http://portal.opengeospatial.org/files/?artifact_id=42729)). All the O&M Observation types provided in this application schema are compliant with the GML Simple Features Profile level SF-0.
 
-This profile of the OGC Observations and Measurements Abstract Specification defines XML encodings only fpr the following O&M UML classes:
+This profile of the OGC Observations and Measurements Abstract Specification defines XML encodings only for the following O&M UML classes:
 
 O&M v2.0 | OGC Name | OMSF FeatureType |
 ---------|----------|------------------|
@@ -17,13 +17,13 @@ OM_Measurement | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measur
 OM_TimeSeriesObservation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_TimeSeriesObservation | omsf:TimeseriesObservation
 OM_TruthObservation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_TruthObservation | omsf:TruthObservation
 
-XML encoding for the O&M UML classes OM_ComplexObservation, OM_DiscreteCoverageObservation, OM_GeometryObservation, OM_Observation, OM_PointCoverageObservation, and OM_TemporalObservation is not provided. It is intentionally more limited than the Observations and Measurements - XML Implementation ([OGC Document 10-025r1](http://portal.opengeospatial.org/files/?artifact_id=41510)) and OGC Observations and Measurements – JSON implementation ([OGC Document 15-100r1](https://portal.opengeospatial.org/files/64910)) which able to express the full O&M abstract model.
+XML encodings for the O&M UML classes OM_ComplexObservation, OM_DiscreteCoverageObservation, OM_GeometryObservation, OM_Observation, OM_PointCoverageObservation, and OM_TemporalObservation are not provided. Thus this implementation is intentionally more limited than the Observations and Measurements - XML Implementation ([OGC Document 10-025r1](http://portal.opengeospatial.org/files/?artifact_id=41510)) and OGC Observations and Measurements – JSON implementation ([OGC Document 15-100r1](https://portal.opengeospatial.org/files/64910)) which are able to express the full O&M abstract model.
 
 This application profile does not provide encodings for the sampling feature data, as the feature of interest is only presented by it's geometry, optionally by it's name and, also optionally, by a remote reference to the description of the complete feature of interest.
  
 The purpose of this application schema is to provide simple GML encodings for the most used O&M Observation types, and thus enable interoperable O&M data exchange with software applications, servers and clients limited to using simple (non-complex) GML features compatible with the GML Simple Features profile, version 2.0. For many WFS servers and clients, as well as geographical data presenting and analysing software, handling the complex feature structure mandated by the O&M XML Implementation (as in OGC 10-025r1), is possible only by a considerable implementation cost, added code complexity and lower performance. In cases when these costs cannot be justified, and when the actual provided data is relatively simple, the O&M Simple Features Profile application schema provides an alternative encoding for providing O&M Observations.
 
-## Design
+## Design considerations
 
 The following primary design goals have been followed (in priority order):
 
@@ -44,5 +44,8 @@ Key design decisions made include the following:
 * Observations with complicated results, such as coverages, have been considered out-of-scope of this application schema.
 * TimeseriesObservation has been provided due to a common need, but it only supports a evenly spaced (in time), double-valued results for a single observed property with the same unit of measure for each value, encoded as a white-space separated double list. This a concise, but not very XML-like encoding, and it's probably not suitable for very long time series data Observations. The optionalResultOriginTime property is provided to unambiguously provide the time instance of the first value in the series. If not given, this is assumed to be equal to value of the phenomenonTimeStart property.
 
+## Acknowledgements
+
+Work on this application profile was initiated by Ilkka Rinne for the needs of Vaisala and Finnish Meteorological Institute in 2017.
 
 
