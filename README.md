@@ -9,7 +9,7 @@ This GML application schema defines a profile of the OGC Observations and Measur
 
 This profile of the OGC Observations and Measurements Abstract Specification defines XML encodings only for the following O&M UML classes:
 
-O&M v2.0 | OGC Name | OMSF FeatureType |
+O&M v2.0 class | OGC name | OMSF feature type |
 ---------|----------|------------------|
 OM\_CategoryObservation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_CategoryObservation | omsf:CategoryObservation
 OM\_CountObservation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_CountObservation | omsf:CountObservation
