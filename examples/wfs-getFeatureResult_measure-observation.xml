@@ -10,7 +10,7 @@
     xmlns:gml="http://www.opengis.net/gml/3.2"
     xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd http://www.opengis.net/omsf/1.0 ../omsf-profile.xsd">
     <wfs:member>
-      <omsf:MeasurementObservation gml:id="f-1">
+      <omsf:MeasureObservation gml:id="f-1">
           <omsf:phenomenonTime>2017-08-17T12:00:00Z</omsf:phenomenonTime>
           <omsf:resultTime>2017-08-17T12:01:25Z</omsf:resultTime>
           <omsf:procedure xlink:href="http://xml.fmi.fi/process/met-surface-observations" xlink:title="Meteorological surface observations, collected following WMO No. 544, Manual on the Global Observing System, Volume I - Global aspects" />
@@ -24,10 +24,10 @@
           </omsf:foiGeometry>
           <omsf:foiReference xlink:href="http://sws.geonames.org/843429/about.rdf"/>
           <omsf:result uom="degC">12.5</omsf:result>
-      </omsf:MeasurementObservation>
+      </omsf:MeasureObservation>
     </wfs:member>
     <wfs:member>
-        <omsf:MeasurementObservation gml:id="f-2">
+        <omsf:MeasureObservation gml:id="f-2">
             <omsf:phenomenonTime>2017-08-17T12:00:00Z</omsf:phenomenonTime>
             <omsf:resultTime>2017-08-17T12:01:25Z</omsf:resultTime>
             <omsf:procedure xlink:href="http://xml.fmi.fi/process/met-surface-observations" xlink:title="Meteorological surface observations, collected following WMO No. 544, Manual on the Global Observing System, Volume I - Global aspects" />
@@ -41,6 +41,6 @@
             </omsf:foiGeometry>
             <omsf:foiReference xlink:href="http://sws.geonames.org/636091/about.rdf"/>
             <omsf:result uom="degC">12.3</omsf:result>
-        </omsf:MeasurementObservation>
+        </omsf:MeasureObservation>
     </wfs:member>
 </wfs:FeatureCollection>
