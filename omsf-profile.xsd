@@ -45,12 +45,27 @@
         </xsd:complexContent>
     </xsd:complexType>
     
-    <xsd:element name="MeasurementObservation" type="omsf:MeasurementObservationType" substitutionGroup="gml:AbstractFeature">
+    <xsd:element name="GenericObservation" type="omsf:GenericObservationType" substitutionGroup="gml:AbstractFeature">
         <xsd:annotation>
             <xsd:documentation></xsd:documentation>
         </xsd:annotation>
     </xsd:element>
-    <xsd:complexType name="MeasurementObservationType">
+    <xsd:complexType name="GenericObservationType">
+        <xsd:complexContent>
+            <xsd:extension base="omsf:AbstractObservationType">
+                <xsd:sequence>
+                    <xsd:element name="result" type="gml:ReferenceType" minOccurs="1" />
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    
+    <xsd:element name="MeasureObservation" type="omsf:MeasureObservationType" substitutionGroup="gml:AbstractFeature">
+        <xsd:annotation>
+            <xsd:documentation></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:complexType name="MeasureObservationType">
         <xsd:complexContent>
             <xsd:extension base="omsf:AbstractObservationType">
                 <xsd:sequence>

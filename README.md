@@ -11,13 +11,14 @@ This profile of the OGC Observations and Measurements Abstract Specification def
 
 O&M v2.0 | OGC Name | OMSF FeatureType |
 ---------|----------|------------------|
-OM_CategoryObservation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_CategoryObservation | omsf:CategoryObservation
-OM_CountObservation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_CountObservation | omsf:CountObservation
-OM_Measurement | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement | omsf:MeasurementObservation
-OM_TimeSeriesObservation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_TimeSeriesObservation | omsf:TimeseriesObservation
-OM_TruthObservation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_TruthObservation | omsf:TruthObservation
+OM\_CategoryObservation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_CategoryObservation | omsf:CategoryObservation
+OM\_CountObservation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_CountObservation | omsf:CountObservation
+OM\_Measurement | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement | omsf:MeasureObservation
+OM\_Observation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Observation| omsf:GenericObservation
+OM\_TimeSeriesObservation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_TimeSeriesObservation | omsf:TimeseriesObservation
+OM\_TruthObservation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_TruthObservation | omsf:TruthObservation
 
-XML encodings for the O&M UML classes OM_ComplexObservation, OM_DiscreteCoverageObservation, OM_GeometryObservation, OM_Observation, OM_PointCoverageObservation, and OM_TemporalObservation are not provided. Thus this implementation is intentionally more limited than the Observations and Measurements - XML Implementation ([OGC Document 10-025r1](http://portal.opengeospatial.org/files/?artifact_id=41510)) and OGC Observations and Measurements – JSON implementation ([OGC Document 15-100r1](https://portal.opengeospatial.org/files/64910)) which are able to express the full O&M abstract model.
+XML encodings for the O&M UML classes OM\_ComplexObservation, OM\_DiscreteCoverageObservation, OM\_GeometryObservation, OM\_PointCoverageObservation, and OM\_TemporalObservation are not provided. Thus this implementation is intentionally more limited than the Observations and Measurements - XML Implementation ([OGC Document 10-025r1](http://portal.opengeospatial.org/files/?artifact_id=41510)) and OGC Observations and Measurements – JSON implementation ([OGC Document 15-100r1](https://portal.opengeospatial.org/files/64910)) which are able to express the full O&M abstract model. However, expressing all these is possible by using the omsf:GenericObservation feature type with a remote reference to the Observation result.
 
 This application profile does not provide encodings for the sampling feature data, as the feature of interest is only presented by it's geometry, optionally by it's name and, also optionally, by a remote reference to the description of the complete feature of interest.
  
@@ -40,7 +41,7 @@ Design notes:
 * The metadata, relatedObservation and procedure properties are all provided as a reference-only.
 * The observedProperty is provided as a code list with an optional namespace, rather than a plain reference, for semantic and practical reasons: the observed properties (such as air temperature) typically have code-list type, well-known identifiers, which is enough for unambiguous identification and just the right level of complexity for this schema. Also the by-reference property values (using xlink) are often not shown in mapping applications, unlike code list values expressed as a restricted gml:CodeType as required in the GML Simple Features Profile specification.
 * In order to keep the Observation types compliant with the SF-0, the optional parameter properties are encoded as a white-space separated key-value pair list withing the parameters property. In practice the parameter properties are not used very much, and more than one per Observation only rarely.
-* In contrast to the OMXML (complex feature) implementation, hard-typing is used for the different Observation types: MeasurementObservation, CategoryObservation, CountObservation, TruthObservation and TimeseriesObservation are each defined as separate feature types with fixed result value types. This is an intentional trade-off between simplicity and flexibility.
+* In contrast to the OMXML (complex feature) implementation, hard-typing is used for the different Observation types: GenericObservation, MeasureObservation, CategoryObservation, CountObservation, TruthObservation and TimeseriesObservation are each defined as separate feature types with fixed result value types. This is an intentional trade-off between simplicity and flexibility.
 * Observations with complicated results, such as coverages, have been considered out-of-scope of this application schema.
 * TimeseriesObservation has been provided due to a common need, but it only supports a evenly spaced (in time), double-valued results for a single observed property with the same unit of measure for each value, encoded as a white-space separated double list. This a concise, but not very XML-like encoding, and it's probably not suitable for very long time series data Observations. The optionalResultOriginTime property is provided to unambiguously provide the time instance of the first value in the series. If not given, this is assumed to be equal to value of the phenomenonTimeStart property.
 
