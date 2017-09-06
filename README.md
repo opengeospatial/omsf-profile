@@ -7,7 +7,7 @@
 
 This GML application schema defines a profile of the OGC Observations and Measurements v2.0 ([OGC Document 10-004r3](http://portal.opengeospatial.org/files/?artifact_id=41579), also published as ISO/DIS 19156:2010, Geographic information — Observations and Measurements), and it's XML encoding compliant with GML Simple Features Profile version 2.0 ([OGC Document 10-100r3](http://portal.opengeospatial.org/files/?artifact_id=42729)). All the O&M Observation types provided in this application schema are compliant with the GML Simple Features Profile level SF-0.
 
-Example of a omsf:MeasurementObservation:
+Example of a omsf:MeasureObservation:
 
 ```xml
 <omsf:MeasureObservation gml:id="f-1">
