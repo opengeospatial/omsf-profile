@@ -7,6 +7,28 @@
 
 This GML application schema defines a profile of the OGC Observations and Measurements v2.0 ([OGC Document 10-004r3](http://portal.opengeospatial.org/files/?artifact_id=41579), also published as ISO/DIS 19156:2010, Geographic information — Observations and Measurements), and it's XML encoding compliant with GML Simple Features Profile version 2.0 ([OGC Document 10-100r3](http://portal.opengeospatial.org/files/?artifact_id=42729)). All the O&M Observation types provided in this application schema are compliant with the GML Simple Features Profile level SF-0.
 
+Example of a omsf:MeasurementObservation:
+
+```xml
+<omsf:MeasureObservation gml:id="f-1">
+  <omsf:phenomenonTime>2017-08-17T12:00:00Z</omsf:phenomenonTime>
+  <omsf:resultTime>2017-08-17T12:01:25Z</omsf:resultTime>
+  <omsf:procedure
+    xlink:href="http://xml.fmi.fi/process/met-surface-observations"
+    xlink:title="Meteorological surface observations, collected following WMO No. 544, Manual on the Global Observing System, Volume I - Global aspects" />
+  <omsf:parameters>http://foo.bar.org/some/fully/qualified/uri=2017-08-17T12:00:00Z analysisCount=1</omsf:parameters>
+  <omsf:observedProperty codeSpace="cf-standard-names/46">air_temperature</omsf:observedProperty>
+  <omsf:foiName>Helsinki Kumpula</omsf:foiName>
+  <omsf:foiGeometry>
+    <gml:Point gml:id="p-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4258" srsDimension="2">
+      <gml:pos>60.20307 24.96131</gml:pos>
+    </gml:Point>
+  </omsf:foiGeometry>
+  <omsf:foiReference xlink:href="http://sws.geonames.org/843429/about.rdf"/>
+  <omsf:result uom="degC">12.5</omsf:result>
+</omsf:MeasureObservation>
+```
+
 This profile of the OGC Observations and Measurements Abstract Specification defines XML encodings only for the following O&M UML classes:
 
 O&M v2.0 class | OGC name | OMSF feature type |
