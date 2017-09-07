@@ -57,7 +57,7 @@ The following primary design goals have been followed (in priority order):
 1. The defined GML feature types should enable back and forth educated, automated translations between the same kind of OMXML (complex feature) and the OMSF (simple feature) feature instances without data loss in typical cases.
 1. The defined GML feature types should be as simple as possible, but not simpler (so called Einstein's razor).
 
-Design notes:
+###Notes
 
 * As the simple features profile data models for level SF-0 does not allow for including the strutural (object oriented) presentation of the feature of interest of the Observation, it's presented by one mandatory (foiGeometry) and two optional (foiName and foiReference) properties. The foiReference property can be used to optionally refer to a full, external description of the feature of interest.
 * Time properties with possible period content (phenomenonTime and validTime) have been encoded as two separate properties, one for the period start time (inclusive) and another for the period end time. The values are always of type xsd:dateTime. As the phenomenonTime may also be a time instant, the O&M simple features may either include a single phenomenonTime property (instant) or one or both of phenomenonTimeStart and phenomenonTimeEnd properties. If either the start or the end is not provided, the time period must be interpreted as an open-ended period.
@@ -66,7 +66,70 @@ Design notes:
 * In order to keep most of the Observation types compliant with the SF-0, the optional parameter properties are encoded as a white-space separated key-value pair list withing the parameters property. In practice the parameter properties are not used very much, and more than one per Observation only rarely.
 * In contrast to the OMXML (complex feature) implementation, hard-typing is used for the different Observation types: GenericObservation, MeasureObservation, CategoryObservation, CountObservation, TruthObservation and TimeseriesObservation are each defined as separate feature types with fixed result value types. This is an intentional trade-off between simplicity and flexibility.
 * Observations with complicated results, such as coverages, have been considered out-of-scope of this application schema. However, it's possible to encode these using the GenericObservation feature type with a reference to the remotely provided result.
-* Unlike the other Observation types, the TimeseriesObservation was decided to be made compliant with SF-1, not SF-0. Technically the time series values (and even time instances) could be encoded inside a single element using list type, but encoding and decoding would require special processing, which would defeat at least some of the gains of restricting the feature type to SF-0.
+
+## Simple timeseries Observations
+
+O&M Simple Features Profile XML Schema contains TimeseriesObservation feature type for encoding simple, double-valued time series data. 
+Time series with result values for several points in time does not fit with the GML Simple Features Profile compliance level SF-0 without mild violence, since repeated elements are not allowed. Technically the time series values (and even time instances) could be encoded inside a single element using list type, but encoding and decoding would require special processing, which would at leasr partly defeat the gains of restricting the feature type to SF-0.
+
+The schema for TimeseriesObservation allows two options for providing the instances of time for the time series values. The first option is togGive a series origin time with a time interval between each time steps (for equally spaced time series):
+
+```xml
+<omsf:TimeseriesObservation gml:id="f-1">
+  <omsf:phenomenonTimeStart>2017-08-17T12:00:00Z</omsf:phenomenonTimeStart>
+  <omsf:phenomenonTimeEnd>2017-08-17T18:00:00Z</omsf:phenomenonTimeEnd>
+  <omsf:resultTime>2017-08-17T12:11:20Z</omsf:resultTime>
+  <omsf:procedure xlink:href="http://xml.fmi.fi/process/met-surface-observations" xlink:title="Meteorological surface observations, collected following WMO No. 544, Manual on the Global Observing System, Volume I - Global aspects" />
+  <omsf:observedProperty codeSpace="cf-standard-names/46">air_temperature</omsf:observedProperty>
+  <omsf:foiName>Helsinki Kumpula</omsf:foiName>
+  <omsf:foiGeometry>
+    <gml:Point gml:id="p-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4258" srsDimension="2">
+      <gml:pos>60.20307 24.96131</gml:pos>
+    </gml:Point>
+  </omsf:foiGeometry>
+  <omsf:foiReference xlink:href="http://sws.geonames.org/843429/about.rdf"/>
+  <omsf:resultUnitOfMeasure codeSpace="UCUM">Cel</omsf:resultUnitOfMeasure>
+  <omsf:resultOriginTime>2017-08-17T12:00:00Z</omsf:resultOriginTime>
+  <omsf:resultSeriesTimeInterval>PT1H</omsf:resultSeriesTimeInterval>
+  <omsf:resultSeriesValue>12.5</omsf:resultSeriesValue>
+  <omsf:resultSeriesValue>12.0</omsf:resultSeriesValue>
+  <omsf:resultSeriesValue>11.0</omsf:resultSeriesValue>
+  <omsf:resultSeriesValue>13.2</omsf:resultSeriesValue>
+  <omsf:resultSeriesValue>13.5</omsf:resultSeriesValue>
+  <omsf:resultSeriesValue>14.1</omsf:resultSeriesValue>
+</omsf:TimeseriesObservation>
+```
+The second option is to provide each instance of time as a separate element (for equal or non-equal spaced time series):
+
+```xml
+<omsf:TimeseriesObservation gml:id="f-1">
+  <omsf:phenomenonTimeStart>2017-08-17T12:00:00Z</omsf:phenomenonTimeStart>
+  <omsf:phenomenonTimeEnd>2017-08-17T18:00:00Z</omsf:phenomenonTimeEnd>
+  <omsf:resultTime>2017-08-17T12:11:20Z</omsf:resultTime>
+  <omsf:procedure xlink:href="http://xml.fmi.fi/process/met-surface-observations" xlink:title="Meteorological surface observations, collected following WMO No. 544, Manual on the Global Observing System, Volume I - Global aspects" />
+  <omsf:observedProperty codeSpace="cf-standard-names/46">air_temperature</omsf:observedProperty>
+  <omsf:foiName>Helsinki Kumpula</omsf:foiName>
+  <omsf:foiGeometry>
+    <gml:Point gml:id="p-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4258" srsDimension="2">
+      <gml:pos>60.20307 24.96131</gml:pos>
+    </gml:Point>
+  </omsf:foiGeometry>
+  <omsf:foiReference xlink:href="http://sws.geonames.org/843429/about.rdf"/>
+  <omsf:resultUnitOfMeasure codeSpace="UCUM">Cel</omsf:resultUnitOfMeasure>
+  <omsf:resultSeriesTime>2017-08-17T12:00:00Z</omsf:resultSeriesTime>
+  <omsf:resultSeriesTime>2017-08-17T13:00:00Z</omsf:resultSeriesTime>
+  <omsf:resultSeriesTime>2017-08-17T14:00:00Z</omsf:resultSeriesTime>
+  <omsf:resultSeriesTime>2017-08-17T15:00:00Z</omsf:resultSeriesTime>
+  <omsf:resultSeriesTime>2017-08-17T16:00:00Z</omsf:resultSeriesTime>
+  <omsf:resultSeriesTime>2017-08-17T17:00:00Z</omsf:resultSeriesTime>
+  <omsf:resultSeriesValue>12.1</omsf:resultSeriesValue>
+  <omsf:resultSeriesValue>11.5</omsf:resultSeriesValue>
+  <omsf:resultSeriesValue>11.2</omsf:resultSeriesValue>
+  <omsf:resultSeriesValue>10.1</omsf:resultSeriesValue>
+  <omsf:resultSeriesValue>14.2</omsf:resultSeriesValue>
+  <omsf:resultSeriesValue>15.0</omsf:resultSeriesValue>
+</omsf:TimeseriesObservation>
+```
 
 ## Acknowledgements
 
