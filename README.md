@@ -39,7 +39,7 @@ OM\_CountObservation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_
 OM\_Measurement | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement | omsf:MeasureObservation | SF-0
 OM\_Observation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Observation| omsf:GenericObservation | SF-0
 OM\_TimeSeriesObservation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_TimeSeriesObservation | omsf:TimeseriesObservation | SF-1
-OM\_TruthObservation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_TruthObservation | omsf:TruthObservation | SF-1
+OM\_TruthObservation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_TruthObservation | omsf:TruthObservation | SF-0
 
 XML encodings for the O&M UML classes OM\_ComplexObservation, OM\_DiscreteCoverageObservation, OM\_GeometryObservation, OM\_PointCoverageObservation, and OM\_TemporalObservation are not provided. Thus this implementation is intentionally more limited than the Observations and Measurements - XML Implementation ([OGC Document 10-025r1](http://portal.opengeospatial.org/files/?artifact_id=41510)) and OGC Observations and Measurements – JSON implementation ([OGC Document 15-100r1](https://portal.opengeospatial.org/files/64910)) which are able to express the full O&M abstract model. However, expressing all these is possible by using the omsf:GenericObservation feature type with a remote reference to the Observation result.
 
