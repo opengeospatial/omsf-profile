@@ -11,7 +11,7 @@ Example of a omsf:MeasureObservation:
 
 ```xml
 <omsf:MeasureObservation gml:id="f-1">
-  <gml:identifier codeSpace="fmi-fi-weatherobs">kumpula-2017-08-17\_12-00\_air-temp-1</gml:identifier>
+  <gml:identifier codeSpace="fmi-fi-weatherobs">kumpula-2017-08-17_12-00_air-temp-1</gml:identifier>
   <omsf:phenomenonTime>2017-08-17T12:00:00Z</omsf:phenomenonTime>
   <omsf:resultTime>2017-08-17T12:01:25Z</omsf:resultTime>
   <omsf:procedure
