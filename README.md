@@ -57,7 +57,7 @@ The following primary design goals have been followed (in priority order):
 1. The defined GML feature types should enable back and forth educated, automated translations between the same kind of OMXML (complex feature) and the OMSF (simple feature) feature instances without data loss in typical cases.
 1. The defined GML feature types should be as simple as possible, but not simpler (so called Einstein's razor).
 
-###Notes
+*Notes:*
 
 * As the simple features profile data models for level SF-0 does not allow for including the strutural (object oriented) presentation of the feature of interest of the Observation, it's presented by one mandatory (foiGeometry) and two optional (foiName and foiReference) properties. The foiReference property can be used to optionally refer to a full, external description of the feature of interest.
 * Time properties with possible period content (phenomenonTime and validTime) have been encoded as two separate properties, one for the period start time (inclusive) and another for the period end time. The values are always of type xsd:dateTime. As the phenomenonTime may also be a time instant, the O&M simple features may either include a single phenomenonTime property (instant) or one or both of phenomenonTimeStart and phenomenonTimeEnd properties. If either the start or the end is not provided, the time period must be interpreted as an open-ended period.
