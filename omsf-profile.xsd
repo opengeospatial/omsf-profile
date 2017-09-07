@@ -6,15 +6,15 @@
     xmlns:omsf="http://www.opengis.net/omsf/1.0"
     targetNamespace="http://www.opengis.net/omsf/1.0"
     elementFormDefault="qualified"
-    version="0.0.1">
+    version="0.0.2">
     <xsd:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd" />
     <xsd:import namespace="http://www.opengis.net/gmlsf/2.0" schemaLocation="http://schemas.opengis.net/gmlsfProfile/2.0/gmlsfLevels.xsd"/>
     
     <xsd:annotation>
       <xsd:appinfo source="http://schemas.opengis.net/gmlsfProfile/2.0/gmlsfLevels.xsd">
-        <gmlsf:ComplianceLevel>0</gmlsf:ComplianceLevel>
+        <gmlsf:ComplianceLevel>1</gmlsf:ComplianceLevel>
       </xsd:appinfo>
-      <xsd:documentation></xsd:documentation>
+      <xsd:documentation>TimeseriesObservation is level SF-1 due to repeated elements, other Observation types are level SF-0</xsd:documentation>
     </xsd:annotation>
 
     <xsd:complexType name="AbstractObservationType" abstract="true">
@@ -129,14 +129,13 @@
         <xsd:complexContent>
             <xsd:extension base="omsf:AbstractObservationType">
                 <xsd:sequence>
-                    <xsd:element name="resultOriginTime" type="xsd:dateTime" minOccurs="0" />
-                    <xsd:element name="resultTimeInterval" type="xsd:duration" minOccurs="1" />
                     <xsd:element name="resultUnitOfMeasure" type="gml:CodeType" minOccurs="1"/>
-                    <xsd:element name="resultValues" minOccurs="1">
-                        <xsd:simpleType>
-                            <xsd:list itemType="xsd:double"/>
-                        </xsd:simpleType>
-                    </xsd:element>
+                    <xsd:element name="resultOriginTime" type="xsd:dateTime" minOccurs="0" />
+                    <xsd:choice>
+                        <xsd:element name="resultTimeInterval" type="xsd:duration" minOccurs="1" />
+                        <xsd:element name="resultSeriesTime" type="xsd:dateTime" minOccurs="1" maxOccurs="unbounded" />
+                    </xsd:choice>
+                    <xsd:element name="resultSeriesValue" type="xsd:double" minOccurs="1" maxOccurs="unbounded"/>
                 </xsd:sequence>
             </xsd:extension>
         </xsd:complexContent>

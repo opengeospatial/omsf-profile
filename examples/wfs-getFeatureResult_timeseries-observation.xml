@@ -23,10 +23,16 @@
                 </gml:Point>
             </omsf:foiGeometry>
             <omsf:foiReference xlink:href="http://sws.geonames.org/843429/about.rdf"/>
+            <omsf:resultUnitOfMeasure codeSpace="UCUM">Cel</omsf:resultUnitOfMeasure>
+            <!-- time instances given using origin and interval: -->
             <omsf:resultOriginTime>2017-08-17T12:00:00Z</omsf:resultOriginTime>
-            <omsf:resultTimeInterval>PT1H</omsf:resultTimeInterval>
-            <omsf:resultUnitOfMeasure>degC</omsf:resultUnitOfMeasure>
-            <omsf:resultValues>12.5 12.0 11.0 13.2 13.5 14.1</omsf:resultValues>
+            <omsf:resultSeriesTimeInterval>PT1H</omsf:resultSeriesTimeInterval>
+            <omsf:resultSeriesValue>12.5</omsf:resultSeriesValue>
+            <omsf:resultSeriesValue>12.0</omsf:resultSeriesValue>
+            <omsf:resultSeriesValue>11.0</omsf:resultSeriesValue>
+            <omsf:resultSeriesValue>13.2</omsf:resultSeriesValue>
+            <omsf:resultSeriesValue>13.5</omsf:resultSeriesValue>
+            <omsf:resultSeriesValue>14.1</omsf:resultSeriesValue>
         </omsf:TimeseriesObservation>
     </wfs:member>
     <wfs:member>
@@ -43,10 +49,20 @@
                 </gml:Point>
             </omsf:foiGeometry>
             <omsf:foiReference xlink:href="http://sws.geonames.org/636091/about.rdf"/>
-            <omsf:resultOriginTime>2017-08-17T12:00:00Z</omsf:resultOriginTime>
-            <omsf:resultTimeInterval>PT1H</omsf:resultTimeInterval>
-            <omsf:resultUnitOfMeasure>degC</omsf:resultUnitOfMeasure>
-            <omsf:resultValues>12.1 11.5 11.2 10.1 14.2 15.0</omsf:resultValues>
+            <omsf:resultUnitOfMeasure codeSpace="UCUM">Cel</omsf:resultUnitOfMeasure>
+            <!-- time instances given explicitly -->
+            <omsf:resultSeriesTime>2017-08-17T12:00:00Z</omsf:resultSeriesTime>
+            <omsf:resultSeriesTime>2017-08-17T13:00:00Z</omsf:resultSeriesTime>
+            <omsf:resultSeriesTime>2017-08-17T14:00:00Z</omsf:resultSeriesTime>
+            <omsf:resultSeriesTime>2017-08-17T15:00:00Z</omsf:resultSeriesTime>
+            <omsf:resultSeriesTime>2017-08-17T16:00:00Z</omsf:resultSeriesTime>
+            <omsf:resultSeriesTime>2017-08-17T17:00:00Z</omsf:resultSeriesTime>
+            <omsf:resultSeriesValue>12.1</omsf:resultSeriesValue>
+            <omsf:resultSeriesValue>11.5</omsf:resultSeriesValue>
+            <omsf:resultSeriesValue>11.2</omsf:resultSeriesValue>
+            <omsf:resultSeriesValue>10.1</omsf:resultSeriesValue>
+            <omsf:resultSeriesValue>14.2</omsf:resultSeriesValue>
+            <omsf:resultSeriesValue>15.0</omsf:resultSeriesValue>
         </omsf:TimeseriesObservation>
     </wfs:member>
 </wfs:FeatureCollection>

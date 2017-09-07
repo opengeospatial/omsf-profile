@@ -5,12 +5,13 @@
 
 ---
 
-This GML application schema defines a profile of the OGC Observations and Measurements v2.0 ([OGC Document 10-004r3](http://portal.opengeospatial.org/files/?artifact_id=41579), also published as ISO/DIS 19156:2010, Geographic information — Observations and Measurements), and it's XML encoding compliant with GML Simple Features Profile version 2.0 ([OGC Document 10-100r3](http://portal.opengeospatial.org/files/?artifact_id=42729)). All the O&M Observation types provided in this application schema are compliant with the GML Simple Features Profile level SF-0.
+This GML application schema defines a profile of the OGC Observations and Measurements v2.0 ([OGC Document 10-004r3](http://portal.opengeospatial.org/files/?artifact_id=41579), also published as ISO/DIS 19156:2010, Geographic information — Observations and Measurements), and it's XML encoding compliant with GML Simple Features Profile version 2.0 ([OGC Document 10-100r3](http://portal.opengeospatial.org/files/?artifact_id=42729)). The TimeseriesObservation type is compliant with the Simple Features Profile level SF-1 due to repeated time and value elements, all other Observation types are compliant level SF-0.
 
 Example of a omsf:MeasureObservation:
 
 ```xml
 <omsf:MeasureObservation gml:id="f-1">
+  <gml:identifier codeSpace="fmi-fi-weatherobs">kumpula-2017-08-17\_12-00\_air-temp-1</gml:identifier>
   <omsf:phenomenonTime>2017-08-17T12:00:00Z</omsf:phenomenonTime>
   <omsf:resultTime>2017-08-17T12:01:25Z</omsf:resultTime>
   <omsf:procedure
@@ -25,20 +26,20 @@ Example of a omsf:MeasureObservation:
     </gml:Point>
   </omsf:foiGeometry>
   <omsf:foiReference xlink:href="http://sws.geonames.org/843429/about.rdf"/>
-  <omsf:result uom="degC">12.5</omsf:result>
+  <omsf:result uom="Cel">12.5</omsf:result>
 </omsf:MeasureObservation>
 ```
 
 This profile of the OGC Observations and Measurements Abstract Specification defines XML encodings only for the following O&M UML classes:
 
-O&M v2.0 class | OGC name | OMSF feature type |
----------|----------|------------------|
-OM\_CategoryObservation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_CategoryObservation | omsf:CategoryObservation
-OM\_CountObservation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_CountObservation | omsf:CountObservation
-OM\_Measurement | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement | omsf:MeasureObservation
-OM\_Observation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Observation| omsf:GenericObservation
-OM\_TimeSeriesObservation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_TimeSeriesObservation | omsf:TimeseriesObservation
-OM\_TruthObservation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_TruthObservation | omsf:TruthObservation
+O&M v2.0 class | OGC name | OMSF feature type | SF compliance
+---------------|----------|-------------------|---------------
+OM\_CategoryObservation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_CategoryObservation | omsf:CategoryObservation | SF-0
+OM\_CountObservation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_CountObservation | omsf:CountObservation | SF-0
+OM\_Measurement | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement | omsf:MeasureObservation | SF-0
+OM\_Observation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Observation| omsf:GenericObservation | SF-0
+OM\_TimeSeriesObservation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_TimeSeriesObservation | omsf:TimeseriesObservation | SF-1
+OM\_TruthObservation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_TruthObservation | omsf:TruthObservation | SF-1
 
 XML encodings for the O&M UML classes OM\_ComplexObservation, OM\_DiscreteCoverageObservation, OM\_GeometryObservation, OM\_PointCoverageObservation, and OM\_TemporalObservation are not provided. Thus this implementation is intentionally more limited than the Observations and Measurements - XML Implementation ([OGC Document 10-025r1](http://portal.opengeospatial.org/files/?artifact_id=41510)) and OGC Observations and Measurements – JSON implementation ([OGC Document 15-100r1](https://portal.opengeospatial.org/files/64910)) which are able to express the full O&M abstract model. However, expressing all these is possible by using the omsf:GenericObservation feature type with a remote reference to the Observation result.
 
@@ -50,7 +51,7 @@ The purpose of this application schema is to provide simple GML encodings for th
 
 The following primary design goals have been followed (in priority order):
 
-1. The defined GML feature types must be compliant to the GML Simple Features Profile level SF-0.
+1. The defined GML feature types must be compliant to the GML Simple Features Profile level SF-0 or SF-1.
 1. Each defined feature type must have a relevant geometry property for spatial processing and map visualization purposes.
 1. The defined GML feature types must follow the O&M model structure and property naming as long as it does not conflict with higher priority design goals.
 1. The defined GML feature types should enable back and forth educated, automated translations between the same kind of OMXML (complex feature) and the OMSF (simple feature) feature instances without data loss in typical cases.
@@ -62,10 +63,10 @@ Design notes:
 * Time properties with possible period content (phenomenonTime and validTime) have been encoded as two separate properties, one for the period start time (inclusive) and another for the period end time. The values are always of type xsd:dateTime. As the phenomenonTime may also be a time instant, the O&M simple features may either include a single phenomenonTime property (instant) or one or both of phenomenonTimeStart and phenomenonTimeEnd properties. If either the start or the end is not provided, the time period must be interpreted as an open-ended period.
 * The metadata, relatedObservation and procedure properties are all provided as a reference-only.
 * The observedProperty is provided as a code list with an optional namespace, rather than a plain reference, for semantic and practical reasons: the observed properties (such as air temperature) typically have code-list type, well-known identifiers, which is enough for unambiguous identification and just the right level of complexity for this schema. Also the by-reference property values (using xlink) are often not shown in mapping applications, unlike code list values expressed as a restricted gml:CodeType as required in the GML Simple Features Profile specification.
-* In order to keep the Observation types compliant with the SF-0, the optional parameter properties are encoded as a white-space separated key-value pair list withing the parameters property. In practice the parameter properties are not used very much, and more than one per Observation only rarely.
+* In order to keep most of the Observation types compliant with the SF-0, the optional parameter properties are encoded as a white-space separated key-value pair list withing the parameters property. In practice the parameter properties are not used very much, and more than one per Observation only rarely.
 * In contrast to the OMXML (complex feature) implementation, hard-typing is used for the different Observation types: GenericObservation, MeasureObservation, CategoryObservation, CountObservation, TruthObservation and TimeseriesObservation are each defined as separate feature types with fixed result value types. This is an intentional trade-off between simplicity and flexibility.
 * Observations with complicated results, such as coverages, have been considered out-of-scope of this application schema. However, it's possible to encode these using the GenericObservation feature type with a reference to the remotely provided result.
-* TimeseriesObservation has been provided due to a common need, but it only supports a evenly spaced (in time), double-valued results for a single observed property with the same unit of measure for each value, encoded as a white-space separated double list. This a concise, but not very XML-like encoding, and it's probably not suitable for very long time series data Observations. The optional resultOriginTime property is provided to unambiguously provide the time instance of the first value in the series. If not given, this is assumed to be equal to value of the phenomenonTimeStart property.
+* Unlike the other Observation types, the TimeseriesObservation was decided to be made compliant with SF-1, not SF-0. Technically the time series values (and even time instances) could be encoded inside a single element using list type, but encoding and decoding would require special processing, which would defeat at least some of the gains of restricting the feature type to SF-0.
 
 ## Acknowledgements
 
