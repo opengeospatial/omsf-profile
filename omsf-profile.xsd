@@ -130,9 +130,11 @@
             <xsd:extension base="omsf:AbstractObservationType">
                 <xsd:sequence>
                     <xsd:element name="resultUnitOfMeasure" type="gml:CodeType" minOccurs="1"/>
-                    <xsd:element name="resultOriginTime" type="xsd:dateTime" minOccurs="0" />
                     <xsd:choice>
-                        <xsd:element name="resultTimeInterval" type="xsd:duration" minOccurs="1" />
+                        <xsd:sequence>
+                            <xsd:element name="resultOriginTime" type="xsd:dateTime" minOccurs="0" />
+                            <xsd:element name="resultTimeInterval" type="xsd:duration" minOccurs="1" />
+                        </xsd:sequence>
                         <xsd:element name="resultSeriesTime" type="xsd:dateTime" minOccurs="1" maxOccurs="unbounded" />
                     </xsd:choice>
                     <xsd:element name="resultSeriesValue" type="xsd:double" minOccurs="1" maxOccurs="unbounded"/>
