@@ -70,7 +70,7 @@ The following primary design goals have been followed (in priority order):
 ## Simple timeseries Observations
 
 O&M Simple Features Profile XML Schema contains TimeseriesObservation feature type for encoding simple, double-valued time series data. 
-Time series with result values for several points in time does not fit with the GML Simple Features Profile compliance level SF-0 without mild violence, since repeated elements are not allowed. Technically the time series values (and even time instances) could be encoded inside a single element using list type, but encoding and decoding would require special processing, which would at leasr partly defeat the gains of restricting the feature type to SF-0.
+Time series with result values for several points in time does not fit with the GML Simple Features Profile compliance level SF-0 without mild violence, since repeated elements are not allowed. Technically the time series values (and even time instances) could be encoded inside a single element using list type, but encoding and decoding would require special processing, which would at least partly defeat the gains of restricting the feature type to SF-0. So the TimeseriesObservation is compliant with SF-1, not SF-0 like the other OMSF Observation types.
 
 The schema for TimeseriesObservation allows two options for providing the instances of time for the time series values. The first option is togGive a series origin time with a time interval between each time steps (for equally spaced time series):
 
@@ -97,6 +97,7 @@ The schema for TimeseriesObservation allows two options for providing the instan
   <omsf:resultSeriesValue>13.2</omsf:resultSeriesValue>
   <omsf:resultSeriesValue>13.5</omsf:resultSeriesValue>
   <omsf:resultSeriesValue>14.1</omsf:resultSeriesValue>
+  <omsf:resultSeriesValue>14.2</omsf:resultSeriesValue>
 </omsf:TimeseriesObservation>
 ```
 The second option is to provide each instance of time as a separate element (for equal or non-equal spaced time series):
@@ -122,14 +123,18 @@ The second option is to provide each instance of time as a separate element (for
   <omsf:resultSeriesTime>2017-08-17T15:00:00Z</omsf:resultSeriesTime>
   <omsf:resultSeriesTime>2017-08-17T16:00:00Z</omsf:resultSeriesTime>
   <omsf:resultSeriesTime>2017-08-17T17:00:00Z</omsf:resultSeriesTime>
+  <omsf:resultSeriesTime>2017-08-17T18:00:00Z</omsf:resultSeriesTime>
   <omsf:resultSeriesValue>12.1</omsf:resultSeriesValue>
   <omsf:resultSeriesValue>11.5</omsf:resultSeriesValue>
   <omsf:resultSeriesValue>11.2</omsf:resultSeriesValue>
   <omsf:resultSeriesValue>10.1</omsf:resultSeriesValue>
   <omsf:resultSeriesValue>14.2</omsf:resultSeriesValue>
   <omsf:resultSeriesValue>15.0</omsf:resultSeriesValue>
+  <omsf:resultSeriesValue>15.3</omsf:resultSeriesValue>
 </omsf:TimeseriesObservation>
 ```
+
+The number of resultSeriesTime and resultSeriesValue within a single TimeseriesObservation feature instance shall be equal and at least one.
 
 ## Acknowledgements
 

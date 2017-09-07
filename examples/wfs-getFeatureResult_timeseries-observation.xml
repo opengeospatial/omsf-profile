@@ -33,6 +33,7 @@
             <omsf:resultSeriesValue>13.2</omsf:resultSeriesValue>
             <omsf:resultSeriesValue>13.5</omsf:resultSeriesValue>
             <omsf:resultSeriesValue>14.1</omsf:resultSeriesValue>
+            <omsf:resultSeriesValue>14.2</omsf:resultSeriesValue>
         </omsf:TimeseriesObservation>
     </wfs:member>
     <wfs:member>
@@ -57,12 +58,14 @@
             <omsf:resultSeriesTime>2017-08-17T15:00:00Z</omsf:resultSeriesTime>
             <omsf:resultSeriesTime>2017-08-17T16:00:00Z</omsf:resultSeriesTime>
             <omsf:resultSeriesTime>2017-08-17T17:00:00Z</omsf:resultSeriesTime>
+            <omsf:resultSeriesTime>2017-08-17T18:00:00Z</omsf:resultSeriesTime>
             <omsf:resultSeriesValue>12.1</omsf:resultSeriesValue>
             <omsf:resultSeriesValue>11.5</omsf:resultSeriesValue>
             <omsf:resultSeriesValue>11.2</omsf:resultSeriesValue>
             <omsf:resultSeriesValue>10.1</omsf:resultSeriesValue>
             <omsf:resultSeriesValue>14.2</omsf:resultSeriesValue>
             <omsf:resultSeriesValue>15.0</omsf:resultSeriesValue>
+            <omsf:resultSeriesValue>15.3</omsf:resultSeriesValue>
         </omsf:TimeseriesObservation>
     </wfs:member>
 </wfs:FeatureCollection>
