@@ -26,7 +26,7 @@
             <omsf:resultUnitOfMeasure codeSpace="UCUM">Cel</omsf:resultUnitOfMeasure>
             <!-- time instances given using origin and interval: -->
             <omsf:resultOriginTime>2017-08-17T12:00:00Z</omsf:resultOriginTime>
-            <omsf:resultSeriesTimeInterval>PT1H</omsf:resultSeriesTimeInterval>
+            <omsf:resultTimeInterval>PT1H</omsf:resultTimeInterval>
             <omsf:resultSeriesValue>12.5</omsf:resultSeriesValue>
             <omsf:resultSeriesValue>12.0</omsf:resultSeriesValue>
             <omsf:resultSeriesValue>11.0</omsf:resultSeriesValue>
