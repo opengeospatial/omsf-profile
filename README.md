@@ -18,7 +18,7 @@ Example of a omsf:MeasureObservation:
     xlink:href="http://xml.fmi.fi/process/met-surface-observations"
     xlink:title="Meteorological surface observations, collected following WMO No. 544, Manual on the Global Observing System, Volume I - Global aspects" />
   <omsf:parameters>http://foo.bar.org/some/fully/qualified/uri=2017-08-17T12:00:00Z analysisCount=1</omsf:parameters>
-  <omsf:observedProperty codeSpace="cf-standard-names/46">air_temperature</omsf:observedProperty>
+  <omsf:observedProperty xlink:href="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/" xlink:title="air_temperature" />
   <omsf:foiName>Helsinki Kumpula</omsf:foiName>
   <omsf:foiGeometry>
     <gml:Point gml:id="p-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4258" srsDimension="2">
@@ -72,8 +72,6 @@ The following primary design goals have been followed (in priority order):
 O&M Simple Features Profile XML Schema contains TimeseriesObservation feature type for encoding simple, double-valued time series data. 
 Time series with result values for several points in time does not fit with the GML Simple Features Profile compliance level SF-0 without mild violence, since repeated elements are not allowed. Technically the time series values (and even time instances) could be encoded inside a single element using list type, but encoding and decoding would require special processing, which would at least partly defeat the gains of restricting the feature type to SF-0. So the TimeseriesObservation is compliant with SF-1, not SF-0 like the other OMSF Observation types.
 
-The schema for TimeseriesObservation allows two options for providing the instances of time for the time series values. The first option is togGive a series origin time with a time interval between each time steps (for equally spaced time series):
-
 ```xml
 <omsf:TimeseriesObservation gml:id="f-1">
   <omsf:phenomenonTimeStart>2017-08-17T12:00:00Z</omsf:phenomenonTimeStart>
@@ -89,52 +87,36 @@ The schema for TimeseriesObservation allows two options for providing the instan
   </omsf:foiGeometry>
   <omsf:foiReference xlink:href="http://sws.geonames.org/843429/about.rdf"/>
   <omsf:resultUnitOfMeasure codeSpace="UCUM">Cel</omsf:resultUnitOfMeasure>
-  <omsf:resultOriginTime>2017-08-17T12:00:00Z</omsf:resultOriginTime>
-  <omsf:resultSeriesTimeInterval>PT1H</omsf:resultSeriesTimeInterval>
-  <omsf:resultSeriesValue>12.5</omsf:resultSeriesValue>
-  <omsf:resultSeriesValue>12.0</omsf:resultSeriesValue>
-  <omsf:resultSeriesValue>11.0</omsf:resultSeriesValue>
-  <omsf:resultSeriesValue>13.2</omsf:resultSeriesValue>
-  <omsf:resultSeriesValue>13.5</omsf:resultSeriesValue>
-  <omsf:resultSeriesValue>14.1</omsf:resultSeriesValue>
-  <omsf:resultSeriesValue>14.2</omsf:resultSeriesValue>
+  <omsf:resultValue>
+    <omsf:time>2017-08-17T12:00:00Z</omsf:time>
+    <omsf:value>12.5</omsf:value>
+  </omsf:resultValue>
+  <omsf:resultValue>
+    <omsf:time>2017-08-17T13:00:00Z</omsf:time>
+    <omsf:value>12.0</omsf:value>
+  </omsf:resultValue>
+  <omsf:resultValue>
+    <omsf:time>2017-08-17T14:00:00Z</omsf:time>
+    <omsf:value>11.0</omsf:value>
+  </omsf:resultValue>
+  <omsf:resultValue>
+    <omsf:time>2017-08-17T15:00:00Z</omsf:time>
+    <omsf:value>13.2</omsf:value>
+  </omsf:resultValue>
+  <omsf:resultValue>
+    <omsf:time>2017-08-17T16:00:00Z</omsf:time>
+    <omsf:value>13.5</omsf:value>
+  </omsf:resultValue>
+  <omsf:resultValue>
+    <omsf:time>2017-08-17T17:00:00Z</omsf:time>
+    <omsf:value>14.1</omsf:value>
+  </omsf:resultValue>
+  <omsf:resultValue>
+    <omsf:time>2017-08-17T18:00:00Z</omsf:time>
+    <omsf:value>14.1</omsf:value>
+  </omsf:resultValue>
 </omsf:TimeseriesObservation>
 ```
-The second option is to provide each instance of time as a separate element (for equal or non-equal spaced time series):
-
-```xml
-<omsf:TimeseriesObservation gml:id="f-1">
-  <omsf:phenomenonTimeStart>2017-08-17T12:00:00Z</omsf:phenomenonTimeStart>
-  <omsf:phenomenonTimeEnd>2017-08-17T18:00:00Z</omsf:phenomenonTimeEnd>
-  <omsf:resultTime>2017-08-17T12:11:20Z</omsf:resultTime>
-  <omsf:procedure xlink:href="http://xml.fmi.fi/process/met-surface-observations" xlink:title="Meteorological surface observations, collected following WMO No. 544, Manual on the Global Observing System, Volume I - Global aspects" />
-  <omsf:observedProperty codeSpace="cf-standard-names/46">air_temperature</omsf:observedProperty>
-  <omsf:foiName>Helsinki Kumpula</omsf:foiName>
-  <omsf:foiGeometry>
-    <gml:Point gml:id="p-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4258" srsDimension="2">
-      <gml:pos>60.20307 24.96131</gml:pos>
-    </gml:Point>
-  </omsf:foiGeometry>
-  <omsf:foiReference xlink:href="http://sws.geonames.org/843429/about.rdf"/>
-  <omsf:resultUnitOfMeasure codeSpace="UCUM">Cel</omsf:resultUnitOfMeasure>
-  <omsf:resultSeriesTime>2017-08-17T12:00:00Z</omsf:resultSeriesTime>
-  <omsf:resultSeriesTime>2017-08-17T13:00:00Z</omsf:resultSeriesTime>
-  <omsf:resultSeriesTime>2017-08-17T14:00:00Z</omsf:resultSeriesTime>
-  <omsf:resultSeriesTime>2017-08-17T15:00:00Z</omsf:resultSeriesTime>
-  <omsf:resultSeriesTime>2017-08-17T16:00:00Z</omsf:resultSeriesTime>
-  <omsf:resultSeriesTime>2017-08-17T17:00:00Z</omsf:resultSeriesTime>
-  <omsf:resultSeriesTime>2017-08-17T18:00:00Z</omsf:resultSeriesTime>
-  <omsf:resultSeriesValue>12.1</omsf:resultSeriesValue>
-  <omsf:resultSeriesValue>11.5</omsf:resultSeriesValue>
-  <omsf:resultSeriesValue>11.2</omsf:resultSeriesValue>
-  <omsf:resultSeriesValue>10.1</omsf:resultSeriesValue>
-  <omsf:resultSeriesValue>14.2</omsf:resultSeriesValue>
-  <omsf:resultSeriesValue>15.0</omsf:resultSeriesValue>
-  <omsf:resultSeriesValue>15.3</omsf:resultSeriesValue>
-</omsf:TimeseriesObservation>
-```
-
-The number of resultSeriesTime and resultSeriesValue within a single TimeseriesObservation feature instance shall be equal and at least one.
 
 ## Acknowledgements
 
