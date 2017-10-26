@@ -15,7 +15,7 @@
           <omsf:resultTime>2017-08-17T12:01:25Z</omsf:resultTime>
           <omsf:procedure xlink:href="http://xml.fmi.fi/process/met-surface-observations" xlink:title="Meteorological surface observations, collected following WMO No. 544, Manual on the Global Observing System, Volume I - Global aspects" />
           <omsf:parameters>http://foo.bar.org/some/fully/qualified/uri=2017-08-17T12:00:00Z analysisCount=1</omsf:parameters>
-          <omsf:observedProperty codeSpace="cf-standard-names/46">air_temperature</omsf:observedProperty>
+          <omsf:observedProperty xlink:href="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/" xlink:title="air_temperature" />
           <omsf:foiName>Helsinki Kumpula</omsf:foiName>
           <omsf:foiGeometry>
               <gml:Point gml:id="p-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4258" srsDimension="2">
@@ -32,7 +32,7 @@
             <omsf:resultTime>2017-08-17T12:01:25Z</omsf:resultTime>
             <omsf:procedure xlink:href="http://xml.fmi.fi/process/met-surface-observations" xlink:title="Meteorological surface observations, collected following WMO No. 544, Manual on the Global Observing System, Volume I - Global aspects" />
             <omsf:parameters>http://foo.bar.org/some/fully/qualified/uri=2017-08-17T12:00:00Z analysisCount=1</omsf:parameters>
-            <omsf:observedProperty codeSpace="cf-standard-names/46">air_temperature</omsf:observedProperty>
+            <omsf:observedProperty xlink:href="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/" xlink:title="air_temperature" />
             <omsf:foiName>Espoo Kivenlahti</omsf:foiName>
             <omsf:foiGeometry>
                 <gml:Point gml:id="p-2" srsName="http://www.opengis.net/def/crs/EPSG/0/4258" srsDimension="2">

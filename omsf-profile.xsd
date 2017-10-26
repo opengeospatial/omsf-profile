@@ -35,7 +35,7 @@
                    <xsd:element name="validTimeEnd" type="xsd:dateTime" minOccurs="0" />
                    <xsd:element name="procedure" type="gml:ReferenceType" minOccurs="0" />
                    <xsd:element name="parameters" type="omsf:nameValuePairList" minOccurs="0" />
-                   <xsd:element name="observedProperty" type="omsf:PropertyNameCodeType" minOccurs="1" />
+                   <xsd:element name="observedProperty" type="gml:ReferenceType" minOccurs="1" />
                    <xsd:element name="foiName" type="xsd:string" minOccurs="0"/>
                    <xsd:element name="foiGeometry" type="gml:GeometryPropertyType" minOccurs="1"/>
                    <xsd:element name="foiReference" type="gml:ReferenceType" minOccurs="0" />
@@ -120,35 +120,20 @@
         </xsd:complexContent>
     </xsd:complexType>
 
-    <xsd:element name="TimeseriesObservation" type="omsf:MeasurementTimeseriesObservationType" substitutionGroup="gml:AbstractFeature">
+    <xsd:element name="TimeseriesObservation" type="omsf:TimeseriesObservationType" substitutionGroup="gml:AbstractFeature">
         <xsd:annotation>
             <xsd:documentation></xsd:documentation>
         </xsd:annotation>
     </xsd:element>
-    <xsd:complexType name="MeasurementTimeseriesObservationType">
+    <xsd:complexType name="TimeseriesObservationType">
         <xsd:complexContent>
             <xsd:extension base="omsf:AbstractObservationType">
                 <xsd:sequence>
                     <xsd:element name="resultUnitOfMeasure" type="gml:CodeType" minOccurs="1"/>
-                    <xsd:choice>
-                        <xsd:sequence>
-                            <xsd:element name="resultOriginTime" type="xsd:dateTime" minOccurs="0" />
-                            <xsd:element name="resultTimeInterval" type="xsd:duration" minOccurs="1" />
-                        </xsd:sequence>
-                        <xsd:element name="resultSeriesTime" type="xsd:dateTime" minOccurs="1" maxOccurs="unbounded" />
-                    </xsd:choice>
-                    <xsd:element name="resultSeriesValue" type="xsd:double" minOccurs="1" maxOccurs="unbounded"/>
+                    <xsd:element name="resultValue" type="omsf:TimeValuePairType" minOccurs="1" maxOccurs="unbounded"/>
                 </xsd:sequence>
             </xsd:extension>
         </xsd:complexContent>
-    </xsd:complexType>
-    
-    <xsd:complexType name="PropertyNameCodeType">
-        <xsd:simpleContent>
-            <xsd:restriction base="gml:CodeType">
-                <xsd:attribute name="codeSpace" type="xsd:anyURI" use="optional" />
-            </xsd:restriction>
-        </xsd:simpleContent>
     </xsd:complexType>
     
     <xsd:simpleType name="nameValuePairList">
@@ -156,5 +141,12 @@
             <xsd:pattern value="[^\s^0-9^=][^\s^=]*=[^\s^=]+(\s+[^\s^0-9^=][^\s^=]*=[^\s^=]+)*" />
         </xsd:restriction>
     </xsd:simpleType>
+    
+    <xsd:complexType name="TimeValuePairType">
+        <xsd:sequence>
+            <xsd:element name="time" type="xsd:dateTime" minOccurs="1" />
+            <xsd:element name="value" type="xsd:double" minOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
     
 </xsd:schema>

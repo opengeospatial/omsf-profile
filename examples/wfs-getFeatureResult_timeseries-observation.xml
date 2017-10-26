@@ -15,7 +15,7 @@
             <omsf:phenomenonTimeEnd>2017-08-17T18:00:00Z</omsf:phenomenonTimeEnd>
             <omsf:resultTime>2017-08-17T12:11:20Z</omsf:resultTime>
             <omsf:procedure xlink:href="http://xml.fmi.fi/process/met-surface-observations" xlink:title="Meteorological surface observations, collected following WMO No. 544, Manual on the Global Observing System, Volume I - Global aspects" />
-            <omsf:observedProperty codeSpace="cf-standard-names/46">air_temperature</omsf:observedProperty>
+            <omsf:observedProperty xlink:href="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/" xlink:title="air_temperature" />
             <omsf:foiName>Helsinki Kumpula</omsf:foiName>
             <omsf:foiGeometry>
                 <gml:Point gml:id="p-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4258" srsDimension="2">
@@ -24,16 +24,34 @@
             </omsf:foiGeometry>
             <omsf:foiReference xlink:href="http://sws.geonames.org/843429/about.rdf"/>
             <omsf:resultUnitOfMeasure codeSpace="UCUM">Cel</omsf:resultUnitOfMeasure>
-            <!-- time instances given using origin and interval: -->
-            <omsf:resultOriginTime>2017-08-17T12:00:00Z</omsf:resultOriginTime>
-            <omsf:resultTimeInterval>PT1H</omsf:resultTimeInterval>
-            <omsf:resultSeriesValue>12.5</omsf:resultSeriesValue>
-            <omsf:resultSeriesValue>12.0</omsf:resultSeriesValue>
-            <omsf:resultSeriesValue>11.0</omsf:resultSeriesValue>
-            <omsf:resultSeriesValue>13.2</omsf:resultSeriesValue>
-            <omsf:resultSeriesValue>13.5</omsf:resultSeriesValue>
-            <omsf:resultSeriesValue>14.1</omsf:resultSeriesValue>
-            <omsf:resultSeriesValue>14.2</omsf:resultSeriesValue>
+            <omsf:resultValue>
+                <omsf:time>2017-08-17T12:00:00Z</omsf:time>
+                <omsf:value>12.5</omsf:value>
+            </omsf:resultValue>
+            <omsf:resultValue>
+                <omsf:time>2017-08-17T13:00:00Z</omsf:time>
+                <omsf:value>12.0</omsf:value>
+            </omsf:resultValue>
+            <omsf:resultValue>
+                <omsf:time>2017-08-17T14:00:00Z</omsf:time>
+                <omsf:value>11.0</omsf:value>
+            </omsf:resultValue>
+            <omsf:resultValue>
+                <omsf:time>2017-08-17T15:00:00Z</omsf:time>
+                <omsf:value>13.2</omsf:value>
+            </omsf:resultValue>
+            <omsf:resultValue>
+                <omsf:time>2017-08-17T16:00:00Z</omsf:time>
+                <omsf:value>13.5</omsf:value>
+            </omsf:resultValue>
+            <omsf:resultValue>
+                <omsf:time>2017-08-17T17:00:00Z</omsf:time>
+                <omsf:value>14.1</omsf:value>
+            </omsf:resultValue>
+            <omsf:resultValue>
+                <omsf:time>2017-08-17T18:00:00Z</omsf:time>
+                <omsf:value>14.1</omsf:value>
+            </omsf:resultValue>
         </omsf:TimeseriesObservation>
     </wfs:member>
     <wfs:member>
@@ -42,7 +60,7 @@
             <omsf:phenomenonTimeEnd>2017-08-17T18:00:00Z</omsf:phenomenonTimeEnd>
             <omsf:resultTime>2017-08-17T12:11:20Z</omsf:resultTime>
             <omsf:procedure xlink:href="http://xml.fmi.fi/process/met-surface-observations" xlink:title="Meteorological surface observations, collected following WMO No. 544, Manual on the Global Observing System, Volume I - Global aspects" />
-            <omsf:observedProperty codeSpace="cf-standard-names/46">air_temperature</omsf:observedProperty>
+            <omsf:observedProperty xlink:href="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/" xlink:title="air_temperature" />
             <omsf:foiName>Espoo Kivenlahti</omsf:foiName>
             <omsf:foiGeometry>
                 <gml:Point gml:id="p-2" srsName="http://www.opengis.net/def/crs/EPSG/0/4258" srsDimension="2">
@@ -51,21 +69,34 @@
             </omsf:foiGeometry>
             <omsf:foiReference xlink:href="http://sws.geonames.org/636091/about.rdf"/>
             <omsf:resultUnitOfMeasure codeSpace="UCUM">Cel</omsf:resultUnitOfMeasure>
-            <!-- time instances given explicitly -->
-            <omsf:resultSeriesTime>2017-08-17T12:00:00Z</omsf:resultSeriesTime>
-            <omsf:resultSeriesTime>2017-08-17T13:00:00Z</omsf:resultSeriesTime>
-            <omsf:resultSeriesTime>2017-08-17T14:00:00Z</omsf:resultSeriesTime>
-            <omsf:resultSeriesTime>2017-08-17T15:00:00Z</omsf:resultSeriesTime>
-            <omsf:resultSeriesTime>2017-08-17T16:00:00Z</omsf:resultSeriesTime>
-            <omsf:resultSeriesTime>2017-08-17T17:00:00Z</omsf:resultSeriesTime>
-            <omsf:resultSeriesTime>2017-08-17T18:00:00Z</omsf:resultSeriesTime>
-            <omsf:resultSeriesValue>12.1</omsf:resultSeriesValue>
-            <omsf:resultSeriesValue>11.5</omsf:resultSeriesValue>
-            <omsf:resultSeriesValue>11.2</omsf:resultSeriesValue>
-            <omsf:resultSeriesValue>10.1</omsf:resultSeriesValue>
-            <omsf:resultSeriesValue>14.2</omsf:resultSeriesValue>
-            <omsf:resultSeriesValue>15.0</omsf:resultSeriesValue>
-            <omsf:resultSeriesValue>15.3</omsf:resultSeriesValue>
+            <omsf:resultValue>
+                <omsf:time>2017-08-17T12:00:00Z</omsf:time>
+                <omsf:value>12.1</omsf:value>
+            </omsf:resultValue>
+            <omsf:resultValue>
+                <omsf:time>2017-08-17T13:00:00Z</omsf:time>
+                <omsf:value>11.5</omsf:value>
+            </omsf:resultValue>
+            <omsf:resultValue>
+                <omsf:time>2017-08-17T14:00:00Z</omsf:time>
+                <omsf:value>11.2</omsf:value>
+            </omsf:resultValue>
+            <omsf:resultValue>
+                <omsf:time>2017-08-17T15:00:00Z</omsf:time>
+                <omsf:value>10.1</omsf:value>
+            </omsf:resultValue>
+            <omsf:resultValue>
+                <omsf:time>2017-08-17T16:00:00Z</omsf:time>
+                <omsf:value>14.2</omsf:value>
+            </omsf:resultValue>
+            <omsf:resultValue>
+                <omsf:time>2017-08-17T17:00:00Z</omsf:time>
+                <omsf:value>15.0</omsf:value>
+            </omsf:resultValue>
+            <omsf:resultValue>
+                <omsf:time>2017-08-17T18:00:00Z</omsf:time>
+                <omsf:value>15.3</omsf:value>
+            </omsf:resultValue>
         </omsf:TimeseriesObservation>
     </wfs:member>
 </wfs:FeatureCollection>
