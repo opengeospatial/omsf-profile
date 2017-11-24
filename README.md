@@ -78,7 +78,7 @@ Time series with result values for several points in time does not fit with the 
   <omsf:phenomenonTimeEnd>2017-08-17T18:00:00Z</omsf:phenomenonTimeEnd>
   <omsf:resultTime>2017-08-17T12:11:20Z</omsf:resultTime>
   <omsf:procedure xlink:href="http://xml.fmi.fi/process/met-surface-observations" xlink:title="Meteorological surface observations, collected following WMO No. 544, Manual on the Global Observing System, Volume I - Global aspects" />
-  <omsf:observedProperty codeSpace="cf-standard-names/46">air_temperature</omsf:observedProperty>
+  <omsf:observedProperty xlink:href="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/" xlink:title="air_temperature" />
   <omsf:foiName>Helsinki Kumpula</omsf:foiName>
   <omsf:foiGeometry>
     <gml:Point gml:id="p-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4258" srsDimension="2">
