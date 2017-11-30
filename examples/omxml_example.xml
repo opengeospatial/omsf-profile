@@ -1,0 +1,53 @@
+<omxml:OM_Observation xmlns:omxml="http://www.opengis.net/om/2.0" xmlns:gml="http://www.opengis.net/gml/3.2"
+    xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:sam="http://www.opengis.net/sampling/2.0" xmlns:sams="http://www.opengis.net/samplingSpatial/2.0"
+    xmlns:swe="http://www.opengis.net/swe/2.0"
+    xsi:schemaLocation="http://www.opengis.net/om/2.0 http://schemas.opengis.net/om/2.0/observation.xsd
+    http://www.opengis.net/samplingSpatial/2.0 http://schemas.opengis.net/samplingSpatial/2.0/spatialSamplingFeature.xsd
+    http://www.opengis.net/swe/2.0 http://schemas.opengis.net/sweCommon/2.0/swe.xsd" 
+     gml:id="f-1">
+    <gml:identifier codeSpace="fmi-fi-weatherobs">kumpula-2017-08-17_12-00_air-temp-1</gml:identifier>
+    <omxml:phenomenonTime>
+        <gml:TimeInstant gml:id="ti-1">
+            <gml:timePosition>2017-08-17T12:00:00Z</gml:timePosition>
+        </gml:TimeInstant>
+    </omxml:phenomenonTime>
+    <omxml:resultTime>
+        <gml:TimeInstant gml:id="ti-2">
+            <gml:timePosition>2017-08-17T12:01:25Z</gml:timePosition>
+        </gml:TimeInstant>
+    </omxml:resultTime>
+    <omxml:procedure
+        xlink:href="http://xml.fmi.fi/process/met-surface-observations"
+        xlink:title="Meteorological surface observations, collected following WMO No. 544, Manual on the Global Observing System, Volume I - Global aspects" />
+   <omxml:parameter>
+       <omxml:NamedValue>
+           <omxml:name xlink:href="http://foo.bar.org/some/fully/qualified/uri"/>
+           <omxml:value>2017-08-17T12:00:00Z</omxml:value>
+       </omxml:NamedValue>
+   </omxml:parameter>
+    <omxml:parameter>
+        <omxml:NamedValue>
+            <omxml:name xlink:href="analysisCount"/>
+            <omxml:value>1</omxml:value>
+        </omxml:NamedValue>
+    </omxml:parameter>
+    <omxml:observedProperty xlink:href="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/" xlink:title="air_temperature" />
+    <omxml:featureOfInterest>
+       <sams:SF_SpatialSamplingFeature gml:id="ssf-1">
+           <gml:name>Helsinki Kumpula</gml:name>
+           <sam:sampledFeature xlink:href="http://sws.geonames.org/843429/about.rdf" />
+           <sams:shape>
+               <gml:Point gml:id="p-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4258" srsDimension="2">
+                   <gml:pos>60.20307 24.96131</gml:pos>
+               </gml:Point>
+           </sams:shape>
+       </sams:SF_SpatialSamplingFeature>
+    </omxml:featureOfInterest>
+    <omxml:result>
+        <swe:Quantity>
+            <swe:uom xlink:href="Cel"/>
+            <swe:value>12.5</swe:value>
+        </swe:Quantity>
+    </omxml:result>
+</omxml:OM_Observation>
