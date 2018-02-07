@@ -1,4 +1,4 @@
-# OGC Observations &amp; Measurements - Simple Features Profile XML Implementation
+# OGC Observations &amp; Measurements - Simple Features Profile
 
 ---
 *NOTE* This application profile is work-in-progress, and at this point, has not been endorsed by the OGC or any other standards organization. It may (and probably will) change in a backwards incompatible way during the drafting process. The namespace http://www.opengis.net/omsf/1.0 used has not (yet) been approved by the OGC Naming Authority, and thus may also change. Consider yourself warned.
@@ -6,6 +6,8 @@
 ---
 
 This GML application schema defines a profile of the OGC Observations and Measurements v2.0 ([OGC Document 10-004r3](http://portal.opengeospatial.org/files/?artifact_id=41579), also published as ISO 19156:2011, Geographic information — Observations and Measurements), and it's XML encoding compliant with GML Simple Features Profile version 2.0 ([OGC Document 10-100r3](http://portal.opengeospatial.org/files/?artifact_id=42729)). The TimeseriesObservation type is compliant with the Simple Features Profile level SF-1 due to repeated time and value elements, all other Observation types are compliant level SF-0.
+
+In addition to the XML implementation, it is intended to provide an JSON encoding of the same data model with data content and structure matching as closely as possible.
 
 Example of a omsf:MeasureObservation:
 
