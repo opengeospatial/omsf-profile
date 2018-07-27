@@ -1,0 +1,24 @@
+{
+    "type": "Feature",
+    "id": "f-1",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [
+            24.96131,
+            60.20307
+        ]
+    },
+    "properties": {
+        "observationType": "MeasureObservation",
+        "phenomenonTime": "2017-08-17T12:00:00Z",
+        "resultTime": "2017-08-17T12:01:25Z",
+        "usedProcedureTitle": "Meteorological surface observations",
+        "usedProcedureReference": "http://xml.fmi.fi/process/met-surface-observations",
+        "observedPropertyTitle": "Temperature",
+        "observedPropertyReference": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/",
+        "featureOfInterestTitle": "Helsinki Kumpula",
+        "featureOfInterestReference": "http://sws.geonames.org/843429/about.rdf",
+        "resultValue": 10.1,
+        "resultUnitOfMeasure": "degC"
+    }
+}

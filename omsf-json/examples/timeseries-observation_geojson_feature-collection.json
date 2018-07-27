@@ -1,0 +1,66 @@
+{
+  "type" : "FeatureCollection",
+  "features" : [ 
+  {
+    "type" : "Feature",
+    "id": "f-1",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [ 24.96131, 60.20307 ]
+    },
+    "properties": {
+        "observationType": "TimeseriesObservation",
+        "phenomenonTimeStart": "2017-08-17T12:00:00Z",
+        "phenomenonTimeEnd": "2017-08-17T18:00:00Z",
+        "resultTime": "2017-08-17T12:11:20Z",
+        "usedProcedureTitle": "Meteorological surface observations",
+        "usedProcedureReference": "http://xml.fmi.fi/process/met-surface-observations",
+        "observedPropertyTitle": "Temperature",
+        "observedPropertyReference": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/",
+        "featureOfInterestTitle": "Helsinki Kumpula",
+        "featureOfInterestReference": "http://sws.geonames.org/843429/about.rdf",
+        "timeSteps": [
+            "2017-08-17T12:00:00Z", 
+            "2017-08-17T13:00:00Z",
+            "2017-08-17T14:00:00Z",
+            "2017-08-17T15:00:00Z",
+            "2017-08-17T16:00:00Z",
+            "2017-08-17T17:00:00Z",
+            "2017-08-17T18:00:00Z"
+        ],
+        "resultUnitOfMeasure": "degC",
+        "resultValues": [12.5, 12.0, 11.0, 13.2, 13.5, 14.1, 14.1]
+    }
+  },
+  {
+    "type" : "Feature",
+    "id": "f-2",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [ 24.63264, 60.15372 ]
+    },
+    "properties": {
+        "observationType": "TimeseriesObservation",
+        "phenomenonTimeStart": "2017-08-17T12:00:00Z",
+        "phenomenonTimeEnd": "2017-08-17T18:00:00Z",
+        "resultTime": "2017-08-17T12:11:25Z",
+        "usedProcedureTitle": "Meteorological surface observations",
+        "usedProcedureReference": "http://xml.fmi.fi/process/met-surface-observations",
+        "observedPropertyTitle": "Temperature",
+        "observedPropertyReference": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/",
+        "featureOfInterestTitle": "Espoo Kivenlahti",
+        "featureOfInterestReference": "http://sws.geonames.org/636091/about.rdf",
+        "timeSteps": [
+            "2017-08-17T12:00:00Z", 
+            "2017-08-17T13:00:00Z",
+            "2017-08-17T14:00:00Z",
+            "2017-08-17T15:00:00Z",
+            "2017-08-17T16:00:00Z",
+            "2017-08-17T17:00:00Z",
+            "2017-08-17T18:00:00Z"
+        ],
+        "resultUnitOfMeasure": "degC",
+        "resultValues": [12.1, 11.5, 11.2, 10.1, 14.2, 15.0, 15.3]
+    }
+  }]
+}

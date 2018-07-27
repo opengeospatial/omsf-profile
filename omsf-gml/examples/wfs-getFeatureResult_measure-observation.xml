@@ -13,16 +13,15 @@
       <omsf:MeasureObservation gml:id="f-1">
           <omsf:phenomenonTime>2017-08-17T12:00:00Z</omsf:phenomenonTime>
           <omsf:resultTime>2017-08-17T12:01:25Z</omsf:resultTime>
-          <omsf:procedure xlink:href="http://xml.fmi.fi/process/met-surface-observations" xlink:title="Meteorological surface observations, collected following WMO No. 544, Manual on the Global Observing System, Volume I - Global aspects" />
-          <omsf:parameters>http://foo.bar.org/some/fully/qualified/uri=2017-08-17T12:00:00Z analysisCount=1</omsf:parameters>
+          <omsf:usedProcedure xlink:href="http://xml.fmi.fi/process/met-surface-observations" xlink:title="Meteorological surface observations" />
           <omsf:observedProperty xlink:href="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/" xlink:title="air_temperature" />
-          <omsf:foiName>Helsinki Kumpula</omsf:foiName>
-          <omsf:foiGeometry>
+          <omsf:featureOfInterestTitle>Helsinki Kumpula</omsf:featureOfInterestTitle>
+          <omsf:featureOfInterestGeometry>
               <gml:Point gml:id="p-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4258" srsDimension="2">
                   <gml:pos>60.20307 24.96131</gml:pos>
               </gml:Point>
-          </omsf:foiGeometry>
-          <omsf:foiReference xlink:href="http://sws.geonames.org/843429/about.rdf"/>
+          </omsf:featureOfInterestGeometry>
+          <omsf:featureOfInterestReference xlink:href="http://sws.geonames.org/843429/about.rdf"/>
           <omsf:result uom="degC">12.5</omsf:result>
       </omsf:MeasureObservation>
     </wfs:member>
@@ -30,16 +29,15 @@
         <omsf:MeasureObservation gml:id="f-2">
             <omsf:phenomenonTime>2017-08-17T12:00:00Z</omsf:phenomenonTime>
             <omsf:resultTime>2017-08-17T12:01:25Z</omsf:resultTime>
-            <omsf:procedure xlink:href="http://xml.fmi.fi/process/met-surface-observations" xlink:title="Meteorological surface observations, collected following WMO No. 544, Manual on the Global Observing System, Volume I - Global aspects" />
-            <omsf:parameters>http://foo.bar.org/some/fully/qualified/uri=2017-08-17T12:00:00Z analysisCount=1</omsf:parameters>
+            <omsf:usedProcedure xlink:href="http://xml.fmi.fi/process/met-surface-observations" xlink:title="Meteorological surface observations" />
             <omsf:observedProperty xlink:href="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/" xlink:title="air_temperature" />
-            <omsf:foiName>Espoo Kivenlahti</omsf:foiName>
-            <omsf:foiGeometry>
+            <omsf:featureOfInterestTitle>Espoo Kivenlahti</omsf:featureOfInterestTitle>
+            <omsf:featureOfInterestGeometry>
                 <gml:Point gml:id="p-2" srsName="http://www.opengis.net/def/crs/EPSG/0/4258" srsDimension="2">
                     <gml:pos>60.15372 24.63264</gml:pos>
                 </gml:Point>
-            </omsf:foiGeometry>
-            <omsf:foiReference xlink:href="http://sws.geonames.org/636091/about.rdf"/>
+            </omsf:featureOfInterestGeometry>
+            <omsf:featureOfInterestReference xlink:href="http://sws.geonames.org/636091/about.rdf"/>
             <omsf:result uom="degC">12.3</omsf:result>
         </omsf:MeasureObservation>
     </wfs:member>

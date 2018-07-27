@@ -1,0 +1,230 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://www.opengis.net/omsf-json/1.0/feature.json",
+    "title": "Observations & measurements - GeoJSON Simple Feature",
+    "description": "JSON Schema for validating an single GeoJSON O&M Simple Feature instance",
+    "type": "object",
+    "properties": {
+        "type": {
+            "$comment": "Temporary fix for https://github.com/geojson/schema/issues/2, replace with 'http://geojson.org/schema/Feature.json#/properties/type' when fixed",
+            "$ref": "#/definitions/geojsonFeatureType"
+        },
+        "geometry": {
+            "$ref": "http://geojson.org/schema/Feature.json#/properties/geometry"
+        },
+        "bbox": {
+            "$ref": "http://geojson.org/schema/Feature.json#/properties/bbox"
+        },
+        "properties": {
+            "type": "object",
+            "oneOf": [
+                { "$ref": "#/definitions/genericObservationProperties" },
+                { "$ref": "#/definitions/measureObservationProperties" },
+                { "$ref": "#/definitions/categoryObservationProperties" },
+                { "$ref": "#/definitions/countObservationProperties" },
+                { "$ref": "#/definitions/truthObservationProperties" },
+                { "$ref": "#/definitions/measureTimeseriesObservationProperties" }
+            ]
+        }
+    },
+    "required": [
+        "type",
+        "properties",
+        "geometry"
+    ],
+    "definitions": {
+        "genericObservationProperties": {
+            "type": "object",
+            "allOf": [
+                {
+                    "properties": {
+                        "observationType": {
+                            "type": "string",
+                            "enum": [ "GenericObservation" ]
+                        },
+                        "resultReference": {
+                            "type": "string",
+                            "format": "uri"   
+                        }
+                    },
+                    "required": [ "observationType", "resultReference" ]
+                },
+                { "$ref" : "#/definitions/common" }
+            ]
+        },
+        "measureObservationProperties": {
+            "type": "object",
+            "allOf": [
+                {
+                    "properties": {
+                        "observationType": {
+                            "type": "string",
+                            "enum": [ "MeasureObservation" ]
+                        },
+                        "resultValue": {
+                            "type": "number"   
+                        },
+                        "resultUnitOfMeasure": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [ "observationType", "resultValue" ]
+                },
+                { "$ref" : "#/definitions/common" }
+            ]
+        },
+        "categoryObservationProperties": {
+            "type": "object",
+            "allOf": [
+                {
+                    "properties": {
+                        "observationType": {
+                            "type": "string",
+                            "enum": [ "CategoryObservation" ]
+                        },
+                        "resultValue": {
+                            "type": "string"   
+                        }
+                    },
+                    "required": [ "observationType", "resultValue" ]
+                },
+                { "$ref" : "#/definitions/common" }
+            ]
+        },
+        "countObservationProperties": {
+            "type": "object",
+            "allOf": [
+                {
+                    "properties": {
+                        "observationType": {
+                            "type": "string",
+                            "enum": [ "CountObservation" ]
+                        },
+                        "resultValue": {
+                            "type": "integer"   
+                        }
+                    },
+                    "required": [ "observationType", "resultValue" ]
+                },
+                { "$ref" : "#/definitions/common" }
+            ]
+        },
+        "truthObservationProperties": {
+            "type": "object",
+            "allOf": [
+                {
+                    "properties": {
+                        "observationType": {
+                            "type": "string",
+                            "enum": [ "TruthObservation" ]
+                        },
+                        "resultValue": {
+                            "type": "boolean"   
+                        }
+                    },
+                    "required": [ "observationType", "resultValue" ]
+                },
+                { "$ref" : "#/definitions/common" }
+            ]
+        },
+        "measureTimeseriesObservationProperties": {
+            "type": "object",
+            "allOf": [
+                {
+                    "properties": {
+                        "observationType": {
+                            "type": "string",
+                            "enum": [ "MeasureTimeseriesObservation" ]
+                        },
+                        "timeSteps": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "format": "date-time",
+                                "uniqueItems": true
+                            }   
+                        },
+                        "resultValues": {
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            }   
+                        },
+                        "resultUnitOfMeasure": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [ "observationType", "resultTime", "resultValue" ]
+                },
+                { "$ref" : "#/definitions/common" }
+            ]
+        },
+        "common": {
+            "type": "object",
+            "properties": {
+                "metadataReference": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "resultTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "phenomenonTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "phenomenonTimeStart": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "phenomenonTimeEnd": {
+                     "type": "string",
+                     "format": "date-time"
+                },
+                "validTimeStart": {
+                     "type": "string",
+                     "format": "date-time"
+                },
+                "validTimeEnd": {
+                     "type": "string",
+                     "format": "date-time"
+                },
+                "madeBySensorTitle": {
+                    "type": "string"
+                },
+                "madeBySensorReference": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "usedProcedureTitle": {
+                    "type": "string"
+                },
+                 "usedProcedureReference": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "observedPropertyTitle": {
+                    "type": "string"
+                },
+                 "observedPropertyReference": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "featureOfInterestTitle": {
+                    "type": "string"
+                },
+                "featureOfInterestReference": {
+                    "type": "string",
+                    "format": "uri"
+                }
+            },
+            "required": [ "resultTime", "observedPropertyReference" ]
+        },
+        "geojsonFeatureType": {
+            "$comment": "Temporary fix for https://github.com/geojson/schema/issues/2, remove when fixed",
+            "type": "string",
+            "enum": [ "Feature" ]
+        }
+     }
+}
