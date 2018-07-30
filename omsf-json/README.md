@@ -131,6 +131,7 @@ resultValue | required | integer | |
 In addition to the common properties listed above, MeasureTimeseriesObservation has the following properties:
 
 Property name | Condition | Type | Value
+--------------|--------------|-----------|------
 observationType | required | string | fixed 'MeasureTimeseriesObservation'
 timeSteps | required | array of string (date-time) | |
 resultUnitOfMeasure | optional | string | UCUM code or an URI
