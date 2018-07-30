@@ -82,7 +82,7 @@ The following primary design goals have been followed (in priority order):
 These properties are defined for all the Observation types:
 
 Property name | Multiplicity | Type |  Notes
---------------|--------------|-----------|------|------
+--------------|--------------|-----------|------|
 metadata | 0..1 | gml:ReferenceType | external reference 
 resultTime | 1 | xsd:dateTime | |
 phenomenonTime | 0..1 (choice with start-end pair) | xsd:dateTime | required only if the phenomenon time is a time instant |
@@ -101,7 +101,7 @@ featureOfInterestReference | 0..1 | gml:ReferenceType | external reference |
 
 In addition to the common properties listed above, omsf:GenericObservation has the following properties:
 
-Property name | Multiplicity | Type | Value
+Property name | Multiplicity | Type | Notes
 --------------|--------------|-----------|------
 result | 1 | gml:ReferenceType | extenal reference
 
@@ -110,7 +110,7 @@ result | 1 | gml:ReferenceType | extenal reference
 
 In addition to the common properties listed above, omsf:MeasureObservation has the following properties:
 
-Property name | Multiplicity | Type | Value
+Property name | Multiplicity | Type | Notes
 --------------|--------------|-----------|------
 result | 1 | gml:MeasureType | |
 
@@ -119,7 +119,7 @@ result | 1 | gml:MeasureType | |
 
 In addition to the common properties listed above, omsf:CategoryObservation has the following properties:
 
-Property name |  Multiplicity | Type | Value
+Property name |  Multiplicity | Type | Notes
 --------------|--------------|-----------|------
 result | 1 |  gml:ReferenceType | URI reference recommended indicating both the codelist and the value |
 
@@ -127,7 +127,7 @@ result | 1 |  gml:ReferenceType | URI reference recommended indicating both the 
 
 In addition to the common properties listed above, omsf:TruthObservation has the following properties:
 
-Property name | Multiplicity | Type | Value
+Property name | Multiplicity | Type | Notes
 --------------|--------------|-----------|------
 result | 1 | xsd:boolean | |
 
@@ -136,7 +136,7 @@ result | 1 | xsd:boolean | |
 
 In addition to the common properties listed above, omsf:CountObservation has the following properties:
 
-Property name | Multiplicity | Type | Value
+Property name | Multiplicity | Type | Notes
 --------------|--------------|-----------|------
 result| 1 | xsd:integer | |
 
@@ -145,7 +145,7 @@ result| 1 | xsd:integer | |
 
 In addition to the common properties listed above, omsf:MeasureTimeseriesObservation has the following properties:
 
-Property name | Multiplicity | Type | Value
+Property name | Multiplicity | Type | Notes
 --------------|--------------|-----------|------
 timeStep | 1..n | xsd:dateTime | |
 resultUnitOfMeasure | 0..1 |  gml:ReferenceType | external reference|
