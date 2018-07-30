@@ -154,7 +154,7 @@
                             "type": "string"
                         }
                     },
-                    "required": [ "observationType", "resultTime", "resultValue" ]
+                    "required": [ "observationType", "timeSteps", "resultValues" ]
                 },
                 { "$ref" : "#/definitions/common" }
             ]

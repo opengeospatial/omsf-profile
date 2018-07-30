@@ -122,7 +122,7 @@
         <xsd:complexContent>
             <xsd:extension base="omsf:AbstractObservationType">
                 <xsd:sequence>
-                    <xsd:element name="resultTime" type="xsd:dateTime" minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="timeStep" type="xsd:dateTime" minOccurs="1" maxOccurs="unbounded"/>
                 </xsd:sequence>
             </xsd:extension>
         </xsd:complexContent>
@@ -137,8 +137,8 @@
         <xsd:complexContent>
             <xsd:extension base="omsf:AbstractTimeseriesObservationType">
                 <xsd:sequence>
-                    <xsd:element name="resultUnitOfMeasure" type="gml:CodeType" minOccurs="1"/>
-                    <xsd:element name="resultValue" type="xsd:double" minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="resultUnitOfMeasure" type="gml:ReferenceType" minOccurs="1"/>
+                    <xsd:element name="resultValue" type="xsd:double" minOccurs="1" maxOccurs="unbounded"/>
                 </xsd:sequence>
             </xsd:extension>
         </xsd:complexContent>
