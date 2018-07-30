@@ -58,7 +58,7 @@ type have been defined using JSON Schema in [feature.json](./feature.json).
 These properties are defined for all the Observation types:
 
 Property name | Condition | Type | Value
---------------|--------------|-----------|------|------
+--------------|--------------|-----------|------
 metadataReference | optional | string (URI) | external reference 
 resultTime | required | string (date-time) | |
 phenomenonTime | required if the phenomenon time is a time instant | string (date-time) | |
