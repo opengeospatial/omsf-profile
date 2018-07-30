@@ -80,7 +80,7 @@ featureOfInterestReference | optional | string (URI) | external reference |
 In addition to the common properties listed above, GenericObservation has the following properties:
 
 Property name | Condition | Type | Value
---------------|--------------|-----------|------|------
+--------------|--------------|-----------|------
 observationType | required | string | fixed 'GenericObservation'
 resultReference | required | string (URI) | extenal reference
 
@@ -90,7 +90,7 @@ resultReference | required | string (URI) | extenal reference
 In addition to the common properties listed above, MeasureObservation has the following properties:
 
 Property name | Condition | Type | Value
---------------|--------------|-----------|------|------
+--------------|--------------|-----------|------
 observationType | required | string | fixed 'MeasureObservation'
 resultValue | required | number | |
 resultUnitOfMeasure | optional | string | UCUM code or an URI
@@ -101,7 +101,7 @@ resultUnitOfMeasure | optional | string | UCUM code or an URI
 In addition to the common properties listed above, CategoryObservation has the following properties:
 
 Property name |  Condition | Type | Value
---------------|--------------|-----------|------|------
+--------------|--------------|-----------|------
 observationType | required | string | fixed 'CategoryObservation'
 resultValue | required | string | URI reference recommended indicating both the codelist and the value |
 
@@ -110,7 +110,7 @@ resultValue | required | string | URI reference recommended indicating both the 
 In addition to the common properties listed above, TruthObservation has the following properties:
 
 Property name | Condition | Type | Value
---------------|--------------|-----------|------|------
+--------------|--------------|-----------|------
 observationType | required | string | fixed 'TruthObservation'
 resultValue | required | boolean | |
 
@@ -120,7 +120,7 @@ resultValue | required | boolean | |
 In addition to the common properties listed above, CountObservation has the following properties:
 
 Property name | Condition | Type | Value
---------------|--------------|-----------|------|------
+--------------|--------------|-----------|------
 observationType | required | string | fixed 'CountObservation'
 resultValue | required | integer | |
 
@@ -131,7 +131,6 @@ resultValue | required | integer | |
 In addition to the common properties listed above, MeasureTimeseriesObservation has the following properties:
 
 Property name | Condition | Type | Value
---------------|--------------|-----------|------|------
 observationType | required | string | fixed 'MeasureTimeseriesObservation'
 timeSteps | required | array of string (date-time) | |
 resultUnitOfMeasure | optional | string | UCUM code or an URI
