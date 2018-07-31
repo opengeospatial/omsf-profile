@@ -199,6 +199,6 @@ So the TimeseriesObservation is compliant with SF-1, not SF-0 like the other OMS
 </omsf:MeasureTimeseriesObservation>
 ```
 
-The repeated property encoding allows client applications to treat both resultTime and resultValue as arrays is 
-simple values, wtih would not be possible using time-value-pair encoding.
+The repeated property encoding allows client applications to treat both ```timeStep``` and ```resultValue``` as arrays of 
+simple values, which would not be possible using time-value-pair encoding.
 

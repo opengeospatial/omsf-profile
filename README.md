@@ -2,7 +2,7 @@
 
 ---
 
-*NOTE* These encodings are work-in-progress, and at this point, has not been endorsed by the OGC or any other standards organization. 
+**NOTE**: These encodings are work-in-progress, and at this point, has not been endorsed by the OGC or any other standards organization. 
 It may (and probably will) change in a backwards incompatible way during the drafting process. 
 The namespaces http://www.opengis.net/omsf-gml/1.0 and http://www.opengis.net/omsf-json/1.0 have not (yet) 
 been approved by the OGC Naming Authority, and thus may also change. Consider yourself warned.

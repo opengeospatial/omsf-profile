@@ -1,6 +1,6 @@
 # OGC Observations and Measurements - GeoJSON Encoding
 
-In addition to the [GML implementation](../omsf-gml/), a GeoJSON encoding of the same data model is provided with data content and structure matching the GML profile as closely as possible.
+In addition to the [GML implementation](../omsf-gml), a GeoJSON encoding of the same data model is provided with data content and structure matching the GML profile as closely as possible.
 
 Example of a omsf:MeasureObservation encoded in GeoJSON:
 ```json
@@ -33,25 +33,27 @@ The [GeoJSON Feature model](http://geojson.org/schema/Feature.json) is a very si
 GeoJSON geometry types (Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon or GeometryCollection), and property called 'properties', containing any JSON object 
 (see [RFC 7946](https://tools.ietf.org/html/rfc7946)).
 
-The specification explicitly forbids 'extending' the GeoJSON types, including the Feature, but at the same time it is allowed to use additional properties (called foreign members) is 
-GeoJSON documents. The way this requirement is interpreted here, is that you cannot require additional foreing members to be included in a GeoJSON Feature, or change any aspect 
-of the Feature properties defined in the specification, and claim that it still is a GeoJSON Feature. Thus using foreign members in GeoJSON Feature instances is OK, as long as you are
-not trying to 'retype' the Feature.
-
-Because of both the forbidden extending and better interoperability with existing client applications, the decision has been made to use the GeoJSON Feature type as-is, and to leverage the
-'properties' JSON object for encoding the O&M properties. Requiring the use of particular JSON content inside the 'properties' is interpreted as not extending the Feature type, as this
-property can contain any JSON object. It's allowed to use properties additional to the OMSF defined ones, too. Thus any OMSF feature defined by the rules below is 
-automatically a valid GeoJSON Feature. Additionally, attention has been paid to ensure that the JSON contents of the 'properties' are simple enough to be interpreted by 
+The specification explicitly forbids 'extending' the GeoJSON types, including the Feature, but at the same time it is allowed to 
+use additional properties (called foreign members) in
+GeoJSON documents. The way this requirement is interpreted in this project, is that you cannot require additional foreing members 
+to be included in a GeoJSON Feature, or change any aspect of the Feature properties defined in the specification.
+So to be compliant with the GeoJSON specification and thus improve interoperability with existing client software, the decision 
+has been made to use the GeoJSON Feature type as-is, and to leverage the
+'properties' JSON object for encoding the O&M properties. Requiring the use of particular JSON content inside the 'properties' 
+is not interpreted as extending the Feature type, as this 'properties' is alloed to contain any JSON object. 
+In addition to the OMSF properties, any additional properties are also allowed inside the 'properties' of OMSF GeoJSON Features. 
+Additionally, attention has been paid to ensure that the OMSF properties are simple enough to be interpreted correctly by 
 typical existing client software.
 
-The geometry property of the OMSF GeoJSON Feature is used for the geometry of the feature of interest of the observation.
+The GeoJSON encoding defines a property set for the same types of O&M features as the [GML profile](../omsf-gml) does: GenericObservation, 
+MeasureObservation, CategoryObservation, TruthObservation, CountObservation and MeasureTimeseriesObservation. 
 
-The GeoJSON encoding defines a property set for the same types of O&M features as the GML profile does: GenericObservation, 
-MeasureObservation, CategoryObservation, TruthObservation, CountObservation and MeasureTimeseriesObservation. The properties expected to be used in
-each of the observation type are given in the tables below. The work versions of validation rules for each observation 
-type have been defined using JSON Schema in [feature.json](./feature.json).
+The work versions of validation rules for each observation type have been defined using JSON Schema in [feature.json](./feature.json).
 
 ## Properties
+
+The geometry property of the OMSF GeoJSON Feature is used for the geometry of the feature of interest of the observation.
+Other OMSF properties expected to be used in each of the observation type are given in the tables below. 
 
 ### Common
 
