@@ -19,7 +19,7 @@
         "featureOfInterestTitle": "Helsinki Kumpula",
         "featureOfInterestReference": "http://sws.geonames.org/843429/about.rdf",
         "resultValue": 12.5,
-        "resultUnit": "degC"
+        "resultUnit": "Cel"
     }
   },
   {
@@ -40,7 +40,7 @@
         "featureOfInterestTitle": "Espoo Kivenlahti",
         "featureOfInterestReference": "http://sws.geonames.org/636091/about.rdf",
         "resultValue": 12.3,
-        "resultUnit": "degC"
+        "resultUnit": "Cel"
         }
     }]
 }

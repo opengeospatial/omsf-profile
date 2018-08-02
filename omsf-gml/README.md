@@ -27,7 +27,7 @@ Example of a omsf:MeasureObservation:
     </gml:Point>
   </omsf:featureOfInterestGeometry>
   <omsf:featureOfInterestReference xlink:href="http://sws.geonames.org/843429/about.rdf"/>
-  <omsf:result uom="degC">12.5</omsf:result>
+  <omsf:result uom="Cel">12.5</omsf:result>
 </omsf:MeasureObservation>
 ```
 

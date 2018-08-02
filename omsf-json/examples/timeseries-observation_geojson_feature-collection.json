@@ -28,7 +28,7 @@
             "2017-08-17T17:00:00Z",
             "2017-08-17T18:00:00Z"
         ],
-        "resultUnitOfMeasure": "degC",
+        "resultUnitOfMeasure": "Cel",
         "resultValues": [12.5, 12.0, 11.0, 13.2, 13.5, 14.1, 14.1]
     }
   },
@@ -59,7 +59,7 @@
             "2017-08-17T17:00:00Z",
             "2017-08-17T18:00:00Z"
         ],
-        "resultUnitOfMeasure": "degC",
+        "resultUnitOfMeasure": "Cel",
         "resultValues": [12.1, 11.5, 11.2, 10.1, 14.2, 15.0, 15.3]
     }
   }]

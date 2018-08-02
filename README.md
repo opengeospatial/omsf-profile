@@ -36,7 +36,7 @@ Example of a omsf:MeasureObservation using the GML Simple Features Profile 2.0 e
     </gml:Point>
   </omsf:featureOfInterestGeometry>
   <omsf:featureOfInterestReference xlink:href="http://sws.geonames.org/843429/about.rdf"/>
-  <omsf:result uom="degC">12.5</omsf:result>
+  <omsf:result uom="Cel">12.5</omsf:result>
 </omsf:MeasureObservation>
 ```
 
@@ -60,7 +60,7 @@ The same feature using the GeoJSON encoding:
     "featureOfInterestTitle": "Helsinki Kumpula",
     "featureOfInterestReference": "http://sws.geonames.org/843429/about.rdf",
     "resultValue": 12.5,
-    "resultUnitOfMeasure": "degC"
+    "resultUnitOfMeasure": "Cel"
   }
 }
 ```

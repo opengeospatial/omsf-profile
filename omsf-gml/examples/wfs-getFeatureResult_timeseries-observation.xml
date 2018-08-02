@@ -30,7 +30,7 @@
             <omsf:resultTime>2017-08-17T16:00:00Z</omsf:resultTime>
             <omsf:resultTime>2017-08-17T17:00:00Z</omsf:resultTime>
             <omsf:resultTime>2017-08-17T18:00:00Z</omsf:resultTime>
-            <omsf:resultUnitOfMeasure codeSpace="UCUM">degC</omsf:resultUnitOfMeasure>
+            <omsf:resultUnitOfMeasure codeSpace="UCUM">Cel</omsf:resultUnitOfMeasure>
             <omsf:resultValue>12.5</omsf:resultValue>
             <omsf:resultValue>12.0</omsf:resultValue>
             <omsf:resultValue>11.0</omsf:resultValue>
