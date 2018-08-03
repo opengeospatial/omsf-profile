@@ -22,7 +22,7 @@ Example of a omsf:MeasureObservation encoded in GeoJSON:
     "featureOfInterestTitle": "Helsinki Kumpula",
     "featureOfInterestReference": "http://sws.geonames.org/843429/about.rdf",
     "resultValue": 10.1,
-    "resultUnitOfMeasure": "degC"
+    "resultUnitOfMeasure": "Cel"
   }
 }
 ```
