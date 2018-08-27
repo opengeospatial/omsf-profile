@@ -9,7 +9,7 @@
         "coordinates": [ 24.96131, 60.20307 ]
     },
     "properties": {
-        "observationType": "TimeseriesObservation",
+        "observationType": "MeasureTimeseriesObservation",
         "phenomenonTimeStart": "2017-08-17T12:00:00Z",
         "phenomenonTimeEnd": "2017-08-17T18:00:00Z",
         "resultTime": "2017-08-17T12:11:20Z",
@@ -40,7 +40,7 @@
         "coordinates": [ 24.63264, 60.15372 ]
     },
     "properties": {
-        "observationType": "TimeseriesObservation",
+        "observationType": "MeasureTimeseriesObservation",
         "phenomenonTimeStart": "2017-08-17T12:00:00Z",
         "phenomenonTimeEnd": "2017-08-17T18:00:00Z",
         "resultTime": "2017-08-17T12:11:25Z",
