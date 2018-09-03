@@ -81,28 +81,28 @@ The following primary design goals have been followed (in priority order):
 The implementation model of the OMSF GML encoding is a simplified version of the Observation class
 as defined in the OGC and ISO 19156 standard. The following table summarises the simplification decisions applied:
 
-O&M attribute/association | O&M type | O&M Multiplicity  |OMSF property | OMSF type | OMSF multiplicity | OMSF notes
+O&M attribute/association | O&M type | O&M Multiplicity  |OMSF property | OMSF type |
 --------------------------|----------|-------------------|--------------|-----------|-------------------|-------
-featureOfInterest | association with GFI_Feature | 1 | featureOfInterestTitle | xsd:string | 0..1 | name of the FoI |
-featureOfInterest | association with GFI_Feature | 1 | featureOfInterestGeometry | gml:GeometryPropertyType | 1 | geometry of the FoI, the Observation feature geometry |
-featureOfInterest | association with GFI_Feature | 1 | featureOfInterestReference | gml:ReferenceType | 0..1 | Optional for linking to the full FoI object / description |
-metadata | association with MD_Metadata | 0..1 | metadataReference | gml:ReferenceType | 0..1 | external reference |
-observedProperty | association with GF_PropertyType | 1 | observedProperty | gml:ReferenceType | 1 | |
-parameter | NamedValue | 0..n | n/a | n/a | n/a | not included |
-phenomenonTime | TM_Object | 1  | phenomenonTime | xsd:dateTime | 0..1 | Required if not period |
-phenomenonTime | TM_Object | 1  | phenomenonTimeStart | xsd:dateTime | 0..1 | Required if period with a known start |
-phenomenonTime | TM_Object | 1  | phenomenonTimeEnd | xsd:dateTime | 0..1 |  Required if period with a known end |
-procedure | association with OM_Process | 1 | usedProcedure | gml:ReferenceType | 0..1 | SSN influence, method separated from sensor |
-procedure | association with OM_Process | 1 | madeBySensor | gml:ReferenceType | 0..1 | SSN influence, method separated from sensor |
-relatedObservation | association with self | 0..n |  n/a | n/a | n/a | not included |
-result | Any | 1 | result | varied | 1 | depends on the Observation type |
-result | Any | 1 | timeStep | xsd:dateTime | 1..n | for MeasureTimeSeries type only |
-result | Any | 1 | resultUnitOfMeasure | gml:ReferenceType | 0..1 | for MeasureTimeSeries type only |
-result | Any | 1 | resultValue | xsd:double | 1..n | for MeasureTimeSeries type only |
-resultQuality | DQ_Element | 0..n | n/a | n/a | n/a | not included |
-resultTime | TM_Instant | 1 | resultTime | xsd:dateTime | 1 | |
-validTime | TM_Period | 0..1 | validTimeStart | xsd:dateTime | 0..1 | Not not given and validTimeEnd exists, period has no start |
-validTime | TM_Period | 0..1 | validTimeEnd | xsd:dateTime | 0..1 | Not not given and validTimeStart exists, period has no end |
+featureOfInterest | association with GFI_Feature | 1 | featureOfInterestTitle | xsd:string | 
+featureOfInterest | association with GFI_Feature | 1 | featureOfInterestGeometry | gml:GeometryPropertyType |
+featureOfInterest | association with GFI_Feature | 1 | featureOfInterestReference | gml:ReferenceType |
+metadata | association with MD_Metadata | 0..1 | metadataReference | gml:ReferenceType |
+observedProperty | association with GF_PropertyType | 1 | observedProperty | gml:ReferenceType | 
+parameter | NamedValue | 0..n | n/a | n/a | 
+phenomenonTime | TM_Object | 1  | phenomenonTime | xsd:dateTime | 
+phenomenonTime | TM_Object | 1  | phenomenonTimeStart | xsd:dateTime | 
+phenomenonTime | TM_Object | 1  | phenomenonTimeEnd | xsd:dateTime | 
+procedure | association with OM_Process | 1 | usedProcedure | gml:ReferenceType | 
+procedure | association with OM_Process | 1 | madeBySensor | gml:ReferenceType | 
+relatedObservation | association with self | 0..n |  n/a | n/a | 
+result | Any | 1 | result | varied | 
+result | Any | 1 | timeStep | xsd:dateTime | 
+result | Any | 1 | resultUnitOfMeasure | gml:ReferenceType | 
+result | Any | 1 | resultValue | xsd:double | 
+resultQuality | DQ_Element | 0..n | n/a | n/a | 
+resultTime | TM_Instant | 1 | resultTime | xsd:dateTime | 
+validTime | TM_Period | 0..1 | validTimeStart | xsd:dateTime | 
+validTime | TM_Period | 0..1 | validTimeEnd | xsd:dateTime | 
 
 Rationale for the not included properties:
 
