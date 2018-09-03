@@ -51,9 +51,45 @@ MeasureObservation, CategoryObservation, TruthObservation, CountObservation and 
 The work versions of validation rules for each observation type have been defined using JSON Schema in [feature.json](./feature.json).
 
 ## Properties
-
 The geometry property of the OMSF GeoJSON Feature is used for the geometry of the feature of interest of the observation.
 Other OMSF properties expected to be used in each of the observation type are given in the tables below. 
+
+### Simplified mapping of O&M Observation properties
+The implementation model of the OMSF GeoJSON encoding is a simplified version of the Observation class
+as defined in the OGC and ISO 19156 standard. The following table summarises the simplification decisions applied:
+
+O&M attribute/association | O&M type | O&M Multiplicity  |OMSF property | OMSF type | OMSF multiplicity | OMSF notes
+--------------------------|----------|-------------------|--------------|-----------|-------------------|-------
+featureOfInterest | association with GFI_Feature | 1 | properties/featureOfInterestTitle | string | 0..1 | name of the FoI |
+featureOfInterest | association with GFI_Feature | 1 | geometry | GeoJSON geometry | 1 | geometry of the FoI |
+featureOfInterest | association with GFI_Feature | 1 | properties/featureOfInterestReference | string (uri) | 0..1 | Optional for linking to the full FoI object / description |
+metadata | association with MD_Metadata | 0..1 | properties/metadataReference | string (uri) | 0..1 | external reference |
+observedProperty | association with GF_PropertyType | 1 | properties/observedPropertyTitle | string | 0..1 | |
+observedProperty | association with GF_PropertyType | 1 | properties/observedPropertyReference | string (uri) | 1 | |
+parameter | NamedValue | 0..n | n/a | n/a | n/a | not included |
+phenomenonTime | TM_Object | 1  | properties/phenomenonTime | string (date-time) | 0..1 | Required if not period |
+phenomenonTime | TM_Object | 1  | properties/phenomenonTimeStart | string (date-time) | 0..1 | Required if period with a known start |
+phenomenonTime | TM_Object | 1  | properties/phenomenonTimeEnd | string (date-time) | 0..1 |  Required if period with a known end |
+procedure | association with OM_Process | 1 | properties/usedProcedureTitle | string | 0..1 | SSN influence, method separated from sensor |
+procedure | association with OM_Process | 1 | properties/usedProcedureReference | string (uri) | 0..1 | SSN influence, method separated from sensor |
+procedure | association with OM_Process | 1 | properties/madeBySensorTitle | string | 0..1 | SSN influence, method separated from sensor |
+procedure | association with OM_Process | 1 | properties/madeBySensorReference | string (uri) | 0..1 | SSN influence, method separated from sensor |
+relatedObservation | association with self | 0..n |  n/a | n/a | n/a | not included |
+result | Any | 1 | properties/resultValue | varied | 1 | depends on the Observation type |
+result | Any | 1 | properties/timeSteps | array of string (date-time) | 1 | for MeasureTimeSeries type only |
+result | Any | 1 | properties/resultReference | string (uri) | 1 | for GenericObservation type only |
+result | Any | 1 | properties/resultUnitOfMeasure | string | 0..1 | for MeasureObservation and MeasureTimeSeries types only |
+result | Any | 1 | properties/resultValues | array of number | 1 | for MeasureTimeSeries type only |
+resultQuality | DQ_Element | 0..n | n/a | n/a | n/a | not included |
+resultTime | TM_Instant | 1 | properties/resultTime | string (date-time) | 1 | |
+validTime | TM_Period | 0..1 | properties/validTimeStart | string (date-time) | 0..1 | Not not given and validTimeEnd exists, period has no start |
+validTime | TM_Period | 0..1 | properties/validTimeEnd | string (date-time) | 0..1 | Not not given and validTimeStart exists, period has no end |
+
+Rationale for the not included properties:
+
+* **parameter**: 0..n multiplicity of name-value pairs would require two array properties (name & value). Trade-off between completeness and simplicity.
+* **relatedObservation**: not a problem to include technically (as a uri string), but rarely used in practice
+* **resultQuality**: not clear how to encode this in a generic way using a flat, but machine-readable property value. Rarely used in practice,  trade-off between completeness and simplicity.
 
 ### Common
 

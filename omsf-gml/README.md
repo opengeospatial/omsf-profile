@@ -77,13 +77,45 @@ The following primary design goals have been followed (in priority order):
  
 ## Properties
 
-### Common
+### Simplified mapping of O&M Observation properties
+The implementation model of the OMSF GML encoding is a simplified version of the Observation class
+as defined in the OGC and ISO 19156 standard. The following table summarises the simplification decisions applied:
 
+O&M attribute/association | O&M type | O&M Multiplicity  |OMSF property | OMSF type | OMSF multiplicity | OMSF notes
+--------------------------|----------|-------------------|--------------|-----------|-------------------|-------
+featureOfInterest | association with GFI_Feature | 1 | featureOfInterestTitle | xsd:string | 0..1 | name of the FoI |
+featureOfInterest | association with GFI_Feature | 1 | featureOfInterestGeometry | gml:GeometryPropertyType | 1 | geometry of the FoI, the Observation feature geometry |
+featureOfInterest | association with GFI_Feature | 1 | featureOfInterestReference | gml:ReferenceType | 0..1 | Optional for linking to the full FoI object / description |
+metadata | association with MD_Metadata | 0..1 | metadataReference | gml:ReferenceType | 0..1 | external reference |
+observedProperty | association with GF_PropertyType | 1 | observedProperty | gml:ReferenceType | 1 | |
+parameter | NamedValue | 0..n | n/a | n/a | n/a | not included |
+phenomenonTime | TM_Object | 1  | phenomenonTime | xsd:dateTime | 0..1 | Required if not period |
+phenomenonTime | TM_Object | 1  | phenomenonTimeStart | xsd:dateTime | 0..1 | Required if period with a known start |
+phenomenonTime | TM_Object | 1  | phenomenonTimeEnd | xsd:dateTime | 0..1 |  Required if period with a known end |
+procedure | association with OM_Process | 1 | usedProcedure | gml:ReferenceType | 0..1 | SSN influence, method separated from sensor |
+procedure | association with OM_Process | 1 | madeBySensor | gml:ReferenceType | 0..1 | SSN influence, method separated from sensor |
+relatedObservation | association with self | 0..n |  n/a | n/a | n/a | not included |
+result | Any | 1 | result | varied | 1 | depends on the Observation type |
+result | Any | 1 | timeStep | xsd:dateTime | 1..n | for MeasureTimeSeries type only |
+result | Any | 1 | resultUnitOfMeasure | gml:ReferenceType | 0..1 | for MeasureTimeSeries type only |
+result | Any | 1 | resultValue | xsd:double | 1..n | for MeasureTimeSeries type only |
+resultQuality | DQ_Element | 0..n | n/a | n/a | n/a | not included |
+resultTime | TM_Instant | 1 | resultTime | xsd:dateTime | 1 | |
+validTime | TM_Period | 0..1 | validTimeStart | xsd:dateTime | 0..1 | Not not given and validTimeEnd exists, period has no start |
+validTime | TM_Period | 0..1 | validTimeEnd | xsd:dateTime | 0..1 | Not not given and validTimeStart exists, period has no end |
+
+Rationale for the not included properties:
+
+* **parameter**: 0..n multiplicity of name-value pairs (as user defined types) would require compliance level SF-1, or a specially encoded list type. Trade-off between completeness and simplicity.
+* **relatedObservation**: not a problem to include technically (as a reference), but rarely used in practice
+* **resultQuality**: embedded quality info would a user-defined type and thus SF-1 level. Rarely used in practice,  trade-off between completeness and simplicity.
+
+### Common properties
 These properties are defined for all the Observation types:
 
 Property name | Multiplicity | Type |  Notes
 --------------|--------------|-----------|------|
-metadata | 0..1 | gml:ReferenceType | external reference 
+metadataReference | 0..1 | gml:ReferenceType | external reference 
 resultTime | 1 | xsd:dateTime | |
 phenomenonTime | 0..1 (choice with start-end pair) | xsd:dateTime | required only if the phenomenon time is a time instant |
 phenomenonTimeStart | 0..1 (choice with single phenomenonTime) | xsd:dateTime | required only if the phenomenon time is a time range  |
