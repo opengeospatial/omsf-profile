@@ -82,7 +82,7 @@ The implementation model of the OMSF GML encoding is a simplified version of the
 as defined in the OGC and ISO 19156 standard. The following table summarises the simplification decisions applied:
 
 O&M attribute/association | O&M type | O&M Multiplicity  |OMSF property | OMSF type |
---------------------------|----------|-------------------|--------------|-----------|-------------------|-------
+--------------------------|----------|-------------------|--------------|-----------|
 featureOfInterest | association with GFI_Feature | 1 | featureOfInterestTitle | xsd:string | 
 featureOfInterest | association with GFI_Feature | 1 | featureOfInterestGeometry | gml:GeometryPropertyType |
 featureOfInterest | association with GFI_Feature | 1 | featureOfInterestReference | gml:ReferenceType |
