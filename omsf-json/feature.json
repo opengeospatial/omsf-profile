@@ -198,14 +198,14 @@
                      "type": "string",
                      "format": "date-time"
                 },
-                "madeBySensorTitle": {
+                "madeBySensorName": {
                     "type": "string"
                 },
                 "madeBySensorReference": {
                     "type": "string",
                     "format": "uri"
                 },
-                "usedProcedureTitle": {
+                "usedProcedureName": {
                     "type": "string"
                 },
                  "usedProcedureReference": {
