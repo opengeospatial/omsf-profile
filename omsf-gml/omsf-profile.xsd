@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema 
+<xsd:schema
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:gml="http://www.opengis.net/gml/3.2"
     xmlns:gmlsf="http://www.opengis.net/gmlsf/2.0"
@@ -9,7 +9,7 @@
     version="0.0.2">
     <xsd:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd" />
     <xsd:import namespace="http://www.opengis.net/gmlsf/2.0" schemaLocation="http://schemas.opengis.net/gmlsfProfile/2.0/gmlsfLevels.xsd"/>
-    
+
     <xsd:annotation>
       <xsd:appinfo source="http://schemas.opengis.net/gmlsfProfile/2.0/gmlsfLevels.xsd">
         <gmlsf:ComplianceLevel>1</gmlsf:ComplianceLevel>
@@ -35,14 +35,16 @@
                    <xsd:element name="madeBySensor" type="gml:ReferenceType" minOccurs="0" />
                    <xsd:element name="usedProcedure" type="gml:ReferenceType" minOccurs="0" />
                    <xsd:element name="observedProperty" type="gml:ReferenceType" minOccurs="1" />
-                   <xsd:element name="featureOfInterestTitle" type="xsd:string" minOccurs="0"/>
-                   <xsd:element name="featureOfInterestGeometry" type="gml:GeometryPropertyType" minOccurs="1"/>
-                   <xsd:element name="featureOfInterestReference" type="gml:ReferenceType" minOccurs="0" />
+                   <xsd:element name="samplingFeatureName" type="xsd:string" minOccurs="0"/>
+                   <xsd:element name="samplingFeatureGeometry" type="gml:GeometryPropertyType" minOccurs="1"/>
+                   <xsd:element name="samplingFeatureReference" type="gml:ReferenceType" minOccurs="0" />
+                   <xsd:element name="ultimateFeatureOfInterestName" type="xsd:string" minOccurs="0"/>
+                   <xsd:element name="ultimateFeatureOfInterestReference" type="gml:ReferenceType" minOccurs="0" />
                 </xsd:sequence>
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
-    
+
     <xsd:element name="GenericObservation" type="omsf:GenericObservationType" substitutionGroup="gml:AbstractFeature">
         <xsd:annotation>
             <xsd:documentation></xsd:documentation>
@@ -57,7 +59,7 @@
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
-    
+
     <xsd:element name="MeasureObservation" type="omsf:MeasureObservationType" substitutionGroup="gml:AbstractFeature">
         <xsd:annotation>
             <xsd:documentation></xsd:documentation>
@@ -72,7 +74,7 @@
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
-    
+
     <xsd:element name="CategoryObservation" type="omsf:CategoryObservationType" substitutionGroup="gml:AbstractFeature">
         <xsd:annotation>
             <xsd:documentation></xsd:documentation>
@@ -87,7 +89,7 @@
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
-    
+
     <xsd:element name="CountObservation" type="omsf:CountObservationType" substitutionGroup="gml:AbstractFeature">
         <xsd:annotation>
             <xsd:documentation></xsd:documentation>
@@ -102,7 +104,7 @@
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
-    
+
     <xsd:element name="TruthObservation" type="omsf:TruthObservationType" substitutionGroup="gml:AbstractFeature">
         <xsd:annotation>
             <xsd:documentation></xsd:documentation>
@@ -127,7 +129,7 @@
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
-    
+
     <xsd:element name="MeasureTimeseriesObservation" type="omsf:MeasureTimeseriesObservationType" substitutionGroup="gml:AbstractFeature">
         <xsd:annotation>
             <xsd:documentation></xsd:documentation>
@@ -137,12 +139,12 @@
         <xsd:complexContent>
             <xsd:extension base="omsf:AbstractTimeseriesObservationType">
                 <xsd:sequence>
-                    <xsd:element name="resultUnitOfMeasure" type="gml:ReferenceType" minOccurs="1"/>
-                    <xsd:element name="resultValue" type="xsd:double" minOccurs="1" maxOccurs="unbounded"/>
+                    <xsd:element name="unitOfMeasure" type="gml:ReferenceType" minOccurs="1"/>
+                    <xsd:element name="result" type="xsd:double" minOccurs="1" maxOccurs="unbounded"/>
                 </xsd:sequence>
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
-   
-    
+
+
 </xsd:schema>
