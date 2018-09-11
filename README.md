@@ -2,18 +2,18 @@
 
 ---
 
-**NOTE**: These encodings are work-in-progress, and at this point, has not been endorsed by the OGC or any other standards organization. 
-It may (and probably will) change in a backwards incompatible way during the drafting process. 
-The namespaces http://www.opengis.net/omsf-gml/1.0 and http://www.opengis.net/omsf-json/1.0 have not (yet) 
+**NOTE**: These encodings are work-in-progress, and at this point, has not been endorsed by the OGC or any other standards organization.
+It may (and probably will) change in a backwards incompatible way during the drafting process.
+The namespaces http://www.opengis.net/omsf-gml/1.0 and http://www.opengis.net/omsf-json/1.0 have not (yet)
 been approved by the OGC Naming Authority, and thus may also change. Consider yourself warned.
 
 ---
 
-The purpose of this activity is to define simple encodings for the most used O&M Observation types, and thus 
-enable interoperable O&M data exchange between existing software applications, servers and clients limited to using simple (non-complex) 
+The purpose of this activity is to define simple encodings for the most used O&M Observation types, and thus
+enable interoperable O&M data exchange between existing software applications, servers and clients limited to using simple (non-complex)
 GML features and/or [GeoJSON](http://geojson.org/). Handling complex feature structure of the O&M XML Implementation
-(as in OGC 10-025r1)  is only possible for many WFS server and client software with a considerable implementation cost, 
-added code complexity and lower performance. In cases when these costs cannot be justified, and when the actual provided 
+(as in OGC 10-025r1)  is only possible for many WFS server and client software with a considerable implementation cost,
+added code complexity and lower performance. In cases when these costs cannot be justified, and when the actual provided
 data is relatively simple, the O&M Simple Feature Encodings provide an easy-to-use alternative.
 
 Example of a omsf:MeasureObservation using the GML Simple Features Profile 2.0 encoding:
@@ -29,13 +29,14 @@ Example of a omsf:MeasureObservation using the GML Simple Features Profile 2.0 e
   <omsf:observedProperty
     xlink:href="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/"
     xlink:title="air_temperature" />
-  <omsf:featureOfInterestTitle>Helsinki Kumpula</omsf:featureOfInterestTitle>
-  <omsf:featureOfInterestGeometry>
+  <omsf:samplingFeatureName>Helsinki Kumpula</omsf:samplingFeatureName>
+  <omsf:samplingFeatureGeometry>
     <gml:Point gml:id="p-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4258" srsDimension="2">
       <gml:pos>60.20307 24.96131</gml:pos>
     </gml:Point>
-  </omsf:featureOfInterestGeometry>
-  <omsf:featureOfInterestReference xlink:href="http://sws.geonames.org/843429/about.rdf"/>
+  </omsf:samplingFeatureGeometry>
+  <omsf:ultimateFeatureOfInterestName>Helsinki Kumpula</omsf:ultimateFeatureOfInterestName>
+  <omsf:ultimateFeatureOfInterestReference xlink:href="http://sws.geonames.org/843429/about.rdf"/>
   <omsf:result uom="Cel">12.5</omsf:result>
 </omsf:MeasureObservation>
 ```
@@ -53,19 +54,21 @@ The same feature using the GeoJSON encoding:
     "observationType": "MeasureObservation",
     "phenomenonTime": "2017-08-17T12:00:00Z",
     "resultTime": "2017-08-17T12:01:25Z",
-    "usedProcedureTitle": "Meteorological surface observations",
+    "usedProcedureName": "Meteorological surface observations",
     "usedProcedureReference": "http://xml.fmi.fi/process/met-surface-observations",
-    "observedPropertyTitle": "Air temperature",
+    "observedPropertyName": "Air temperature",
     "observedPropertyReference": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/",
-    "featureOfInterestTitle": "Helsinki Kumpula",
-    "featureOfInterestReference": "http://sws.geonames.org/843429/about.rdf",
-    "resultValue": 12.5,
-    "resultUnitOfMeasure": "Cel"
+    "samplingFeatureName": "Helsinki Kumpula weather observation station",
+    "ultimateFeatureOfInterestName": "Helsinki Kumpula",
+    "ultimateFeatureOfInterestReference": "http://sws.geonames.org/843429/about.rdf",
+    "result": 12.5,
+    "unitOfMeasureName": "Degree Celsius",
+    "unitOfMeasureReference": "http://www.opengis.net/def/uom/UCUM/degC"
   }
 }
 ```
 
-More details: 
+More details:
 
 * [GML Simple Features Profile 2.0 encoding](./omsf-gml), and
 * [GeoJSON encoding](./omsf-json/).
@@ -74,5 +77,3 @@ More details:
 ## Acknowledgements
 
 Work on this application profile was initiated by Ilkka Rinne for the needs of Vaisala and Finnish Meteorological Institute in 2017.
-
-
