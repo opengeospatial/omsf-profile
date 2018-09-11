@@ -21,11 +21,11 @@ Example of a omsf:MeasureObservation:
     xlink:href="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/air_temperature"
     xlink:title="air_temperature" />
   <omsf:samplingFeatureName>Helsinki Kumpula weather observation station</omsf:samplingFeatureName>
-  <omsf:samplingFeatureGeometry>
+  <omsf:geometry>
       <gml:Point gml:id="p-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4258" srsDimension="2">
           <gml:pos>60.20307 24.96131</gml:pos>
       </gml:Point>
-  </omsf:samplingFeatureGeometry>
+  </omsf:geometry>
   <omsf:ultimateFeatureOfInterestName>Helsinki Kumpula</omsf:ultimateFeatureOfInterestName>
   <omsf:ultimateFeatureOfInterestReference xlink:href="http://sws.geonames.org/843429/about.rdf"/>
   <omsf:result uom="Cel">12.5</omsf:result>
@@ -77,6 +77,9 @@ The following primary design goals have been followed (in priority order):
 * To align better with the [W3C Semantic Sensor Network Ontology specification](https://www.w3.org/TR/vocab-ssn/), the method and the implementation of the measurement procedure has been split into two separate properties: usedProcedure and madeBySensor.
 
 ## Properties
+The geometry property of the OMSF features is the geometry of the sampling feature of the observation, or if
+no sampling feature was used, a representative geometry of the ultimate feature of interest.
+Other OMSF properties expected to be used in each of the observation type are given in the tables below.
 
 ### Simplified mapping of O&M Observation properties
 The implementation model of the OMSF GML encoding is a simplified version of the Observation class
@@ -85,7 +88,7 @@ as defined in the OGC and ISO 19156 standard. The following table summarises the
 O&M attribute/association | O&M type | O&M Multiplicity  |OMSF property | OMSF type |
 --------------------------|----------|-------------------|--------------|-----------|
 featureOfInterest | association with GFI_Feature | 1 | samplingFeatureName | xsd:string |
-featureOfInterest | association with GFI_Feature | 1 | samplingFeatureGeometry | gml:GeometryPropertyType |
+featureOfInterest | association with GFI_Feature | 1 | geometry | gml:GeometryPropertyType |
 featureOfInterest | association with GFI_Feature | 1 | samplingFeatureReference | gml:ReferenceType |
 featureOfInterest | association with GFI_Feature | 1 | ultimateFeatureOfInterestName | xsd:string |
 featureOfInterest | association with GFI_Feature | 1 | ultimateFeatureOfInterestReference | gml:ReferenceType |
@@ -128,7 +131,7 @@ madeBySensor | 0..1 | gml:ReferenceType | external reference |
 usedProcedure | 0..1 | gml:ReferenceType | external reference |
 observedProperty | 1 | gml:ReferenceType | external reference |
 samplingFeatureName | 0..1 | xsd:string | |
-samplingFeatureGeometry | 1 | gml:GeometryPropertyType | |
+geometry | 1 | gml:GeometryPropertyType | |
 samplingFeatureReference | 0..1 | gml:ReferenceType | external reference |
 ultimateFeatureOfInterestName | 0..1 | xsd:string | |
 ultimateFeatureOfInterestReference | 0..1 | gml:ReferenceType | external reference |
@@ -195,26 +198,23 @@ Time series with result values for several points in time does not fit with the 
 compliance level SF-0 without mild violence, since repeated elements are not allowed. Technically the time series
 values (and even time instances) could be encoded inside a single element using list type, but encoding and
 decoding would require special processing, which would at least partly defeat the gains of restricting the feature type to SF-0.
-So the TimeseriesObservation is compliant with SF-1, not SF-0 like the other OMSF Observation types.
+So the MeasureTimeseriesObservation is compliant with SF-1, not SF-0 like the other OMSF Observation types.
 
 ```xml
 <omsf:MeasureTimeseriesObservation gml:id="f-1">
   <omsf:phenomenonTimeStart>2017-08-17T12:00:00Z</omsf:phenomenonTimeStart>
   <omsf:phenomenonTimeEnd>2017-08-17T18:00:00Z</omsf:phenomenonTimeEnd>
   <omsf:resultTime>2017-08-17T12:11:20Z</omsf:resultTime>
-  <omsf:usedProcedure
-    xlink:href="http://xml.fmi.fi/process/met-surface-observations"
-    xlink:title="Meteorological surface observations" />
-  <omsf:observedProperty
-    xlink:href="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/air_temperature"
-    xlink:title="Air temperature" />
-  <omsf:featureOfInterestTitle>Helsinki Kumpula</omsf:foiName>
-  <omsf:featureOfInterestGeometry>
-    <gml:Point gml:id="p-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4258" srsDimension="2">
-      <gml:pos>60.20307 24.96131</gml:pos>
-    </gml:Point>
-  </omsf:featureOfInterestGeometry>
-  <omsf:featureOfInterestReference xlink:href="http://sws.geonames.org/843429/about.rdf"/>
+  <omsf:usedProcedure xlink:href="http://xml.fmi.fi/process/met-surface-observations" xlink:title="Meteorological surface observations" />
+  <omsf:observedProperty xlink:href="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/" xlink:title="air_temperature" />
+  <omsf:samplingFeatureName>Helsinki Kumpula weather observation station</omsf:samplingFeatureName>
+  <omsf:geometry>
+      <gml:Point gml:id="p-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4258" srsDimension="2">
+          <gml:pos>60.20307 24.96131</gml:pos>
+      </gml:Point>
+  </omsf:geometry>
+  <omsf:ultimateFeatureOfInterestName>Helsinki Kumpula</omsf:ultimateFeatureOfInterestName>
+  <omsf:ultimateFeatureOfInterestReference xlink:href="http://sws.geonames.org/843429/about.rdf"/>
   <omsf:timeStep>2017-08-17T12:00:00Z</omsf:timeStep>
   <omsf:timeStep>2017-08-17T13:00:00Z</omsf:timeStep>
   <omsf:timeStep>2017-08-17T14:00:00Z</omsf:timeStep>
@@ -222,18 +222,16 @@ So the TimeseriesObservation is compliant with SF-1, not SF-0 like the other OMS
   <omsf:timeStep>2017-08-17T16:00:00Z</omsf:timeStep>
   <omsf:timeStep>2017-08-17T17:00:00Z</omsf:timeStep>
   <omsf:timeStep>2017-08-17T18:00:00Z</omsf:timeStep>
-  <omsf:resultUnitOfMeasure
-    xlink:href="www.opengis.net/def/uom/UCUM/degC"
-    xlink:title="Degree Celcius" />
-  <omsf:resultValue>12.5</omsf:resultValue>
-  <omsf:resultValue>12.0</omsf:resultValue>
-  <omsf:resultValue>11.0</omsf:resultValue>
-  <omsf:resultValue>13.2</omsf:resultValue>
-  <omsf:resultValue>12.5</omsf:resultValue>
-  <omsf:resultValue>14.1</omsf:resultValue>
-  <omsf:resultValue>14.1</omsf:resultValue>
+  <omsf:unitOfMeasure xlink:href="www.opengis.net/def/uom/UCUM/degC" xlink:title="Degree Celsius"/>
+  <omsf:result>12.5</omsf:result>
+  <omsf:result>12.0</omsf:result>
+  <omsf:result>11.0</omsf:result>
+  <omsf:result>13.2</omsf:result>
+  <omsf:result>12.5</omsf:result>
+  <omsf:result>14.1</omsf:result>
+  <omsf:result>14.1</omsf:result>
 </omsf:MeasureTimeseriesObservation>
 ```
 
-The repeated property encoding allows client applications to treat both ```timeStep``` and ```resultValue``` as arrays of
+The repeated property encoding allows client applications to treat both ```timeStep``` and ```result``` as arrays of
 simple values, which would not be possible using time-value-pair encoding.
