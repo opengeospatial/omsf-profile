@@ -42,12 +42,12 @@
                             "type": "string",
                             "enum": [ "GenericObservation" ]
                         },
-                        "resultReference": {
+                        "result": {
                             "type": "string",
-                            "format": "uri"   
+                            "format": "uri"
                         }
                     },
-                    "required": [ "observationType", "resultReference" ]
+                    "required": [ "observationType", "result" ]
                 },
                 { "$ref" : "#/definitions/common" }
             ]
@@ -61,14 +61,18 @@
                             "type": "string",
                             "enum": [ "MeasureObservation" ]
                         },
-                        "resultValue": {
-                            "type": "number"   
+                        "result": {
+                            "type": "number"
                         },
-                        "resultUnitOfMeasure": {
+                        "unitOfMeasureName": {
                             "type": "string"
+                        },
+                        "unitOfMeasureReference": {
+                            "type": "string",
+                            "format": "uri"
                         }
                     },
-                    "required": [ "observationType", "resultValue" ]
+                    "required": [ "observationType", "result" ]
                 },
                 { "$ref" : "#/definitions/common" }
             ]
@@ -82,11 +86,11 @@
                             "type": "string",
                             "enum": [ "CategoryObservation" ]
                         },
-                        "resultValue": {
-                            "type": "string"   
+                        "result": {
+                            "type": "string"
                         }
                     },
-                    "required": [ "observationType", "resultValue" ]
+                    "required": [ "observationType", "result" ]
                 },
                 { "$ref" : "#/definitions/common" }
             ]
@@ -100,11 +104,11 @@
                             "type": "string",
                             "enum": [ "CountObservation" ]
                         },
-                        "resultValue": {
-                            "type": "integer"   
+                        "result": {
+                            "type": "integer"
                         }
                     },
-                    "required": [ "observationType", "resultValue" ]
+                    "required": [ "observationType", "result" ]
                 },
                 { "$ref" : "#/definitions/common" }
             ]
@@ -118,11 +122,11 @@
                             "type": "string",
                             "enum": [ "TruthObservation" ]
                         },
-                        "resultValue": {
-                            "type": "boolean"   
+                        "result": {
+                            "type": "boolean"
                         }
                     },
-                    "required": [ "observationType", "resultValue" ]
+                    "required": [ "observationType", "result" ]
                 },
                 { "$ref" : "#/definitions/common" }
             ]
@@ -142,19 +146,23 @@
                                 "type": "string",
                                 "format": "date-time",
                                 "uniqueItems": true
-                            }   
+                            }
                         },
-                        "resultValues": {
+                        "result": {
                             "type": "array",
                             "items": {
                                 "type": "number"
-                            }   
+                            }
                         },
-                        "resultUnitOfMeasure": {
+                        "unitOfMeasureName": {
                             "type": "string"
+                        },
+                        "unitOfMeasureReference": {
+                            "type": "string",
+                            "format": "uri"
                         }
                     },
-                    "required": [ "observationType", "timeSteps", "resultValues" ]
+                    "required": [ "observationType", "timeSteps", "result" ]
                 },
                 { "$ref" : "#/definitions/common" }
             ]
@@ -204,17 +212,24 @@
                     "type": "string",
                     "format": "uri"
                 },
-                "observedPropertyTitle": {
+                "observedPropertyName": {
                     "type": "string"
                 },
-                 "observedPropertyReference": {
+                "observedPropertyReference": {
                     "type": "string",
                     "format": "uri"
                 },
-                "featureOfInterestTitle": {
+                "ultimateFeatureOfInterestName": {
                     "type": "string"
                 },
-                "featureOfInterestReference": {
+                "ultimateFeatureOfInterestReference": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "samplingFeatureName": {
+                    "type": "string"
+                },
+                "samplingFeatureReference": {
                     "type": "string",
                     "format": "uri"
                 }

@@ -1,6 +1,6 @@
 {
   "type" : "FeatureCollection",
-  "features" : [ 
+  "features" : [
   {
     "type" : "Feature",
     "id": "f-1",
@@ -13,14 +13,15 @@
         "phenomenonTimeStart": "2017-08-17T12:00:00Z",
         "phenomenonTimeEnd": "2017-08-17T18:00:00Z",
         "resultTime": "2017-08-17T12:11:20Z",
-        "usedProcedureTitle": "Meteorological surface observations",
+        "usedProcedureName": "Meteorological surface observations",
         "usedProcedureReference": "http://xml.fmi.fi/process/met-surface-observations",
-        "observedPropertyTitle": "Temperature",
+        "observedPropertyName": "air_temperature",
         "observedPropertyReference": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/",
-        "featureOfInterestTitle": "Helsinki Kumpula",
-        "featureOfInterestReference": "http://sws.geonames.org/843429/about.rdf",
-        "timeSteps": [
-            "2017-08-17T12:00:00Z", 
+        "samplingFeatureName": "Helsinki Kumpula weather observation station",
+        "ultimateFeatureOfInterestName": "Helsinki Kumpula",
+        "ultimateFeatureOfInterestReference": "http://sws.geonames.org/843429/about.rdf",
+        "times": [
+            "2017-08-17T12:00:00Z",
             "2017-08-17T13:00:00Z",
             "2017-08-17T14:00:00Z",
             "2017-08-17T15:00:00Z",
@@ -28,8 +29,8 @@
             "2017-08-17T17:00:00Z",
             "2017-08-17T18:00:00Z"
         ],
-        "resultUnitOfMeasure": "Cel",
-        "resultValues": [12.5, 12.0, 11.0, 13.2, 13.5, 14.1, 14.1]
+        "unitOfMeasureName": "Degree Celsius",
+        "result": [12.5, 12.0, 11.0, 13.2, 13.5, 14.1, 14.1]
     }
   },
   {
@@ -44,14 +45,15 @@
         "phenomenonTimeStart": "2017-08-17T12:00:00Z",
         "phenomenonTimeEnd": "2017-08-17T18:00:00Z",
         "resultTime": "2017-08-17T12:11:25Z",
-        "usedProcedureTitle": "Meteorological surface observations",
+        "usedProcedureName": "Meteorological surface observations",
         "usedProcedureReference": "http://xml.fmi.fi/process/met-surface-observations",
-        "observedPropertyTitle": "Temperature",
+        "observedPropertyName": "air_temperature",
         "observedPropertyReference": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/",
-        "featureOfInterestTitle": "Espoo Kivenlahti",
-        "featureOfInterestReference": "http://sws.geonames.org/636091/about.rdf",
+        "samplingFeatureName": "Espoo Kivenlahti weather observation station",
+        "ultimateFeatureOfInterestName": "Espoo Kivenlahti",
+        "ultimateFeatureOfInterestReference": "http://sws.geonames.org/636091/about.rdf",
         "timeSteps": [
-            "2017-08-17T12:00:00Z", 
+            "2017-08-17T12:00:00Z",
             "2017-08-17T13:00:00Z",
             "2017-08-17T14:00:00Z",
             "2017-08-17T15:00:00Z",
@@ -60,7 +62,7 @@
             "2017-08-17T18:00:00Z"
         ],
         "resultUnitOfMeasure": "Cel",
-        "resultValues": [12.1, 11.5, 11.2, 10.1, 14.2, 15.0, 15.3]
+        "result": [12.1, 11.5, 11.2, 10.1, 14.2, 15.0, 15.3]
     }
   }]
 }

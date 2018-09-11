@@ -12,13 +12,15 @@
         "observationType": "MeasureObservation",
         "phenomenonTime": "2017-08-17T12:00:00Z",
         "resultTime": "2017-08-17T12:01:25Z",
-        "usedProcedureTitle": "Meteorological surface observations",
+        "usedProcedureName": "Meteorological surface observations",
         "usedProcedureReference": "http://xml.fmi.fi/process/met-surface-observations",
-        "observedPropertyTitle": "Temperature",
+        "observedPropertyName": "air_temperature",
         "observedPropertyReference": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/",
-        "featureOfInterestTitle": "Helsinki Kumpula",
-        "featureOfInterestReference": "http://sws.geonames.org/843429/about.rdf",
-        "resultValue": 10.1,
-        "resultUnitOfMeasure": "Cel"
+        "samplingFeatureName": "Helsinki Kumpula weather observation station",
+        "ultimateFeatureOfInterestName": "Helsinki Kumpula",
+        "ultimateFeatureOfInterestReference": "http://sws.geonames.org/843429/about.rdf",
+        "result": 10.1,
+        "unitOfMeasureName": "Degree Celsius",
+        "unitOfMeasureReference": "http://www.opengis.net/def/uom/UCUM/degC"
     }
 }
