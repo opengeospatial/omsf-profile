@@ -91,7 +91,6 @@ O&M attribute/association | O&M type | O&M Multiplicity  |OMSF property | OMSF t
 --------------------------|----------|-------------------|--------------|-----------|
 featureOfInterest | association with GFI_Feature | 1 | geometry | gml:GeometryPropertyType |
 featureOfInterest | association with GFI_Feature | 1 | samplingFeatureReference | gml:ReferenceType |
-featureOfInterest | association with GFI_Feature | 1 | ultimateFeatureOfInterestName | xsd:string |
 featureOfInterest | association with GFI_Feature | 1 | ultimateFeatureOfInterestReference | gml:ReferenceType |
 metadata | association with MD_Metadata | 0..1 | metadataReference | gml:ReferenceType |
 observedProperty | association with GF_PropertyType | 1 | observedProperty | gml:ReferenceType |
@@ -133,7 +132,6 @@ usedProcedure | 0..1 | gml:ReferenceType | external reference |
 observedProperty | 1 | gml:ReferenceType | external reference |
 geometry | 1 | gml:GeometryPropertyType | |
 samplingFeatureReference | 0..1 | gml:ReferenceType | external reference |
-ultimateFeatureOfInterestName | 0..1 | xsd:string | |
 ultimateFeatureOfInterestReference | 0..1 | gml:ReferenceType | external reference |
 
 ### GenericObservation
@@ -211,14 +209,14 @@ So the MeasureTimeseriesObservation is compliant with SF-1, not SF-0 like the ot
   <omsf:observedProperty
     xlink:href="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/"
     xlink:title="air_temperature" />
-  <omsf:samplingFeatureReference
-      xlink:href="TBA"
-      xlink:title="Helsinki Kumpula weather observation station"/>
   <omsf:geometry>
       <gml:Point gml:id="p-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4258" srsDimension="2">
           <gml:pos>60.20307 24.96131</gml:pos>
       </gml:Point>
   </omsf:geometry>
+  <omsf:samplingFeatureReference
+      xlink:href="TBA"
+      xlink:title="Helsinki Kumpula weather observation station"/>
   <omsf:ultimateFeatureOfInterestReference
     xlink:href="http://sws.geonames.org/843429/about.rdf"
     xlink:title="Helsinki Kumpula"/>

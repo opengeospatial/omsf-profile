@@ -29,14 +29,14 @@ Example of a omsf:MeasureObservation using the GML Simple Features Profile 2.0 e
   <omsf:observedProperty
     xlink:href="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/"
     xlink:title="air_temperature" />
-  <omsf:samplingFeatureReference
-      xlink:href="TBA"
-      xlink:title="Helsinki Kumpula weather observation station"/>
   <omsf:geometry>
     <gml:Point gml:id="p-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4258" srsDimension="2">
       <gml:pos>60.20307 24.96131</gml:pos>
     </gml:Point>
   </omsf:geometry>
+  <omsf:samplingFeatureReference
+      xlink:href="TBA"
+      xlink:title="Helsinki Kumpula weather observation station"/>
   <omsf:ultimateFeatureOfInterestReference
     xlink:href="http://sws.geonames.org/843429/about.rdf"
     xlink:title="Helsinki Kumpula"/>
