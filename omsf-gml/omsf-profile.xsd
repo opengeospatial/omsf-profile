@@ -35,8 +35,10 @@
                    <xsd:element name="madeBySensor" type="gml:ReferenceType" minOccurs="0" />
                    <xsd:element name="usedProcedure" type="gml:ReferenceType" minOccurs="0" />
                    <xsd:element name="observedProperty" type="gml:ReferenceType" minOccurs="1" />
+                   <xsd:element name="samplingFeatureName" type="xsd:string" minOccurs="0"/>
                    <xsd:element name="geometry" type="gml:GeometryPropertyType" minOccurs="1"/>
                    <xsd:element name="samplingFeatureReference" type="gml:ReferenceType" minOccurs="0" />
+                   <xsd:element name="ultimateFeatureOfInterestName" type="xsd:string" minOccurs="0"/>
                    <xsd:element name="ultimateFeatureOfInterestReference" type="gml:ReferenceType" minOccurs="0" />
                 </xsd:sequence>
             </xsd:extension>

@@ -20,9 +20,7 @@ Example of a omsf:MeasureObservation:
   <omsf:observedProperty
     xlink:href="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/air_temperature"
     xlink:title="air_temperature" />
-  <omsf:samplingFeatureReference
-      xlink:href="TBA"
-      xlink:title="Helsinki Kumpula weather observation station"/>
+  <omsf:samplingFeatureName>Helsinki Kumpula weather observation station</omsf:samplingFeatureName>
   <omsf:geometry>
       <gml:Point gml:id="p-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4258" srsDimension="2">
           <gml:pos>60.20307 24.96131</gml:pos>
@@ -75,7 +73,6 @@ The following primary design goals have been followed (in priority order):
 * The metadata and the procedure properties are all provided as a reference-only.
 * In contrast to the OMXML (complex feature) implementation, hard-typing is used for the different Observation types: GenericObservation, MeasureObservation, CategoryObservation, CountObservation, TruthObservation and MeasureTimeseriesObservation are each defined as separate feature types with fixed result value types. This is an intentional trade-off between simplicity and flexibility.
 * Observations with complicated results, such as coverages, have been considered out-of-scope of this application schema. However, it's possible to encode these using the GenericObservation feature type with a reference to the remotely provided result.
-* O&M properties relatedObservation and resultQuality are not included in the encoding to keep it as simple as possible.
 * To align better with the [W3C Semantic Sensor Network Ontology specification](https://www.w3.org/TR/vocab-ssn/), the method and the implementation of the measurement procedure has been split into two separate properties: usedProcedure and madeBySensor.
 
 ## Properties
@@ -89,8 +86,10 @@ as defined in the OGC and ISO 19156 standard. The following table summarises the
 
 O&M attribute/association | O&M type | O&M Multiplicity  |OMSF property | OMSF type |
 --------------------------|----------|-------------------|--------------|-----------|
+featureOfInterest | association with GFI_Feature | 1 | samplingFeatureName | xsd:string |
 featureOfInterest | association with GFI_Feature | 1 | geometry | gml:GeometryPropertyType |
 featureOfInterest | association with GFI_Feature | 1 | samplingFeatureReference | gml:ReferenceType |
+featureOfInterest | association with GFI_Feature | 1 | ultimateFeatureOfInterestName | xsd:string |
 featureOfInterest | association with GFI_Feature | 1 | ultimateFeatureOfInterestReference | gml:ReferenceType |
 metadata | association with MD_Metadata | 0..1 | metadataReference | gml:ReferenceType |
 observedProperty | association with GF_PropertyType | 1 | observedProperty | gml:ReferenceType |
@@ -130,8 +129,10 @@ validTimeEnd | 0..1 | xsd:dateTime | |
 madeBySensor | 0..1 | gml:ReferenceType | external reference |
 usedProcedure | 0..1 | gml:ReferenceType | external reference |
 observedProperty | 1 | gml:ReferenceType | external reference |
+samplingFeatureName | 0..1 | xsd:string | |
 geometry | 1 | gml:GeometryPropertyType | |
 samplingFeatureReference | 0..1 | gml:ReferenceType | external reference |
+ultimateFeatureOfInterestName | 0..1 | xsd:string | |
 ultimateFeatureOfInterestReference | 0..1 | gml:ReferenceType | external reference |
 
 ### GenericObservation
@@ -203,23 +204,16 @@ So the MeasureTimeseriesObservation is compliant with SF-1, not SF-0 like the ot
   <omsf:phenomenonTimeStart>2017-08-17T12:00:00Z</omsf:phenomenonTimeStart>
   <omsf:phenomenonTimeEnd>2017-08-17T18:00:00Z</omsf:phenomenonTimeEnd>
   <omsf:resultTime>2017-08-17T12:11:20Z</omsf:resultTime>
-  <omsf:usedProcedure
-    xlink:href="http://xml.fmi.fi/process/met-surface-observations"
-    xlink:title="Meteorological surface observations" />
-  <omsf:observedProperty
-    xlink:href="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/"
-    xlink:title="air_temperature" />
+  <omsf:usedProcedure xlink:href="http://xml.fmi.fi/process/met-surface-observations" xlink:title="Meteorological surface observations" />
+  <omsf:observedProperty xlink:href="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/" xlink:title="air_temperature" />
+  <omsf:samplingFeatureName>Helsinki Kumpula weather observation station</omsf:samplingFeatureName>
   <omsf:geometry>
       <gml:Point gml:id="p-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4258" srsDimension="2">
           <gml:pos>60.20307 24.96131</gml:pos>
       </gml:Point>
   </omsf:geometry>
-  <omsf:samplingFeatureReference
-      xlink:href="TBA"
-      xlink:title="Helsinki Kumpula weather observation station"/>
-  <omsf:ultimateFeatureOfInterestReference
-    xlink:href="http://sws.geonames.org/843429/about.rdf"
-    xlink:title="Helsinki Kumpula"/>
+  <omsf:ultimateFeatureOfInterestName>Helsinki Kumpula</omsf:ultimateFeatureOfInterestName>
+  <omsf:ultimateFeatureOfInterestReference xlink:href="http://sws.geonames.org/843429/about.rdf"/>
   <omsf:timeStep>2017-08-17T12:00:00Z</omsf:timeStep>
   <omsf:timeStep>2017-08-17T13:00:00Z</omsf:timeStep>
   <omsf:timeStep>2017-08-17T14:00:00Z</omsf:timeStep>
@@ -227,9 +221,7 @@ So the MeasureTimeseriesObservation is compliant with SF-1, not SF-0 like the ot
   <omsf:timeStep>2017-08-17T16:00:00Z</omsf:timeStep>
   <omsf:timeStep>2017-08-17T17:00:00Z</omsf:timeStep>
   <omsf:timeStep>2017-08-17T18:00:00Z</omsf:timeStep>
-  <omsf:unitOfMeasure
-    xlink:href="www.opengis.net/def/uom/UCUM/degC"
-    xlink:title="Degree Celsius"/>
+  <omsf:unitOfMeasure xlink:href="www.opengis.net/def/uom/UCUM/degC" xlink:title="Degree Celsius"/>
   <omsf:result>12.5</omsf:result>
   <omsf:result>12.0</omsf:result>
   <omsf:result>11.0</omsf:result>
