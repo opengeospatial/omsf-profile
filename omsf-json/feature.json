@@ -139,7 +139,7 @@
                             "type": "string",
                             "enum": [ "MeasureTimeseriesObservation" ]
                         },
-                        "timeSteps": {
+                        "timeStep": {
                             "type": "array",
                             "items": {
                                 "type": "string",
@@ -161,7 +161,7 @@
                             "format": "uri"
                         }
                     },
-                    "required": [ "observationType", "timeSteps", "result" ]
+                    "required": [ "observationType", "timeStep", "result" ]
                 },
                 { "$ref" : "#/definitions/common" }
             ]

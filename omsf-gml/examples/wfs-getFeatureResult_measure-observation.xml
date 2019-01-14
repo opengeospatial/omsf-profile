@@ -13,8 +13,8 @@
       <omsf:MeasureObservation gml:id="f-1">
           <omsf:phenomenonTime>2017-08-17T12:00:00Z</omsf:phenomenonTime>
           <omsf:resultTime>2017-08-17T12:01:25Z</omsf:resultTime>
-          <omsf:usedProcedure xlink:href="http://xml.fmi.fi/process/met-surface-observations" xlink:title="Meteorological surface observations" />
-          <omsf:observedProperty xlink:href="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/" xlink:title="air_temperature" />
+          <omsf:usedProcedureReference xlink:href="http://xml.fmi.fi/process/met-surface-observations" xlink:title="Meteorological surface observations" />
+          <omsf:observedPropertyReference xlink:href="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/" xlink:title="air_temperature" />
           <omsf:samplingFeatureName>Helsinki Kumpula weather observation station</omsf:samplingFeatureName>
           <omsf:geometry>
               <gml:Point gml:id="p-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4258" srsDimension="2">
@@ -30,8 +30,8 @@
         <omsf:MeasureObservation gml:id="f-2">
             <omsf:phenomenonTime>2017-08-17T12:00:00Z</omsf:phenomenonTime>
             <omsf:resultTime>2017-08-17T12:01:25Z</omsf:resultTime>
-            <omsf:usedProcedure xlink:href="http://xml.fmi.fi/process/met-surface-observations" xlink:title="Meteorological surface observations" />
-            <omsf:observedProperty xlink:href="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/" xlink:title="air_temperature" />
+            <omsf:usedProcedureReference xlink:href="http://xml.fmi.fi/process/met-surface-observations" xlink:title="Meteorological surface observations" />
+            <omsf:observedPropertyReference xlink:href="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/" xlink:title="air_temperature" />
             <omsf:samplingFeatureName>Espoo Kivenlahti weather observation station</omsf:samplingFeatureName>
             <omsf:geometry>
                 <gml:Point gml:id="p-2" srsName="http://www.opengis.net/def/crs/EPSG/0/4258" srsDimension="2">

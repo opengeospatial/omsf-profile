@@ -20,7 +20,7 @@
         "samplingFeatureName": "Helsinki Kumpula weather observation station",
         "ultimateFeatureOfInterestName": "Helsinki Kumpula",
         "ultimateFeatureOfInterestReference": "http://sws.geonames.org/843429/about.rdf",
-        "times": [
+        "timeStep": [
             "2017-08-17T12:00:00Z",
             "2017-08-17T13:00:00Z",
             "2017-08-17T14:00:00Z",
@@ -52,7 +52,7 @@
         "samplingFeatureName": "Espoo Kivenlahti weather observation station",
         "ultimateFeatureOfInterestName": "Espoo Kivenlahti",
         "ultimateFeatureOfInterestReference": "http://sws.geonames.org/636091/about.rdf",
-        "timeSteps": [
+        "timeStep": [
             "2017-08-17T12:00:00Z",
             "2017-08-17T13:00:00Z",
             "2017-08-17T14:00:00Z",
