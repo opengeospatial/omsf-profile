@@ -45,13 +45,9 @@ The work versions of validation rules for each observation type have been define
 
 ## JSON encoding details
 
-The geometry property of the OMSF GeoJSON Feature is the geometry of the sampling feature of the observation, or if
+The ```geometry``` property of the OMSF GeoJSON Feature is the geometry of the sampling feature of the observation, or if
 no sampling feature was used, a representative geometry of the ultimate feature of interest.
 Other OMSF properties expected to be used in each of the observation type are given in the tables below.
-
-### Simplified mapping of O&M Observation properties
-The implementation model of the OMSF GeoJSON encoding is a simplified version of the Observation class
-as defined in the OGC and ISO 19156 standard. The following table summarises the simplification decisions applied:
 
 ### Common properties
 

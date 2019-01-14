@@ -20,8 +20,7 @@ GML features and/or [GeoJSON](http://geojson.org/).
 
 ## OMSF Implementation model
 
-![OMSF Implementation model]
-(./OMSF_ImplementationModel.png)
+![OMSF Implementation model](./OMSF_ImplementationModel.png)
 
 All OMSF encodings are based on the same implementation model profile derived from the O&M Observation Core and Specialized
 Observations conceptual models defined in Observations and Measurements v2.0
