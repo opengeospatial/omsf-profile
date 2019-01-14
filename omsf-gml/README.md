@@ -54,7 +54,7 @@ the actual references are considered essential. In this case the ```xlink:title`
 the display names for the linked resources.
 
 OMSF property name | GML SF property name | Multiplicity | GML type |  Notes
---------------|--------------|-----------|------|
+--------------|--------------|-----------|------|-------
 metadata      | metadataReference | 0..1 | gml:ReferenceType | external reference
 resultTime    | resultTime | 1 | xsd:dateTime | |
 phenomenonTime | phenomenonTime | 0..1 (choice with start-end pair) | xsd:dateTime | required only if the phenomenon time is a time instant |
@@ -76,7 +76,7 @@ ultimateFeatureOfInterest | ultimateFeatureOfInterestReference | 0..1 | gml:Refe
 In addition to the properties of omsf:AbstractObservationType, omsf:GenericObservationType has the following property:
 
 OMSF property name | GML SF property name | Multiplicity | Type | Notes
---------------|--------------|-----------|------
+--------------|--------------|-----------|------|-------
 result | result | 1 | gml:ReferenceType | extenal reference
 
 Note that as a deviation of the generic rule of post-fixing a word ```Reference``` to the names of the
@@ -88,7 +88,7 @@ consistent among all the OMSF Observation types.
 In addition to the properties of omsf:AbstractObservationType, omsf:MeasureObservationType has the following property:
 
 OMSF property name | GML SF property name | Multiplicity | Type | Notes
---------------|--------------|-----------|------
+--------------|--------------|-----------|------|-------
 result | result | 1 | gml:MeasureType | |
 
 
@@ -97,7 +97,7 @@ result | result | 1 | gml:MeasureType | |
 In addition to the properties of omsf:AbstractObservationType, omsf:CategoryObservationType has the following property:
 
 OMSF property name | GML SF property name |  Multiplicity | Type | Notes
---------------|--------------|-----------|------
+--------------|--------------|-----------|------|-------
 result | result | 1 |  gml:ReferenceType | URI reference recommended indicating both the codelist and the value |
 
 Note that as a deviation of the generic rule of post-fixing a word ```Reference``` to the names of the
@@ -109,7 +109,7 @@ consistent among all the OMSF Observation types.
 In addition to the properties of omsf:AbstractObservationType, omsf:TruthObservationType has the following property:
 
 OMSF property name | GML SF property name | Multiplicity | Type | Notes
---------------|--------------|-----------|------
+--------------|--------------|-----------|------|-------
 result | result | 1 | xsd:boolean | |
 
 
@@ -118,7 +118,7 @@ result | result | 1 | xsd:boolean | |
 In addition to the properties of omsf:AbstractObservationType, omsf:CountObservationType has the following property:
 
 OMSF property name | GML SF property name | Multiplicity | Type | Notes
---------------|--------------|-----------|------
+--------------|--------------|-----------|------|-------
 result | result| 1 | xsd:integer | |
 
 ### omsf:AbstractTimeseriesObservationType extends omsf:AbstractObservationType
@@ -127,7 +127,7 @@ This abstract feature type is a common ancestor for all time series Observation 
 In addition to the properties of omsf:AbstractObservationType, omsf:AbstractTimeseriesObservationType has the following property:
 
 OMSF property name | GML SF property name | Multiplicity | Type | Notes
---------------|--------------|-----------|------
+--------------|--------------|-----------|------|-------
 timeStep | timeStep | 1..n | xsd:dateTime | one for each time series data point |
 
 ### omsf:MeasureTimeseriesObservationType extends omsf:AbstractTimeseriesObservationType
@@ -135,6 +135,6 @@ timeStep | timeStep | 1..n | xsd:dateTime | one for each time series data point 
 In addition to the properties of omsf:AbstractTimeseriesObservationType, omsf:MeasureTimeseriesObservation has the following properties:
 
 OMSF property name | GML SF property name | Multiplicity | Type | Notes
---------------|--------------|-----------|------
+--------------|--------------|-----------|------|-------
 unitOfMeasure | unitOfMeasureReference | 0..1 |  gml:ReferenceType | external reference|
 result | 1..n | xsd:double | one for each time series time step |

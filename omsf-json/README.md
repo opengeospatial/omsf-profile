@@ -54,7 +54,7 @@ Other OMSF properties expected to be used in each of the observation type are gi
 These properties are defined for all the Observation types:
 
 OMSF Property name | JSON property name | Condition | Type | Value
---------------|--------------|-----------|------
+--------------|--------------|-----------|------|-------
 metadata | metadataReference | optional | string (URI) | external reference
 resultTime | resultTime | required | string (date-time) | |
 phenomenonTime | phenomenonTime | required if the phenomenon time is a time instant | string (date-time) | |
@@ -78,7 +78,7 @@ ultimateFeatureOfInterest | ultimateFeatureOfInterestReference | optional | stri
 In addition to the common properties listed above, GenericObservation has the following properties:
 
 OMSF Property name | JSON property name | Condition | Type | Value
---------------|--------------|-----------|------
+--------------|--------------|-----------|------|-------
 n/a (feature type) | observationType | required | string | fixed 'GenericObservation'
 result | result | required | string (URI) | external reference
 
@@ -87,7 +87,7 @@ result | result | required | string (URI) | external reference
 In addition to the common properties listed above, MeasureObservation has the following properties:
 
 OMSF Property name | JSON property name | Condition | Type | Value
---------------|--------------|-----------|------
+--------------|--------------|-----------|------|-------
 n/a (feature type) | observationType | required | string | fixed 'MeasureObservation'
 result | result | required | number | |
 result | unitOfMeasureName | optional | string | Name of the UoM
@@ -99,7 +99,7 @@ result | unitOfMeasureReference | optional | string (uri) | an URI pointing to t
 In addition to the common properties listed above, CategoryObservation has the following properties:
 
 OMSF Property name | JSON property name |  Condition | Type | Value
---------------|--------------|-----------|------
+--------------|--------------|-----------|------|-------
 n/a (feature type) | observationType | required | string | fixed 'CategoryObservation'
 result | result | required | string | URI reference recommended indicating both the codelist and the value |
 
@@ -107,8 +107,8 @@ result | result | required | string | URI reference recommended indicating both 
 
 In addition to the common properties listed above, TruthObservation has the following properties:
 
-Property name | Condition | Type | Value
---------------|--------------|-----------|------
+OMSF Property name | JSON property name | Condition | Type | Value
+--------------|--------------|-----------|------|-------
 n/a (feature type) | observationType | required | string | fixed 'TruthObservation'
 result result | required | boolean | |
 
@@ -118,7 +118,7 @@ result result | required | boolean | |
 In addition to the common properties listed above, CountObservation has the following properties:
 
 OMSF Property name | JSON property name | Condition | Type | Value
---------------|--------------|-----------|------
+--------------|--------------|-----------|------|-------
 n/a (feature type) | observationType | required | string | fixed 'CountObservation'
 result result | required | integer | |
 
@@ -128,7 +128,7 @@ result result | required | integer | |
 In addition to the common properties listed above, MeasureTimeseriesObservation has the following properties:
 
 OMSF Property name | JSON property name | Condition | Type | Value
---------------|--------------|-----------|------
+--------------|--------------|-----------|------|-------
 n/a (feature type) | observationType | required | string | fixed 'MeasureTimeseriesObservation'
 timeStep | timeStep | required | array of string (date-time) | |
 result | unitOfMeasureName | optional | string | Name of the UoM
