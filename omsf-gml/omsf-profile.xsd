@@ -29,7 +29,7 @@
                            <xsd:element name="phenomenonTimeEnd" type="xsd:dateTime" />
                        </xsd:sequence>
                    </xsd:choice>
-                   <xsd:element name="resultTime" type="xsd:dateTime" minOccurs="1"  />
+                   <xsd:element name="resultTime" type="xsd:dateTime" />
                    <xsd:element name="validTimeStart" type="xsd:dateTime" minOccurs="0" />
                    <xsd:element name="validTimeEnd" type="xsd:dateTime" minOccurs="0" />
                    <xsd:element name="madeBySensor" type="gml:ReferenceType" minOccurs="0" />
@@ -54,7 +54,7 @@
         <xsd:complexContent>
             <xsd:extension base="omsf:AbstractObservationType">
                 <xsd:sequence>
-                    <xsd:element name="result" type="gml:ReferenceType" minOccurs="1" />
+                    <xsd:element name="result" type="gml:ReferenceType" />
                 </xsd:sequence>
             </xsd:extension>
         </xsd:complexContent>
@@ -69,7 +69,7 @@
         <xsd:complexContent>
             <xsd:extension base="omsf:AbstractObservationType">
                 <xsd:sequence>
-                    <xsd:element name="result" type="gml:MeasureType" minOccurs="1" />
+                    <xsd:element name="result" type="gml:MeasureType" />
                 </xsd:sequence>
             </xsd:extension>
         </xsd:complexContent>
@@ -84,7 +84,7 @@
         <xsd:complexContent>
             <xsd:extension base="omsf:AbstractObservationType">
                 <xsd:sequence>
-                    <xsd:element name="result" type="gml:ReferenceType" minOccurs="1" />
+                    <xsd:element name="result" type="gml:ReferenceType" />
                 </xsd:sequence>
             </xsd:extension>
         </xsd:complexContent>
@@ -99,7 +99,7 @@
         <xsd:complexContent>
             <xsd:extension base="omsf:AbstractObservationType">
                 <xsd:sequence>
-                    <xsd:element name="result" type="xsd:integer" minOccurs="1" />
+                    <xsd:element name="result" type="xsd:integer" />
                 </xsd:sequence>
             </xsd:extension>
         </xsd:complexContent>
@@ -114,7 +114,7 @@
         <xsd:complexContent>
             <xsd:extension base="omsf:AbstractObservationType">
                 <xsd:sequence>
-                    <xsd:element name="result" type="xsd:boolean" minOccurs="1" />
+                    <xsd:element name="result" type="xsd:boolean" />
                 </xsd:sequence>
             </xsd:extension>
         </xsd:complexContent>
@@ -124,7 +124,7 @@
         <xsd:complexContent>
             <xsd:extension base="omsf:AbstractObservationType">
                 <xsd:sequence>
-                    <xsd:element name="timeStep" type="xsd:dateTime" minOccurs="1" maxOccurs="unbounded"/>
+                    <xsd:element name="timeStep" type="xsd:dateTime" maxOccurs="unbounded"/>
                 </xsd:sequence>
             </xsd:extension>
         </xsd:complexContent>
@@ -139,8 +139,8 @@
         <xsd:complexContent>
             <xsd:extension base="omsf:AbstractTimeseriesObservationType">
                 <xsd:sequence>
-                    <xsd:element name="unitOfMeasure" type="gml:ReferenceType" minOccurs="1"/>
-                    <xsd:element name="result" type="xsd:double" minOccurs="1" maxOccurs="unbounded"/>
+                    <xsd:element name="unitOfMeasure" type="gml:ReferenceType"/>
+                    <xsd:element name="result" type="xsd:double" maxOccurs="unbounded"/>
                 </xsd:sequence>
             </xsd:extension>
         </xsd:complexContent>
