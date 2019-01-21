@@ -13,10 +13,10 @@ been approved by the OGC Naming Authority, and thus may also change. Consider yo
 ---
 
 Handling complex feature structure of the O&M XML Implementation
-(as in OGC 10-025r1) is only possible for many WFS server and client software with a considerable implementation cost,
-added code complexity and lower performance. The purpose of this activity is to define simple encodings for the most used O&M Observation types, and thus
+(as in OGC 10-025r1) typically creates a considerable additional implementation cost, added code complexity and lower
+performance for both server and client software. The purpose of this activity is to define simple encodings for the most used O&M Observation types, and thus
 enable interoperable O&M data exchange between existing software applications, servers and clients limited to using simple (non-complex)
-GML features and/or [GeoJSON](http://geojson.org/).
+GML features and/or GeoJSON.
 
 ## OMSF Implementation model
 
@@ -29,7 +29,7 @@ Geographic information — Observations and Measurements). Although the implemen
 feature structure and property types have been intentionally chosen to be easily encodable as simple features according
 to the requirements of the GML Simple Features Profile version 2.0 ([OGC Document 10-100r3](http://portal.opengeospatial.org/files/?artifact_id=42729).
 
-This profile contains implementation model classes only for the following O&M Core and Specialized Observation UML classes:
+The OMSF contains implementation model classes for the following O&M Core and Specialized Observation UML classes:
 
 O&M v2.0 class | OGC name | OMSF feature|
 ---------------|----------|-------------------|
@@ -39,17 +39,26 @@ OM\_Measurement | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measu
 OM\_Observation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Observation | omsf:GenericObservation
 OM\_TimeSeriesObservation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_TimeSeriesObservation | omsf:MeasureTimeseriesObservation
 OM\_TruthObservation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_TruthObservation | omsf:TruthObservation
+OM\_ComplexObservation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_ComplexObservation | not implemented
+OM\_DiscreteCoverageObservation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_DiscreteCoverageObservation | not implemented
+OM\_GeometryObservation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_GeometryObservation | not implemented
+OM\_PointCoverageObservation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_PointCoverageObservation | not implemented
+OM\_TemporalObservation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_TemporalObservation | not implemented
 
-Implementation model classes for the O&M UML classes OM\_ComplexObservation, OM\_DiscreteCoverageObservation, OM\_GeometryObservation, OM\_PointCoverageObservation, and OM\_TemporalObservation are not included. Thus this implementation model
-is intentionally more limited than the one used for the
+The implementation model is intentionally more limited than the one used for the
 Observations and Measurements - XML Implementation ([OGC Document 10-025r1](http://portal.opengeospatial.org/files/?artifact_id=41510))
 and OGC Observations and Measurements – JSON implementation ([OGC Document 15-100r1](https://portal.opengeospatial.org/files/64910))
-which are able to express the full O&M abstract model. However, expressing all these is possible by using the omsf:GenericObservation
-feature type with a remote reference to the Observation result.
+which are able to express the full O&M abstract model. However, expressing any type of O&M Observation is possible by
+using the ```omsf:GenericObservation``` feature type with a remote reference to the Observation result.
 
-This profile does not provide encodings for the sampling feature data, as the feature of interest is only presented by
-it's geometry, optionally by it's name and, also optionally, by a remote reference to the description of the complete feature of
-interest.
+This simplified implementation models for the sampling feature and the ultimate feature of interest is realised
+by embedding their essential properties into the Observation class itself.
+The sampling feature is encoded by one mandatory property ```geometry``` and an optional property  ```samplingFeature```.
+In a similar fashion the ultimate feature of interest (the model of the observed real-world object)
+is encoded using an optional property: ```ultimateFeatureOfInterest```. The ```geometry``` property of a
+OMSF Observation feature is the geometry of the sampling feature of the observation, or if no sampling
+feature was used, a representative geometry of the ultimate feature of interest.
+
 
 ### Property mapping
 The implementation model of the OMSF is a simplified version of the Observation class
@@ -91,11 +100,15 @@ The following primary design goals have been followed (in priority order):
 
 Feature of interest of the described Observation is represented as separate parts for the *sampling feature* and the *ultimate feature of interest* as suggested by [W3C Extensions to the Semantic Sensor Network Ontology proposal](https://w3c.github.io/sdw/proposals/ssn-extensions/). Also to align with the [W3C Semantic Sensor Network Ontology specification](https://www.w3.org/TR/vocab-ssn/), the method and the implementation of the measurement procedure has been split into two separate properties: ```usedProcedure``` and ```madeBySensor```.
 
-As the GML Simple Features Profile requirements for level SF-0 does not allow for including the structural (object oriented) presentation of the feature of interest of the Observation, the sampling feature is encoded by one mandatory property ```geometry``` and an optional property  ```samplingFeature```. In a similar fashion the ultimate feature of interest (the model of the observed real-world object) is encoded using an optional property: ```ultimateFeatureOfInterest```. The ```geometry``` property of a OMSF Observation feature is the geometry of the sampling feature of the observation, or if no sampling feature was used, a representative geometry of the ultimate feature of interest.
+In contrast to the OMXML (complex feature) implementation model, hard-typing is used for the different Observation types: ```GenericObservation```, ```MeasureObservation```, ```CategoryObservation```, ```CountObservation```, ```TruthObservation``` and ```MeasureTimeseriesObservation``` are each defined as separate feature types with fixed result value types. This is an intentional trade-off between simplicity and flexibility: Hard typing allows
+for easier, more precise definition of the Observation content model, especially the observation result, in the APIs providing
+OMSF data. On the other hand, the providing Observation data for novel result content type requires changes to the OMSF
+model.
 
-In contrast to the OMXML (complex feature) implementation model, hard-typing is used for the different Observation types: ```GenericObservation```, ```MeasureObservation```, ```CategoryObservation```, ```CountObservation```, ```TruthObservation``` and ```MeasureTimeseriesObservation``` are each defined as separate feature types with fixed result value types. This is an intentional trade-off between simplicity and flexibility.
-
-Observations with complicated results, such as coverages, have been considered out-of-scope of this profile. However, it's possible to encode these using the ```GenericObservation``` feature type with a reference to the remotely provided result. The observation level metadata and the definition of the observed property are always externally linked from the OMSF Observations.
+Observations with complicated results, such as coverages, are in most cases out-of-scope of the OMSF context.
+However, it's possible to encode these using the ```GenericObservation``` feature type with a reference to any
+remotely provided result. The observation level metadata and the definition of the observed property are
+always externally linked from the OMSF Observations.
 
 ### Timeseries data
 
