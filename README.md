@@ -45,13 +45,14 @@ OM\_GeometryObservation | http://www.opengis.net/def/observationType/OGC-OM/2.0/
 OM\_PointCoverageObservation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_PointCoverageObservation | not implemented
 OM\_TemporalObservation | http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_TemporalObservation | not implemented
 
+Observations with complicated results, such as coverages, are in most cases out-of-scope of the OMSF context.
 The implementation model is intentionally more limited than the one used for the
 Observations and Measurements - XML Implementation ([OGC Document 10-025r1](http://portal.opengeospatial.org/files/?artifact_id=41510))
 and OGC Observations and Measurements – JSON implementation ([OGC Document 15-100r1](https://portal.opengeospatial.org/files/64910))
 which are able to express the full O&M abstract model. However, expressing any type of O&M Observation is possible by
 using the ```omsf:GenericObservation``` feature type with a remote reference to the Observation result.
 
-This simplified implementation models for the sampling feature and the ultimate feature of interest is realised
+The simplified implementation models for the sampling feature and the ultimate feature of interest is realised
 by embedding their essential properties into the Observation class itself.
 The sampling feature is encoded by one mandatory property ```geometry``` and an optional property  ```samplingFeature```.
 In a similar fashion the ultimate feature of interest (the model of the observed real-world object)
@@ -104,11 +105,6 @@ In contrast to the OMXML (complex feature) implementation model, hard-typing is 
 for easier, more precise definition of the Observation content model, especially the observation result, in the APIs providing
 OMSF data. On the other hand, the providing Observation data for novel result content type requires changes to the OMSF
 model.
-
-Observations with complicated results, such as coverages, are in most cases out-of-scope of the OMSF context.
-However, it's possible to encode these using the ```GenericObservation``` feature type with a reference to any
-remotely provided result. The observation level metadata and the definition of the observed property are
-always externally linked from the OMSF Observations.
 
 ### Timeseries data
 
