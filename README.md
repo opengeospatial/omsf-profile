@@ -173,6 +173,7 @@ JSON encoding example:
         "2017-08-17T18:00:00Z"
     ],
     "unitOfMeasureName": "Degree Celsius",
+    "unitOfMeasureReference": "http://www.opengis.net/def/uom/UCUM/degC",
     "result": [12.5, 12.0, 11.0, 13.2, 13.5, 14.1, 14.1]
   }
 }
