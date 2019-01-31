@@ -1,6 +1,6 @@
 # OGC Observations and Measurements - GeoJSON Encoding
 
-This GML application schema defines a JSON encoding of the the [OMSF implementation model](../) compliant with the [GeoJSON Feature model](http://geojson.org/schema/Feature.json) defined in [RFC 7946](https://tools.ietf.org/html/rfc7946).
+This GML application schema defines a JSON encoding of the the [OMSF implementation model](https://github.com/opengeospatial/omsf-profile) compliant with the [GeoJSON Feature model](http://geojson.org/schema/Feature.json) defined in [RFC 7946](https://tools.ietf.org/html/rfc7946).
 
 The GeoJSON specification explicitly forbids 'extending' the GeoJSON types, including the Feature, but at the same time it is allowed to
 use additional properties (called foreign members) in

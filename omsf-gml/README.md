@@ -1,6 +1,6 @@
 # OGC Observations and Measurements - GML Simple Features Profile Encoding
 
-This GML application schema defines GML encoding of the the [OMSF implementation model](../) compliant with GML Simple Features Profile
+This GML application schema defines GML encoding of the the [OMSF implementation model](https://github.com/opengeospatial/omsf-profile) compliant with GML Simple Features Profile
 version 2.0 ([OGC Document 10-100r3](http://portal.opengeospatial.org/files/?artifact_id=42729)).
 The TimeseriesObservation type is compliant with the Simple Features Profile level SF-1 due to repeated time and value
 elements, all other Observation types are compliant level SF-0.
