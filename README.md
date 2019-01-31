@@ -1,8 +1,8 @@
-# OGC Observations and Measurements - Simple Feature Encodings (OMSF)
+# OGC Observations and Measurements - Simple Feature model & encodings (OMSF)
 
 ---
 
-**NOTE**: These encodings are work-in-progress, and at this point, has not been endorsed by the OGC or any other standards organization. They may (and probably will) change in a backwards incompatible way during the drafting process.
+**NOTE**: This document and the defined encodings are work-in-progress, and at this point, have not been endorsed by the OGC or any other standards organization. They may (and probably will) change in a backwards incompatible way during the drafting process.
 
 There is an on-going discussion in leveraging the OMSF encodings
 in the INSPIRE alternative encodings action ([MIWP 2017.2](https://ies-svn.jrc.ec.europa.eu/projects/2017-2/wiki)) for a simplified encoding of the INSPIRE O&M datasets.
@@ -18,18 +18,46 @@ performance for both server and client software. The purpose of this activity is
 enable interoperable O&M data exchange between existing software applications, servers and clients limited to using simple (non-complex)
 GML features and/or GeoJSON.
 
-## OMSF Implementation model
+## Design considerations
+
+The following primary design goals have been followed (in priority order):
+
+1. The defined feature types must be suitable for encoding using GML Simple Features Profile level SF-0 or SF-1.
+1. Each defined feature type must have a relevant geometry property for spatial processing and map visualization purposes.
+1. The defined feature types must follow the O&M model structure and property naming as long as it does not conflict with higher priority design goals.
+1. The defined GML feature types should be as simple as possible, but not simpler (so called Einstein's razor).
+
+In contrast to the OMXML (complex feature) implementation model, hard-typing is used for the different Observation types: ```GenericObservation```, ```MeasureObservation```, ```CategoryObservation```, ```CountObservation```, ```TruthObservation``` and ```MeasureTimeseriesObservation``` are each defined as separate feature types with fixed result value types. This is an intentional trade-off between simplicity and flexibility: Hard typing allows
+for easier, more precise definition of the Observation content model, especially the observation result, in the APIs providing
+OMSF data. On the other hand, the providing Observation data for novel result content type requires changes to the OMSF
+model.
+
+## ISO 19156:2011 and the OMSF Implementation model
+The figure below described a basic Observation feature type as defined in Observations and Measurements v2.0
+([OGC Document 10-004r3](http://portal.opengeospatial.org/files/?artifact_id=41579), also published as [ISO 19156:2011,
+Geographic information — Observations and Measurements](https://www.iso.org/standard/32574.html)).
+![O&M basic Observation type, ISO 19156:2011, Figure 2](./iso19156_basic_observation.png)
+
+Specialization of OM_Observation class by result type is described in the Figure 6:
+![Specializations of Observation by result type, ISO 19156:2011, Figure 6](./iso19156_specializations_by_result_type.png)
+
+Specialization of the OM_Observation class for Coverage valued results is described in the Figure 7:
+![Coverage valued Observations, ISO 19156:2011, Figure 7](./iso19156_coverage_valued_observations.png)
+
+The OMSF implementation model defines a simplified profile of the full O&M Observation model and the selected Specialized
+Observation types mentioned in the figures above:
+* OMSF does not include all the Specialized Observation types mentioned in ISO 19156:2011 (see the table below).
+* OMSF observation model does not include the following of less commonly used OM_Observation class properties:
+`parameter`, `relatedObservation` and `resultQuality`. The rationale for these exclusions is given below.
+* OMSF properties are structured in a way that it is easy to encode them as simple features defined in GML Simple Features Profile version 2.0 ([OGC Document 10-100r3](http://portal.opengeospatial.org/files/?artifact_id=42729)).
+* Geometry and display name of the feature-of-interest (FoI) are embedded in the OMSF Observations as their primary geometry and a dedicated name properties to enable access to the Observation location without resolving the FoI feature.
+* Feature of interest of the OMSF observations is represented as separate properties for the *sampling feature* and the *ultimate feature of interest* as suggested by [W3C Extensions to the Semantic Sensor Network Ontology proposal](https://w3c.github.io/sdw/proposals/ssn-extensions/).
+* to align with the [W3C Semantic Sensor Network Ontology specification](https://www.w3.org/TR/vocab-ssn/), the method and the implementation of the measurement procedure has been split into two separate properties: ```usedProcedure``` and ```madeBySensor```.
 
 ![OMSF Implementation model](./OMSF_ImplementationModel.png)
 
-All OMSF encodings are based on the same implementation model profile derived from the O&M Observation Core and Specialized
-Observations conceptual models defined in Observations and Measurements v2.0
-([OGC Document 10-004r3](http://portal.opengeospatial.org/files/?artifact_id=41579), also published as ISO 19156:2011,
-Geographic information — Observations and Measurements). Although the implementation model is encoding-independent, the
-feature structure and property types have been intentionally chosen to be easily encodable as simple features according
-to the requirements of the GML Simple Features Profile version 2.0 ([OGC Document 10-100r3](http://portal.opengeospatial.org/files/?artifact_id=42729).
-
-The OMSF contains implementation model classes for the following O&M Core and Specialized Observation UML classes:
+The table below lists the O&M Core and Specialized Observation UML classes implemented in the OMSF implementation model
+profile:
 
 O&M v2.0 class | OGC name | OMSF feature|
 ---------------|----------|-------------------|
@@ -61,7 +89,7 @@ OMSF Observation feature is the geometry of the sampling feature of the observat
 feature was used, a representative geometry of the ultimate feature of interest.
 
 
-### Property mapping
+### Observation property mapping details
 The implementation model of the OMSF is a simplified version of the Observation class
 as defined in the ISO 19156 standard. The following table summarises the simplification decisions applied:
 
@@ -87,109 +115,9 @@ validTime | TM_Period | 0..1 | validTime | TM_Period |
 Rationale for the not included (n/a) properties:
 
 * **parameter**: 0..n multiplicity of name-value pairs (as user defined types) would require compliance level SF-1, or a specially encoded list type. Trade-off between completeness and simplicity.
-* **relatedObservation**: not a problem to include technically (as a reference), but rarely used in practice.
+* **relatedObservation**: could be included technically (as a reference), but no way to specify the relation (role) without the user-defined types. Rarely used in practice.
 * **resultQuality**: embedded quality info would a user-defined type and thus SF-1 level. Rarely used in practice,  trade-off between completeness and simplicity.
 
-### Design considerations
-
-The following primary design goals have been followed (in priority order):
-
-1. The defined feature types must be suitable for encoding using GML Simple Features Profile level SF-0 or SF-1.
-1. Each defined feature type must have a relevant geometry property for spatial processing and map visualization purposes.
-1. The defined feature types must follow the O&M model structure and property naming as long as it does not conflict with higher priority design goals.
-1. The defined GML feature types should be as simple as possible, but not simpler (so called Einstein's razor).
-
-Feature of interest of the described Observation is represented as separate parts for the *sampling feature* and the *ultimate feature of interest* as suggested by [W3C Extensions to the Semantic Sensor Network Ontology proposal](https://w3c.github.io/sdw/proposals/ssn-extensions/). Also to align with the [W3C Semantic Sensor Network Ontology specification](https://www.w3.org/TR/vocab-ssn/), the method and the implementation of the measurement procedure has been split into two separate properties: ```usedProcedure``` and ```madeBySensor```.
-
-In contrast to the OMXML (complex feature) implementation model, hard-typing is used for the different Observation types: ```GenericObservation```, ```MeasureObservation```, ```CategoryObservation```, ```CountObservation```, ```TruthObservation``` and ```MeasureTimeseriesObservation``` are each defined as separate feature types with fixed result value types. This is an intentional trade-off between simplicity and flexibility: Hard typing allows
-for easier, more precise definition of the Observation content model, especially the observation result, in the APIs providing
-OMSF data. On the other hand, the providing Observation data for novel result content type requires changes to the OMSF
-model.
-
-### Timeseries data
-
-OMSF implementation model contains MeasureTimeseriesObservation feature type for encoding simple,
-double-valued time series data.
-Time series with result values for several points in time does not fit with the GML Simple Features Profile
-compliance level SF-0 without mild violence, since repeated elements are not allowed. Technically the time series
-values (and even time instances) could be encoded inside a single element using list type, but encoding and
-decoding would require special processing, which would at least partly defeat the gains of restricting the feature type to SF-0.
-So the MeasureTimeseriesObservation contant repeated ```timeStep``` and ```result``` properties which require using
-SF-1 compliance level when encoding into GML Simple Features.
-
-GML encoding example:
-```xml
-<omsf:MeasureTimeseriesObservation gml:id="f-1">
-  <omsf:phenomenonTimeStart>2017-08-17T12:00:00Z</omsf:phenomenonTimeStart>
-  <omsf:phenomenonTimeEnd>2017-08-17T18:00:00Z</omsf:phenomenonTimeEnd>
-  <omsf:resultTime>2017-08-17T12:11:20Z</omsf:resultTime>
-  <omsf:usedProcedure xlink:href="http://xml.fmi.fi/process/met-surface-observations" xlink:title="Meteorological surface observations" />
-  <omsf:observedProperty xlink:href="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/" xlink:title="air_temperature" />
-  <omsf:samplingFeatureName>Helsinki Kumpula weather observation station</omsf:samplingFeatureName>
-  <omsf:geometry>
-      <gml:Point gml:id="p-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4258" srsDimension="2">
-          <gml:pos>60.20307 24.96131</gml:pos>
-      </gml:Point>
-  </omsf:geometry>
-  <omsf:ultimateFeatureOfInterestName>Helsinki Kumpula</omsf:ultimateFeatureOfInterestName>
-  <omsf:ultimateFeatureOfInterestReference xlink:href="http://sws.geonames.org/843429/about.rdf"/>
-  <omsf:timeStep>2017-08-17T12:00:00Z</omsf:timeStep>
-  <omsf:timeStep>2017-08-17T13:00:00Z</omsf:timeStep>
-  <omsf:timeStep>2017-08-17T14:00:00Z</omsf:timeStep>
-  <omsf:timeStep>2017-08-17T15:00:00Z</omsf:timeStep>
-  <omsf:timeStep>2017-08-17T16:00:00Z</omsf:timeStep>
-  <omsf:timeStep>2017-08-17T17:00:00Z</omsf:timeStep>
-  <omsf:timeStep>2017-08-17T18:00:00Z</omsf:timeStep>
-  <omsf:unitOfMeasure xlink:href="www.opengis.net/def/uom/UCUM/degC" xlink:title="Degree Celsius"/>
-  <omsf:result>12.5</omsf:result>
-  <omsf:result>12.0</omsf:result>
-  <omsf:result>11.0</omsf:result>
-  <omsf:result>13.2</omsf:result>
-  <omsf:result>12.5</omsf:result>
-  <omsf:result>14.1</omsf:result>
-  <omsf:result>14.1</omsf:result>
-</omsf:MeasureTimeseriesObservation>
-```
-
-JSON encoding example:
-```json
-{
-  "type": "Feature",
-  "id": "f-1",
-  "geometry": {
-    "type": "Point",
-    "coordinates": [ 24.96131, 60.20307 ]
-  },
-  "properties": {
-    "observationType": "MeasureTimeseriesObservation",
-    "phenomenonTimeStart": "2017-08-17T12:00:00Z",
-    "phenomenonTimeEnd": "2017-08-17T18:00:00Z",
-    "resultTime": "2017-08-17T12:11:20Z",
-    "usedProcedureName": "Meteorological surface observations",
-    "usedProcedureReference": "http://xml.fmi.fi/process/met-surface-observations",
-    "observedPropertyName": "air_temperature",
-    "observedPropertyReference": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/",
-    "samplingFeatureName": "Helsinki Kumpula weather observation station",
-    "ultimateFeatureOfInterestName": "Helsinki Kumpula",
-    "ultimateFeatureOfInterestReference": "http://sws.geonames.org/843429/about.rdf",
-    "timeStep": [
-        "2017-08-17T12:00:00Z",
-        "2017-08-17T13:00:00Z",
-        "2017-08-17T14:00:00Z",
-        "2017-08-17T15:00:00Z",
-        "2017-08-17T16:00:00Z",
-        "2017-08-17T17:00:00Z",
-        "2017-08-17T18:00:00Z"
-    ],
-    "unitOfMeasureName": "Degree Celsius",
-    "unitOfMeasureReference": "http://www.opengis.net/def/uom/UCUM/degC",
-    "result": [12.5, 12.0, 11.0, 13.2, 13.5, 14.1, 14.1]
-  }
-}
-```
-
-The using repeated properties allows client applications to treat both ```timeStep``` and ```result``` as arrays of
-simple values, which would not be possible using time-value-pair encoding.
 
 ## GML and GeoJSON Encodings
 

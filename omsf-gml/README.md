@@ -30,6 +30,40 @@ Example of a omsf:MeasureObservation encoded in GML:
 </omsf:MeasureObservation>
 ```
 
+MeasureTimeseriesObservation example:
+```xml
+<omsf:MeasureTimeseriesObservation gml:id="f-1">
+  <omsf:phenomenonTimeStart>2017-08-17T12:00:00Z</omsf:phenomenonTimeStart>
+  <omsf:phenomenonTimeEnd>2017-08-17T18:00:00Z</omsf:phenomenonTimeEnd>
+  <omsf:resultTime>2017-08-17T12:11:20Z</omsf:resultTime>
+  <omsf:usedProcedure xlink:href="http://xml.fmi.fi/process/met-surface-observations" xlink:title="Meteorological surface observations" />
+  <omsf:observedProperty xlink:href="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/" xlink:title="air_temperature" />
+  <omsf:samplingFeatureName>Helsinki Kumpula weather observation station</omsf:samplingFeatureName>
+  <omsf:geometry>
+      <gml:Point gml:id="p-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4258" srsDimension="2">
+          <gml:pos>60.20307 24.96131</gml:pos>
+      </gml:Point>
+  </omsf:geometry>
+  <omsf:ultimateFeatureOfInterestName>Helsinki Kumpula</omsf:ultimateFeatureOfInterestName>
+  <omsf:ultimateFeatureOfInterestReference xlink:href="http://sws.geonames.org/843429/about.rdf"/>
+  <omsf:timeStep>2017-08-17T12:00:00Z</omsf:timeStep>
+  <omsf:timeStep>2017-08-17T13:00:00Z</omsf:timeStep>
+  <omsf:timeStep>2017-08-17T14:00:00Z</omsf:timeStep>
+  <omsf:timeStep>2017-08-17T15:00:00Z</omsf:timeStep>
+  <omsf:timeStep>2017-08-17T16:00:00Z</omsf:timeStep>
+  <omsf:timeStep>2017-08-17T17:00:00Z</omsf:timeStep>
+  <omsf:timeStep>2017-08-17T18:00:00Z</omsf:timeStep>
+  <omsf:unitOfMeasure xlink:href="www.opengis.net/def/uom/UCUM/degC" xlink:title="Degree Celsius"/>
+  <omsf:result>12.5</omsf:result>
+  <omsf:result>12.0</omsf:result>
+  <omsf:result>11.0</omsf:result>
+  <omsf:result>13.2</omsf:result>
+  <omsf:result>12.5</omsf:result>
+  <omsf:result>14.1</omsf:result>
+  <omsf:result>14.1</omsf:result>
+</omsf:MeasureTimeseriesObservation>
+```
+
 The work version of the XML Schema for the OMSF is available at [omsf-profile.xsd](./omsf-profile.xsd)
 
 ## GML encoding details
@@ -138,3 +172,13 @@ OMSF property name | GML SF property name | Multiplicity | Type | Notes
 --------------|--------------|-----------|------|-------
 unitOfMeasure | unitOfMeasureReference | 0..1 |  gml:ReferenceType | external reference|
 result | 1..n | xsd:double | one for each time series time step |
+
+Time series with result values for several points in time does not fit with the GML Simple Features Profile
+compliance level SF-0 without mild violence, since repeated elements are not allowed. Technically the time series
+values (and even time instances) could be encoded inside a single element using list type, but encoding and
+decoding would require special processing, which would at least partly defeat the gains of restricting the feature type to SF-0.
+So the MeasureTimeseriesObservation contant repeated ```timeStep``` and ```result``` properties which require using
+SF-1 compliance level when encoding into GML Simple Features.
+
+The using of repeated properties allows client applications to treat both ```timeStep``` and ```result``` as arrays of
+simple values, which would not be possible using time-value-pair encoding.

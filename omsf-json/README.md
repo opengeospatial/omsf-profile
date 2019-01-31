@@ -41,6 +41,43 @@ Example of a omsf:MeasureObservation encoded in GeoJSON:
 }
 ```
 
+MeasureTimeseriesObservation example:
+```json
+{
+  "type": "Feature",
+  "id": "f-1",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [ 24.96131, 60.20307 ]
+  },
+  "properties": {
+    "observationType": "MeasureTimeseriesObservation",
+    "phenomenonTimeStart": "2017-08-17T12:00:00Z",
+    "phenomenonTimeEnd": "2017-08-17T18:00:00Z",
+    "resultTime": "2017-08-17T12:11:20Z",
+    "usedProcedureName": "Meteorological surface observations",
+    "usedProcedureReference": "http://xml.fmi.fi/process/met-surface-observations",
+    "observedPropertyName": "air_temperature",
+    "observedPropertyReference": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/",
+    "samplingFeatureName": "Helsinki Kumpula weather observation station",
+    "ultimateFeatureOfInterestName": "Helsinki Kumpula",
+    "ultimateFeatureOfInterestReference": "http://sws.geonames.org/843429/about.rdf",
+    "timeStep": [
+        "2017-08-17T12:00:00Z",
+        "2017-08-17T13:00:00Z",
+        "2017-08-17T14:00:00Z",
+        "2017-08-17T15:00:00Z",
+        "2017-08-17T16:00:00Z",
+        "2017-08-17T17:00:00Z",
+        "2017-08-17T18:00:00Z"
+    ],
+    "unitOfMeasureName": "Degree Celsius",
+    "unitOfMeasureReference": "http://www.opengis.net/def/uom/UCUM/degC",
+    "result": [12.5, 12.0, 11.0, 13.2, 13.5, 14.1, 14.1]
+  }
+}
+```
+
 The work versions of validation rules for each observation type have been defined using JSON Schema in [feature.json](./feature.json).
 
 ## JSON encoding details
