@@ -147,7 +147,7 @@ In addition to the common properties listed above, TruthObservation has the foll
 OMSF Property name | JSON property name | Condition | Type | Value
 --------------|--------------|-----------|------|-------
 n/a (feature type) | observationType | required | string | fixed 'TruthObservation'
-result result | required | boolean | |
+result | result | required | boolean | |
 
 
 ### CountObservation
@@ -157,7 +157,7 @@ In addition to the common properties listed above, CountObservation has the foll
 OMSF Property name | JSON property name | Condition | Type | Value
 --------------|--------------|-----------|------|-------
 n/a (feature type) | observationType | required | string | fixed 'CountObservation'
-result result | required | integer | |
+result | result | required | integer | |
 
 
 ### MeasureTimeseriesObservation

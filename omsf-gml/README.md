@@ -177,8 +177,8 @@ Time series with result values for several points in time does not fit with the 
 compliance level SF-0 without mild violence, since repeated elements are not allowed. Technically the time series
 values (and even time instances) could be encoded inside a single element using list type, but encoding and
 decoding would require special processing, which would at least partly defeat the gains of restricting the feature type to SF-0.
-So the MeasureTimeseriesObservation contant repeated ```timeStep``` and ```result``` properties which require using
+Thus the MeasureTimeseriesObservation contains repeated ```timeStep``` and ```result``` properties which require using
 SF-1 compliance level when encoding into GML Simple Features.
 
-The using of repeated properties allows client applications to treat both ```timeStep``` and ```result``` as arrays of
+Using of repeated properties allows client applications to treat both ```timeStep``` and ```result``` as arrays of
 simple values, which would not be possible using time-value-pair encoding.
