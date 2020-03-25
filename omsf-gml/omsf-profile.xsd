@@ -3,8 +3,8 @@
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:gml="http://www.opengis.net/gml/3.2"
     xmlns:gmlsf="http://www.opengis.net/gmlsf/2.0"
-    xmlns:omsf="http://www.opengis.net/omsf-gml/1.0"
-    targetNamespace="http://www.opengis.net/omsf-gml/1.0"
+    xmlns:omsf="http://www.opengis.net/omsf-gml/2.0"
+    targetNamespace="http://www.opengis.net/omsf-gml/2.0"
     elementFormDefault="qualified"
     version="0.0.2">
     <xsd:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd" />

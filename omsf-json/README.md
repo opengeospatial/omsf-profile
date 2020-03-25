@@ -27,7 +27,7 @@ Example of a omsf:MeasureObservation encoded in GeoJSON:
         ]
     },
     "properties": {
-        "observationType": "MeasureObservation",
+        "featureType": "MeasureObservation",
         "phenomenonTime": "2017-08-17T12:00:00Z",
         "resultTime": "2017-08-17T12:01:25Z",
         "procedureName": "Meteorological surface observations",
@@ -56,7 +56,7 @@ MeasureTimeseriesObservation example:
         "coordinates": [ 24.96131, 60.20307 ]
     },
     "properties": {
-        "observationType": "MeasureTimeseriesObservation",
+        "featureType": "MeasureTimeseriesObservation",
         "phenomenonTimeStart": "2017-08-17T12:00:00Z",
         "phenomenonTimeEnd": "2017-08-17T18:00:00Z",
         "resultTime": "2017-08-17T12:11:20Z",
@@ -129,7 +129,7 @@ In addition to the common properties listed above, GenericObservation has the fo
 
 OMSF Property name | JSON property name | Condition | Type | Value
 --------------|--------------|-----------|------|-------
-n/a (feature type) | observationType | required | string | fixed 'GenericObservation'
+n/a (feature type) | featureType | required | string | fixed 'GenericObservation'
 result | resultReference | required | string (URI) | external reference
 
 ### MeasureObservation
@@ -138,7 +138,7 @@ In addition to the common properties listed above, MeasureObservation has the fo
 
 OMSF Property name | JSON property name | Condition | Type | Value
 --------------|--------------|-----------|------|-------
-n/a (feature type) | observationType | required | string | fixed 'MeasureObservation'
+n/a (feature type) | featureType | required | string | fixed 'MeasureObservation'
 result | result | required | number | |
 result | unitOfMeasureTitle | optional | string | Name of the UoM
 result | unitOfMeasure | optional | string (uri) | an URI pointing to the remote definition of the UoM
@@ -150,7 +150,7 @@ In addition to the common properties listed above, CategoryObservation has the f
 
 OMSF Property name | JSON property name |  Condition | Type | Value
 --------------|--------------|-----------|------|-------
-n/a (feature type) | observationType | required | string | fixed 'CategoryObservation'
+n/a (feature type) | featureType | required | string | fixed 'CategoryObservation'
 result | result | required | string | URI reference recommended indicating both the codelist and the value |
 
 ### TruthObservation
@@ -159,7 +159,7 @@ In addition to the common properties listed above, TruthObservation has the foll
 
 OMSF Property name | JSON property name | Condition | Type | Value
 --------------|--------------|-----------|------|-------
-n/a (feature type) | observationType | required | string | fixed 'TruthObservation'
+n/a (feature type) | featureType | required | string | fixed 'TruthObservation'
 result | result | required | boolean | |
 
 
@@ -169,7 +169,7 @@ In addition to the common properties listed above, CountObservation has the foll
 
 OMSF Property name | JSON property name | Condition | Type | Value
 --------------|--------------|-----------|------|-------
-n/a (feature type) | observationType | required | string | fixed 'CountObservation'
+n/a (feature type) | featureType | required | string | fixed 'CountObservation'
 result | result | required | integer | |
 
 
@@ -179,7 +179,7 @@ In addition to the common properties listed above, MeasureTimeseriesObservation 
 
 OMSF Property name | JSON property name | Condition | Type | Value
 --------------|--------------|-----------|------|-------
-n/a (feature type) | observationType | required | string | fixed 'MeasureTimeseriesObservation'
+n/a (feature type) | featureType | required | string | fixed 'MeasureTimeseriesObservation'
 timeStep | timeStep | required | array of string (date-time) | |
 result | unitOfMeasureTitle | optional | string | Name of the UoM
 result | unitOfMeasure | optional | string (uri) | an URI pointing to the remote definition of the UoM

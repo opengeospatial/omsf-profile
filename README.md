@@ -7,7 +7,7 @@
 There is an on-going discussion in leveraging the OMSF encodings
 in the INSPIRE alternative encodings action ([MIWP 2017.2](https://ies-svn.jrc.ec.europa.eu/projects/2017-2/wiki)) for a simplified encoding of the INSPIRE O&M datasets.
 
-The namespaces http://www.opengis.net/omsf-gml/1.0 and http://www.opengis.net/omsf-json/1.0 have not (yet)
+The namespaces http://www.opengis.net/omsf-gml/2.0 and http://www.opengis.net/omsf-json/2.0 have not (yet)
 been approved by the OGC Naming Authority, and thus may also change. Consider yourself warned.
 
 ---

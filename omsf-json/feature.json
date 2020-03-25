@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "http://www.opengis.net/omsf-json/1.0/feature.json",
+    "$id": "http://www.opengis.net/omsf-json/2.0/feature.json",
     "title": "Observations & measurements - GeoJSON Simple Feature",
     "description": "JSON Schema for validating an single GeoJSON O&M Simple Feature instance",
     "type": "object",
@@ -37,16 +37,16 @@
             "allOf": [
                 {
                     "properties": {
-                        "observationType": {
+                        "featureType": {
                             "type": "string",
                             "enum": [ "GenericObservation" ]
                         },
-                        "result": {
+                        "resultReference": {
                             "type": "string",
                             "format": "uri"
                         }
                     },
-                    "required": [ "observationType", "result" ]
+                    "required": [ "featureType", "resultReference" ]
                 },
                 { "$ref" : "#/definitions/common" }
             ]
@@ -56,22 +56,22 @@
             "allOf": [
                 {
                     "properties": {
-                        "observationType": {
+                        "featureType": {
                             "type": "string",
                             "enum": [ "MeasureObservation" ]
                         },
                         "result": {
                             "type": "number"
                         },
-                        "unitOfMeasureName": {
+                        "unitOfMeasuretitle": {
                             "type": "string"
                         },
-                        "unitOfMeasureReference": {
+                        "unitOfMeasure": {
                             "type": "string",
                             "format": "uri"
                         }
                     },
-                    "required": [ "observationType", "result" ]
+                    "required": [ "featureType", "result" ]
                 },
                 { "$ref" : "#/definitions/common" }
             ]
@@ -81,7 +81,7 @@
             "allOf": [
                 {
                     "properties": {
-                        "observationType": {
+                        "featureType": {
                             "type": "string",
                             "enum": [ "CategoryObservation" ]
                         },
@@ -89,7 +89,7 @@
                             "type": "string"
                         }
                     },
-                    "required": [ "observationType", "result" ]
+                    "required": [ "featureType", "result" ]
                 },
                 { "$ref" : "#/definitions/common" }
             ]
@@ -99,7 +99,7 @@
             "allOf": [
                 {
                     "properties": {
-                        "observationType": {
+                        "featureType": {
                             "type": "string",
                             "enum": [ "CountObservation" ]
                         },
@@ -107,7 +107,7 @@
                             "type": "integer"
                         }
                     },
-                    "required": [ "observationType", "result" ]
+                    "required": [ "featureType", "result" ]
                 },
                 { "$ref" : "#/definitions/common" }
             ]
@@ -117,7 +117,7 @@
             "allOf": [
                 {
                     "properties": {
-                        "observationType": {
+                        "featureType": {
                             "type": "string",
                             "enum": [ "TruthObservation" ]
                         },
@@ -125,7 +125,7 @@
                             "type": "boolean"
                         }
                     },
-                    "required": [ "observationType", "result" ]
+                    "required": [ "featureType", "result" ]
                 },
                 { "$ref" : "#/definitions/common" }
             ]
@@ -135,7 +135,7 @@
             "allOf": [
                 {
                     "properties": {
-                        "observationType": {
+                        "featureType": {
                             "type": "string",
                             "enum": [ "MeasureTimeseriesObservation" ]
                         },
@@ -153,15 +153,15 @@
                                 "type": "number"
                             }
                         },
-                        "unitOfMeasureName": {
+                        "unitOfMeasureTitle": {
                             "type": "string"
                         },
-                        "unitOfMeasureReference": {
+                        "unitOfMeasure": {
                             "type": "string",
                             "format": "uri"
                         }
                     },
-                    "required": [ "observationType", "timeStep", "result" ]
+                    "required": [ "featureType", "timeStep", "result" ]
                 },
                 { "$ref" : "#/definitions/common" }
             ]
@@ -208,6 +208,13 @@
                     "type": "string",
                     "format": "uri"
                 },
+                "platformName": {
+                    "type": "string"
+                },
+                "platformReference": {
+                    "type": "string",
+                    "format": "uri"
+                },
                 "procedureName": {
                     "type": "string"
                 },
@@ -215,10 +222,10 @@
                     "type": "string",
                     "format": "uri"
                 },
-                "observedPropertyName": {
+                "observedPropertyTitle": {
                     "type": "string"
                 },
-                "observedPropertyReference": {
+                "observedProperty": {
                     "type": "string",
                     "format": "uri"
                 },
@@ -237,7 +244,7 @@
                     "format": "uri"
                 }
             },
-            "required": [ "resultTime", "observedPropertyReference" ]
+            "required": [ "resultTime", "observedProperty" ]
         }
      }
 }

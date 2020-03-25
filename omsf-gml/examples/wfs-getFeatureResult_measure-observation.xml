@@ -6,9 +6,9 @@
     xmlns:xlink="http://www.w3.org/1999/xlink"
     xmlns:wfs="http://www.opengis.net/wfs/2.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:omsf="http://www.opengis.net/omsf-gml/1.0"
+    xmlns:omsf="http://www.opengis.net/omsf-gml/2.0"
     xmlns:gml="http://www.opengis.net/gml/3.2"
-    xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd http://www.opengis.net/omsf-gml/1.0 ../omsf-profile.xsd">
+    xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd http://www.opengis.net/omsf-gml/2.0 ../omsf-profile.xsd">
     <wfs:member>
       <omsf:MeasureObservation gml:id="f-1">
           <omsf:geometry>

@@ -9,7 +9,7 @@
         ]
     },
     "properties": {
-        "observationType": "MeasureObservation",
+        "featureType": "MeasureObservation",
         "phenomenonTime": "2017-08-17T12:00:00Z",
         "resultTime": "2017-08-17T12:01:25Z",
         "procedureName": "Meteorological surface observations",
