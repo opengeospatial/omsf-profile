@@ -10,57 +10,56 @@ Example of a omsf:MeasureObservation encoded in GML:
 ```xml
 <omsf:MeasureObservation gml:id="f-1">
   <gml:identifier codeSpace="fmi-fi-weatherobs">kumpula-2017-08-17_12-00_air-temp-1</gml:identifier>
-  <omsf:phenomenonTime>2017-08-17T12:00:00Z</omsf:phenomenonTime>
-  <omsf:resultTime>2017-08-17T12:01:25Z</omsf:resultTime>
-  <omsf:usedProcedureReference
-    xlink:href="http://xml.fmi.fi/process/met-surface-observations"
-    xlink:title="Meteorological surface observations" />
-  <omsf:observedPropertyReference
-    xlink:href="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/air_temperature"
-    xlink:title="air_temperature" />
-  <omsf:samplingFeatureName>Helsinki Kumpula weather observation station</omsf:samplingFeatureName>
   <omsf:geometry>
       <gml:Point gml:id="p-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4258" srsDimension="2">
           <gml:pos>60.20307 24.96131</gml:pos>
       </gml:Point>
   </omsf:geometry>
+  <omsf:phenomenonTime>2017-08-17T12:00:00Z</omsf:phenomenonTime>
+  <omsf:resultTime>2017-08-17T12:01:25Z</omsf:resultTime>
+  <omsf:procedureName>Meteorological surface observations</omsf:procedureName>
+  <omsf:procedureReference xlink:href="http://xml.fmi.fi/process/met-surface-observations" />
+  <omsf:observedProperty xlink:href="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/" xlink:title="air_temperature" />
+  <omsf:observerName>Vaisala AWS310</omsf:observerName>  
+  <omsf:platformName>Helsinki Kumpula weather observation station</omsf:platformName>
   <omsf:ultimateFeatureOfInterestName>Helsinki Kumpula</omsf:ultimateFeatureOfInterestName>
   <omsf:ultimateFeatureOfInterestReference xlink:href="http://sws.geonames.org/843429/about.rdf"/>
   <omsf:result uom="Cel">12.5</omsf:result>
-</omsf:MeasureObservation>
 ```
 
 MeasureTimeseriesObservation example:
 ```xml
 <omsf:MeasureTimeseriesObservation gml:id="f-1">
-  <omsf:phenomenonTimeStart>2017-08-17T12:00:00Z</omsf:phenomenonTimeStart>
-  <omsf:phenomenonTimeEnd>2017-08-17T18:00:00Z</omsf:phenomenonTimeEnd>
-  <omsf:resultTime>2017-08-17T12:11:20Z</omsf:resultTime>
-  <omsf:usedProcedure xlink:href="http://xml.fmi.fi/process/met-surface-observations" xlink:title="Meteorological surface observations" />
-  <omsf:observedProperty xlink:href="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/" xlink:title="air_temperature" />
-  <omsf:samplingFeatureName>Helsinki Kumpula weather observation station</omsf:samplingFeatureName>
-  <omsf:geometry>
-      <gml:Point gml:id="p-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4258" srsDimension="2">
-          <gml:pos>60.20307 24.96131</gml:pos>
-      </gml:Point>
-  </omsf:geometry>
-  <omsf:ultimateFeatureOfInterestName>Helsinki Kumpula</omsf:ultimateFeatureOfInterestName>
-  <omsf:ultimateFeatureOfInterestReference xlink:href="http://sws.geonames.org/843429/about.rdf"/>
-  <omsf:timeStep>2017-08-17T12:00:00Z</omsf:timeStep>
-  <omsf:timeStep>2017-08-17T13:00:00Z</omsf:timeStep>
-  <omsf:timeStep>2017-08-17T14:00:00Z</omsf:timeStep>
-  <omsf:timeStep>2017-08-17T15:00:00Z</omsf:timeStep>
-  <omsf:timeStep>2017-08-17T16:00:00Z</omsf:timeStep>
-  <omsf:timeStep>2017-08-17T17:00:00Z</omsf:timeStep>
-  <omsf:timeStep>2017-08-17T18:00:00Z</omsf:timeStep>
-  <omsf:unitOfMeasure xlink:href="www.opengis.net/def/uom/UCUM/degC" xlink:title="Degree Celsius"/>
-  <omsf:result>12.5</omsf:result>
-  <omsf:result>12.0</omsf:result>
-  <omsf:result>11.0</omsf:result>
-  <omsf:result>13.2</omsf:result>
-  <omsf:result>12.5</omsf:result>
-  <omsf:result>14.1</omsf:result>
-  <omsf:result>14.1</omsf:result>
+   <omsf:geometry>
+        <gml:Point gml:id="p-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4258" srsDimension="2">
+            <gml:pos>60.20307 24.96131</gml:pos>
+        </gml:Point>
+    </omsf:geometry>
+    <omsf:phenomenonTimeStart>2017-08-17T12:00:00Z</omsf:phenomenonTimeStart>
+    <omsf:phenomenonTimeEnd>2017-08-17T18:00:00Z</omsf:phenomenonTimeEnd>
+    <omsf:resultTime>2017-08-17T12:11:20Z</omsf:resultTime>
+    <omsf:procedureName>Meteorological surface observations</omsf:procedureName>
+    <omsf:procedureReference xlink:href="http://xml.fmi.fi/process/met-surface-observations" />
+    <omsf:observedProperty xlink:href="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/" xlink:title="air_temperature" />
+    <omsf:observerName>Vaisala AWS310</omsf:observerName>    
+    <omsf:platformName>Helsinki Kumpula weather observation station</omsf:platformName>
+    <omsf:ultimateFeatureOfInterestName>Helsinki Kumpula</omsf:ultimateFeatureOfInterestName>
+    <omsf:ultimateFeatureOfInterestReference xlink:href="http://sws.geonames.org/843429/about.rdf"/>
+    <omsf:timeStep>2017-08-17T12:00:00Z</omsf:timeStep>
+    <omsf:timeStep>2017-08-17T13:00:00Z</omsf:timeStep>
+    <omsf:timeStep>2017-08-17T14:00:00Z</omsf:timeStep>
+    <omsf:timeStep>2017-08-17T15:00:00Z</omsf:timeStep>
+    <omsf:timeStep>2017-08-17T16:00:00Z</omsf:timeStep>
+    <omsf:timeStep>2017-08-17T17:00:00Z</omsf:timeStep>
+    <omsf:timeStep>2017-08-17T18:00:00Z</omsf:timeStep>
+    <omsf:unitOfMeasure xlink:href="www.opengis.net/def/uom/UCUM/degC" xlink:title="Degree Celsius"/>
+    <omsf:result>12.5</omsf:result>
+    <omsf:result>12.0</omsf:result>
+    <omsf:result>11.0</omsf:result>
+    <omsf:result>13.2</omsf:result>
+    <omsf:result>12.5</omsf:result>
+    <omsf:result>14.1</omsf:result>
+    <omsf:result>14.1</omsf:result>
 </omsf:MeasureTimeseriesObservation>
 ```
 
@@ -76,34 +75,36 @@ instant) and a set of two ```xsd:dateTime``` valued properties ```phenomenonTime
 period). Similarly the time period of the ```validTime``` property is split into two properties ```validTimeStart```
 and ```validTimeEnd```.
 
-Unless stated otherwise, all the OMSF implementation model property names with external reference value have been post-fixed with a
-word ```Reference```. The ```samplingFeature``` and the ```ultimateFeatureOfInterest``` OMSF implementation model properties have been encoded with two
-properties each: ```samplingFeatureName``` and ```samplingFeatureReference```
-and ```ultimateFeatureOfInterestName``` and ```ultimateFeatureOfInterestReference```. The reason for providing
-the separate, optional 'name' properties here is that referenceable external resources may not be available in all
-cases, but it may still be useful for the data user to get the display names of the sampling feature and the
-ultimate feature of interest. This would not be possible using the gml:ReferenceType by itself,
-as the xlink:href attribute is required. Separate properties 'name' are not defined for the properties for which
-the actual references are considered essential. In this case the ```xlink:title``` attributes are used for encoding
-the display names for the linked resources.
+Unless stated otherwise, all property names linking to externally referenced resources end with
+```@link```. The display names for those resources have otherwise identical property names but end with ```@name```. The reason for providing
+the separate, optional ```@name``` properties instead of leveraging the ```xlink:title``` attributes is that referenced 
+external resources may not be available in all cases, but it may still be useful for the data user to get the display names these resources.
+This would not be possible using the only the gml:ReferenceType which does not allow using xlink:title by itself as the xlink:href attribute 
+is always required. In cases where there is no externally referenceable object to link to the ```@name``` property alone without 
+the ```@link``` may be sufficient to convey the required information.
 
 OMSF property name | GML SF property name | Multiplicity | GML type |  Notes
 --------------|--------------|-----------|------|-------
-metadata      | metadataReference | 0..1 | gml:ReferenceType | external reference
-resultTime    | resultTime | 1 | xsd:dateTime | |
+geometry | geometry | 1 | gml:GeometryPropertyType | |
 phenomenonTime | phenomenonTime | 0..1 (choice with start-end pair) | xsd:dateTime | required only if the phenomenon time is a time instant |
 phenomenonTime | phenomenonTimeStart | 0..1 (choice with single phenomenonTime) | xsd:dateTime | required only if the phenomenon time is a time range  |
 phenomenonTime | phenomenonTimeEnd | 0..1 (choice with single phenomenonTime) | xsd:dateTime | required only if the phenomenon time is a time range  |
+resultTime    | resultTime | 1 | xsd:dateTime | |
+stimulusTime    | stimulusTime | 0..1 | xsd:dateTime | |
 validTime    | validTimeStart | 0..1 | xsd:dateTime | |
 validTime | validTimeEnd | 0..1 | xsd:dateTime | |
-madeBySensor | madeBySensorReference | 0..1 | gml:ReferenceType | external reference |
-usedProcedure | usedProcedureReference | 0..1 | gml:ReferenceType | external reference |
-observedProperty | observedPropertyReference | 1 | gml:ReferenceType | external reference |
-samplingFeatureName | samplingFeatureName | 0..1 | xsd:string | |
-geometry | geometry | 1 | gml:GeometryPropertyType | |
-samplingFeature | samplingFeatureReference | 0..1 | gml:ReferenceType | external reference |
+observer | observerName | 0..1 | xsd:string | |
+observer | observerReference | 0..1 | gml:ReferenceType | external reference |
+platform | platformName | 0..1 | xsd:string | |
+platform | platformReference | 0..1 | gml:ReferenceType | external reference |
+procedure | procedureName | 0..1 | xsd:string | |
+procedure | procedureReference | 0..1 | gml:ReferenceType | external reference |
+observedProperty | observedProperty | 1 | gml:ReferenceType | external reference to a code list|
+proximateFeatureOfInterest | proximateFeatureOfInterestName | 0..1 | xsd:string | |
+proximateFeatureOfInterest | proximateFeatureOfInterestReference | 0..1 | gml:ReferenceType | external reference |
 ultimateFeatureOfInterestName | ultimateFeatureOfInterestName | 0..1 | xsd:string | |
 ultimateFeatureOfInterest | ultimateFeatureOfInterestReference | 0..1 | gml:ReferenceType | external reference |
+metadata      | metadataReference | 0..1 | gml:ReferenceType | external reference
 
 ### omsf:GenericObservationType extends omsf:AbstractObservationType
 
@@ -111,11 +112,7 @@ In addition to the properties of omsf:AbstractObservationType, omsf:GenericObser
 
 OMSF property name | GML SF property name | Multiplicity | Type | Notes
 --------------|--------------|-----------|------|-------
-result | result | 1 | gml:ReferenceType | extenal reference
-
-Note that as a deviation of the generic rule of post-fixing a word ```Reference``` to the names of the
-externally referenced properties, the ```result``` name is not post-fixed to keep the name of the result Property
-consistent among all the OMSF Observation types.
+result | resultReference | 1 | gml:ReferenceType | external reference
 
 ### omsf:MeasureObservationType extends omsf:AbstractObservationType
 
@@ -135,8 +132,7 @@ OMSF property name | GML SF property name |  Multiplicity | Type | Notes
 result | result | 1 |  gml:ReferenceType | URI reference recommended indicating both the codelist and the value |
 
 Note that as a deviation of the generic rule of post-fixing a word ```Reference``` to the names of the
-externally referenced properties, the ```result``` name is not post-fixed to keep the name of the result Property
-consistent among all the OMSF Observation types.
+externally referenced properties, the ```result``` name is not post-fixed. 
 
 ### omsf:TruthObservationType extends omsf:AbstractObservationType
 
@@ -170,8 +166,8 @@ In addition to the properties of omsf:AbstractTimeseriesObservationType, omsf:Me
 
 OMSF property name | GML SF property name | Multiplicity | Type | Notes
 --------------|--------------|-----------|------|-------
-unitOfMeasure | unitOfMeasureReference | 0..1 |  gml:ReferenceType | external reference|
-result | 1..n | xsd:double | one for each time series time step |
+unitOfMeasure | unitOfMeasure | 0..1 |  gml:ReferenceType | external reference to a code list|
+result | 1..n | xsd:double | one for each time series time step | |
 
 Time series with result values for several points in time does not fit with the GML Simple Features Profile
 compliance level SF-0 without mild violence, since repeated elements are not allowed. Technically the time series

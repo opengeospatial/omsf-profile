@@ -21,7 +21,7 @@
         <xsd:complexContent>
             <xsd:extension base="gml:AbstractFeatureType">
                 <xsd:sequence>
-                   <xsd:element name="metadataReference" type="gml:ReferenceType" minOccurs="0" />
+                   <xsd:element name="geometry" type="gml:GeometryPropertyType" minOccurs="1"/>
                    <xsd:choice>
                        <xsd:element name="phenomenonTime" type="xsd:dateTime"/>
                        <xsd:sequence>
@@ -29,17 +29,22 @@
                            <xsd:element name="phenomenonTimeEnd" type="xsd:dateTime" />
                        </xsd:sequence>
                    </xsd:choice>
+                   <xsd:element name="stimulusTime" type="xsd:dateTime" minOccurs="0" />
                    <xsd:element name="resultTime" type="xsd:dateTime" />
                    <xsd:element name="validTimeStart" type="xsd:dateTime" minOccurs="0" />
                    <xsd:element name="validTimeEnd" type="xsd:dateTime" minOccurs="0" />
-                   <xsd:element name="madeBySensorReference" type="gml:ReferenceType" minOccurs="0" />
-                   <xsd:element name="usedProcedureReference" type="gml:ReferenceType" minOccurs="0" />
-                   <xsd:element name="observedPropertyReference" type="gml:ReferenceType" minOccurs="1" />
-                   <xsd:element name="samplingFeatureName" type="xsd:string" minOccurs="0"/>
-                   <xsd:element name="geometry" type="gml:GeometryPropertyType" minOccurs="1"/>
-                   <xsd:element name="samplingFeatureReference" type="gml:ReferenceType" minOccurs="0" />
+                   <xsd:element name="procedureName" type="xsd:string" minOccurs="0" />
+                   <xsd:element name="procedureReference" type="gml:ReferenceType" minOccurs="0" />
+                   <xsd:element name="observedProperty" type="gml:ReferenceType" minOccurs="1" />
+                   <xsd:element name="observerName" type="xsd:string" minOccurs="0"/>
+                   <xsd:element name="observerReference" type="gml:ReferenceType" minOccurs="0" />
+                   <xsd:element name="platformName" type="xsd:string" minOccurs="0"/>
+                   <xsd:element name="platformReference" type="gml:ReferenceType" minOccurs="0" />
+                   <xsd:element name="proximateFeatureOfInterestName" type="xsd:string" minOccurs="0"/>
+                   <xsd:element name="proximateFeatureOfInterestReference" type="gml:ReferenceType" minOccurs="0" />
                    <xsd:element name="ultimateFeatureOfInterestName" type="xsd:string" minOccurs="0"/>
                    <xsd:element name="ultimateFeatureOfInterestReference" type="gml:ReferenceType" minOccurs="0" />
+                   <xsd:element name="metadataReference" type="gml:ReferenceType" minOccurs="0" />
                 </xsd:sequence>
             </xsd:extension>
         </xsd:complexContent>
@@ -54,7 +59,7 @@
         <xsd:complexContent>
             <xsd:extension base="omsf:AbstractObservationType">
                 <xsd:sequence>
-                    <xsd:element name="result" type="gml:ReferenceType" />
+                    <xsd:element name="resultReference" type="gml:ReferenceType" />
                 </xsd:sequence>
             </xsd:extension>
         </xsd:complexContent>
@@ -144,7 +149,7 @@
         <xsd:complexContent>
             <xsd:extension base="omsf:AbstractTimeseriesObservationType">
                 <xsd:sequence>
-                    <xsd:element name="unitOfMeasureReference" type="gml:ReferenceType"/>
+                    <xsd:element name="unitOfMeasure" type="gml:ReferenceType"/>
                     <xsd:element name="result" type="xsd:double" maxOccurs="unbounded"/>
                 </xsd:sequence>
             </xsd:extension>

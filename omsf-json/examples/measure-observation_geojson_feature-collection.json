@@ -12,16 +12,17 @@
         "observationType": "MeasureObservation",
         "phenomenonTime": "2017-08-17T12:00:00Z",
         "resultTime": "2017-08-17T12:01:25Z",
-        "usedProcedureName": "Meteorological surface observations",
-        "usedProcedureReference": "http://xml.fmi.fi/process/met-surface-observations",
-        "observedPropertyName": "air_temperature",
-        "observedPropertyReference": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/",
-        "samplingFeatureName": "Helsinki Kumpula weather observation station",
+        "procedureName": "Meteorological surface observations",
+        "procedureReference": "http://xml.fmi.fi/process/met-surface-observations",
+        "observedPropertyTitle": "Air temperature",
+        "observedProperty": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/",
+        "observerName": "Vaisala AWS310",
+        "platformName": "Helsinki Kumpula weather observation station",
         "ultimateFeatureOfInterestName": "Helsinki Kumpula",
         "ultimateFeatureOfInterestReference": "http://sws.geonames.org/843429/about.rdf",
         "result": 12.5,
-        "unitOfMeasureName": "Degree Celsius",
-        "unitOfMeasureReference": "http://www.opengis.net/def/uom/UCUM/degC"
+        "unitOfMeasureTitle": "Degree Celsius",
+        "unitOfMeasure": "http://www.opengis.net/def/uom/UCUM/degC"
     }
   },
   {
@@ -35,16 +36,17 @@
         "observationType": "MeasureObservation",
         "phenomenonTime": "2017-08-17T12:00:00Z",
         "resultTime": "2017-08-17T12:01:25Z",
-        "usedProcedureName": "Meteorological surface observations",
-        "usedProcedureReference": "http://xml.fmi.fi/process/met-surface-observations",
-        "observedPropertyName": "air_temperature",
-        "observedPropertyReference": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/",
-        "samplingFeatureName": "Espoo Kivenlahti weather observation station",
+        "procedureName": "Meteorological surface observations",
+        "procedureReference": "http://xml.fmi.fi/process/met-surface-observations",
+        "observedPropertyTitle": "Air temperature",
+        "observedProperty": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/",
+        "observerName": "Vaisala AWS310",
+        "platformName": "Espoo Kivenlahti weather observation station",
         "ultimateFeatureOfInterestName": "Espoo Kivenlahti",
         "ultimateFeatureOfInterestReference": "http://sws.geonames.org/636091/about.rdf",
         "result": 12.3,
-        "unitOfMeasureName": "Degree Celsius",
-        "unitOfMeasureReference": "http://www.opengis.net/def/uom/UCUM/degC"
+        "unitOfMeasureTitle": "Degree Celsius",
+        "unitOfMeasure": "http://www.opengis.net/def/uom/UCUM/degC"
         }
     }]
 }
