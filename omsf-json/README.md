@@ -92,7 +92,7 @@ The ```geometry``` property of the OMSF GeoJSON Feature is the geometry of the p
 no proximate feature of interest is available, a representative geometry of the ultimate feature of interest.
 
 Unless stated otherwise, all property names linking to externally referenced resources end with
-```@link```. The display names for those resources have otherwise identical property names but end with ```@name```.  In cases where there is no externally referenceable object to link to the ```@name``` property alone without the ```@link``` may be sufficient to convey the required information.
+```Reference```. The display names for those resources have otherwise identical property names but end with ```Name```.  In cases where there is no externally referenceable object to link to the ```Name``` property alone without the ```Reference``` may be sufficient to convey the required information. There is a notable exception to this rule: the ```observedProperty``` and the ```unitOfMeasure``` properties do not end with ```Reference```. Both contain identifiers, which typically point to values in an external code list. Both are also accompanied by "display name" properties ```observedPropertyTitle``` and ```unitOfMeasureTitle```, but these title properties are never meant to be used without the corresponding code list property.
 
 Other OMSF properties expected to be used in each of the observation type are given in the tables below.
 
